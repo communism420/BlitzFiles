@@ -8,35 +8,19 @@ apply plugin: 'kotlin-parcelize'
 
 apply from: '../signing.gradle'
 
-//#ifdef NONFREE
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.google.gms:google-services:4.4.4'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:3.0.6'
-    }
-}
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.crashlytics'
-//#endif
-
 android {
-    namespace 'me.zhanghai.android.files'
+    namespace 'com.blitzfiles.app'
     buildToolsVersion = '37.0.0'
     compileSdk = 36
     ndkVersion '28.1.13356709'
     defaultConfig {
-        applicationId 'me.zhanghai.android.files'
+        applicationId 'com.blitzfiles.app'
         minSdk 23
-        // Not supporting foreground service timeout yet.
         //noinspection OldTargetApi
         targetSdk 34
-        versionCode 39
-        versionName '1.7.4'
-        resValue 'string', 'app_version', versionName + ' (' + versionCode + ')'
+        versionCode 1
+        versionName '1.0.0'
+        resValue 'string', 'app_version', versionName
         buildConfigField 'String', 'FILE_PROVIDIER_AUTHORITY', 'APPLICATION_ID + ".file_provider"'
         resValue 'string', 'app_provider_authority', applicationId + '.app_provider'
         resValue 'string', 'file_provider_authority', applicationId + '.file_provider'
@@ -76,11 +60,6 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-//#ifdef NONFREE
-            firebaseCrashlytics {
-                nativeSymbolUploadEnabled true
-            }
-//#endif
         }
     }
     packagingOptions {
@@ -101,14 +80,24 @@ android {
     }
 }
 
+androidComponents {
+    onVariants(selector().all()) { variant ->
+        variant.outputs.each { output ->
+            output.outputFileName.set("BlitzFiles-${output.versionName.get()}.apk")
+        }
+    }
+}
+
 repositories {
     maven {
         url 'https://jitpack.io'
     }
 }
 dependencies {
+    implementation project(':search')
+
     // We need https://github.com/bitfireAT/dav4jvm/commit/c1bc14348831bcdb00f3a6eec4859b81c7dc3728
-    implementation('com.github.bitfireAT:dav4jvm:02fe1a95e6') {
+    implementation('com.github.bitfireAT:dav4jvm:02fe1a95e6b86e323bec3784d7d2fe2d4081dde6') {
         exclude group: 'org.ogce', module: 'xpp3'
     }
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
@@ -212,9 +201,5 @@ dependencies {
     // Also a dependency of jCIFS-NG.
     implementation 'org.slf4j:slf4j-android:1.7.36'
 
-//#ifdef NONFREE
-    implementation platform('com.google.firebase:firebase-bom:34.11.0')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-crashlytics-ndk'
-//#endif
+    testImplementation 'junit:junit:4.13.2'
 }

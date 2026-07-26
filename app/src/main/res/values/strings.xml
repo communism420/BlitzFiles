@@ -7,7 +7,7 @@
 
 <resources>
 
-    <string name="app_name">Material Files</string>
+    <string name="app_name">BlitzFiles</string>
 
     <string name="close">Close</string>
     <string name="copy">Copy</string>
@@ -58,7 +58,8 @@
         <item quantity="other">%1$,d bytes</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">App needs access to manage all files. Please allow the access in the upcoming system setting.</string>
+    <string name="all_files_access_rationale_title">File indexing access</string>
+    <string name="all_files_access_rationale_message">To scan and index every available file successfully, BlitzFiles requires “All files access”. Tap OK, then enable access in the system settings. No scan will start until access is granted.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">App needs permission to access files. Please click “ALLOW” in the upcoming system dialog.</string>
     <string name="storage_permission_permanently_denied_message">App needs permission to access files. Please grant the “Storage” permission in system settings.</string>
@@ -70,8 +71,31 @@
     <string name="notification_channel_background_activity_start_description">Take actions while app is in the background</string>
     <string name="notification_channel_file_job_name">File operations</string>
     <string name="notification_channel_file_job_description">Display and control file operations</string>
+    <string name="notification_channel_file_indexing_name">File indexing</string>
+    <string name="notification_channel_file_indexing_description">Display and control file indexing</string>
     <string name="notification_channel_ftp_server_name">FTP server</string>
     <string name="notification_channel_ftp_server_description">Display and control the FTP server</string>
+
+    <string name="file_indexing_notification_title">Indexing files</string>
+    <string name="file_indexing_notification_preparing">Preparing the index…</string>
+    <string name="file_indexing_notification_progress_format">Indexed %1$,d entries</string>
+    <string name="file_indexing_notification_paused_format">Paused after %1$,d entries</string>
+    <string name="file_indexing_notification_completed_format">Indexed %1$,d entries</string>
+    <string name="file_indexing_notification_completed_with_errors_format">Indexed %1$,d entries with access errors</string>
+    <string name="file_indexing_notification_cancelled">Indexing cancelled</string>
+    <string name="file_indexing_notification_failed">Indexing failed</string>
+    <string name="file_indexing_action_pause">Pause</string>
+    <string name="file_indexing_action_resume">Resume</string>
+    <string name="file_indexing_banner_scheduled">Full scan and indexing started</string>
+    <string name="file_indexing_banner_preparing">Preparing the full device scan…</string>
+    <string name="file_indexing_banner_running_format">Scanning and indexing · %1$,d entries</string>
+    <string name="file_indexing_banner_paused_format">Indexing paused · %1$,d entries</string>
+    <string name="file_indexing_banner_completed_format">Indexing complete · %1$,d entries</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Indexing complete · %1$,d entries · %2$,d access errors</string>
+    <string name="file_indexing_banner_cancelled_format">Indexing cancelled · %1$,d entries</string>
+    <string name="file_indexing_banner_failed">Indexing failed</string>
+    <string name="file_indexing_banner_details_hint">Tap to view indexing details</string>
+    <string name="indexing_all_files_access_required">Grant “All files access” before starting or resuming indexing</string>
 
     <string name="file_action_archive_password_title">Password required</string>
     <string name="file_action_archive_password_message_format">“%1$s” is password-protected.</string>
@@ -283,6 +307,7 @@
         <item quantity="other">%1$,d files</item>
     </plurals>
     <string name="file_list_subtitle_separator">,\u0020</string>
+    <string name="file_list_search_result_limit_format">First %1$d matches shown — refine the query</string>
     <string name="file_list_path_error_empty">Path cannot be empty</string>
     <string name="file_list_path_error_invalid">Invalid path</string>
     <string name="file_list_action_view_sort">View and sort</string>
@@ -788,7 +813,118 @@
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Might make the app unstable on older versions of Android</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Read remote files for thumbnail</string>
 
+    <string name="navigation_global_search">Global search</string>
+    <string name="global_search_title" translatable="false">@string/navigation_global_search</string>
+    <string name="global_search_hint">Search indexed files</string>
+    <string name="global_search_prompt">Type a file or folder name</string>
+    <string name="global_search_no_results">No matching files</string>
+    <string name="global_search_index_empty">The index is empty. Configure indexing and run a scan first.</string>
+    <string name="global_search_configure_index">Configure indexing</string>
+    <string name="global_search_error_format">Search failed: %1$s</string>
+    <string name="global_search_action_error_format">Couldn’t complete the action: %1$s</string>
+    <string name="global_search_directory_metadata_format">Folder • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_root_badge" translatable="false">ROOT</string>
+    <string name="global_search_more_actions">More actions</string>
+    <string name="global_search_action_open">Open</string>
+    <string name="global_search_action_show_in_folder">Show in folder</string>
+    <string name="global_search_action_share">Share</string>
+    <string name="global_search_sort_title">Sort</string>
+    <string name="global_search_sort_relevance">Relevance</string>
+    <string name="global_search_sort_name_ascending">Name (A–Z)</string>
+    <string name="global_search_sort_name_descending">Name (Z–A)</string>
+    <string name="global_search_sort_size_ascending">Size (smallest first)</string>
+    <string name="global_search_sort_size_descending">Size (largest first)</string>
+    <string name="global_search_sort_modified_ascending">Modified (oldest first)</string>
+    <string name="global_search_sort_modified_descending">Modified (newest first)</string>
+    <string name="global_search_index_status_error">Index status unavailable • Tap to retry</string>
+    <string name="global_search_index_not_configured">Indexing is not configured • Tap to configure</string>
+    <string name="global_search_index_running_format">Indexing %1$s • %2$,d entries</string>
+    <string name="global_search_index_paused_format">Indexing paused • %1$,d entries</string>
+    <string name="global_search_index_ready_format">%1$,d indexed entries • Updated %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d indexed entries • Tap to configure</string>
+
+    <string name="settings_indexing_title">Search index</string>
+    <string name="settings_indexing_summary">Indexed roots, exclusions, and scan controls</string>
+    <string name="indexing_settings_title">Search indexing</string>
+    <string name="indexing_status_category">Index status</string>
+    <string name="indexing_controls_category">Scan controls</string>
+    <string name="indexing_roots_category">Indexed locations</string>
+    <string name="indexing_exclusions_category">Excluded locations</string>
+    <string name="indexing_status_loading">Loading index status…</string>
+    <string name="indexing_status_error">Couldn’t read index status</string>
+    <string name="indexing_status_empty">No indexed entries yet</string>
+    <string name="indexing_status_format">%1$,d entries (%2$,d files, %3$,d folders) • %4$s</string>
+    <string name="indexing_statistics_details_title">Index details</string>
+    <string name="indexing_statistics_coverage_format">%1$,d of %2$,d roots enabled • %3$,d custom exclusions</string>
+    <string name="indexing_statistics_entries_format">%1$,d root entries • %2$,d hidden • %3$,d symbolic links</string>
+    <string name="indexing_statistics_storage_format">Index database: %1$s</string>
+    <string name="indexing_status_last_update_format">Last update: %1$s</string>
+    <string name="indexing_scan_status_format">Scan: %1$s</string>
+    <string name="indexing_scan_never_run">never run</string>
+    <string name="indexing_scan_running">running</string>
+    <string name="indexing_scan_paused">paused</string>
+    <string name="indexing_scan_completed">completed</string>
+    <string name="indexing_scan_completed_with_errors">completed with errors</string>
+    <string name="indexing_scan_failed">failed</string>
+    <string name="indexing_scan_cancelled">cancelled</string>
+    <string name="indexing_start_full_scan">Start full scan</string>
+    <string name="indexing_start_full_scan_summary">Rebuild the index for all enabled locations</string>
+    <string name="indexing_pause_scan">Pause scan</string>
+    <string name="indexing_resume_scan">Resume scan</string>
+    <string name="indexing_cancel_scan">Cancel scan</string>
+    <string name="indexing_add_root">Add indexed location</string>
+    <string name="indexing_add_exclusion">Add exclusion</string>
+    <string name="indexing_no_roots">No locations configured</string>
+    <string name="indexing_no_exclusions">No custom excluded locations</string>
+    <string name="indexing_built_in_exclusion">Built-in safety exclusion</string>
+    <string name="indexing_no_enabled_roots">Enable at least one indexed location first</string>
+    <string name="indexing_operation_error_format">Indexing operation failed: %1$s</string>
+    <string name="indexing_root_add_title">Add indexed location</string>
+    <string name="indexing_root_edit_title">Edit indexed location</string>
+    <string name="indexing_default_internal_storage">Internal storage</string>
+    <string name="indexing_root_name_hint">Display name</string>
+    <string name="indexing_root_path_hint">Absolute path</string>
+    <string name="indexing_root_access_mode">Access mode (selected automatically)</string>
+    <string name="indexing_root_enabled">Index this location</string>
+    <string name="indexing_root_include_hidden">Include hidden files</string>
+    <string name="indexing_root_follow_symlinks">Follow symbolic links</string>
+    <string name="indexing_root_path_locked">The path can’t be changed after a location is created</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">normal</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">enabled</string>
+    <string name="indexing_disabled">disabled</string>
+    <string name="indexing_delete_root">Remove location</string>
+    <string name="indexing_delete_root_confirmation">Remove “%1$s” and its indexed entries?</string>
+    <string name="indexing_exclusion_add_title">Add excluded location</string>
+    <string name="indexing_exclusion_path_hint">Excluded absolute path</string>
+    <string name="indexing_exclusion_scope">Apply to</string>
+    <string name="indexing_exclusion_all_roots">All indexed locations</string>
+    <string name="indexing_exclusion_summary_all">All indexed locations</string>
+    <string name="indexing_exclusion_summary_root_format">Only %1$s</string>
+    <string name="indexing_delete_exclusion_title">Remove exclusion</string>
+    <string name="indexing_delete_exclusion_confirmation">Stop excluding “%1$s”?</string>
+    <string name="indexing_field_required">Required</string>
+    <string name="indexing_invalid_absolute_path">Enter a valid absolute path</string>
+    <string name="indexing_root_requires_root_error">The filesystem root can only be indexed when automatic root scanning is available</string>
+    <string name="indexing_protected_path_error">This virtual system path is always excluded for safety</string>
+    <string name="indexing_overlapping_root_error">This location overlaps an existing indexed location</string>
+    <string name="indexing_protected_exclusion_exists">This path is already excluded by the built-in safety policy</string>
+    <string name="indexing_exclusion_outside_root">The exclusion must be inside the selected indexed location</string>
+    <string name="indexing_save">Save</string>
+    <string name="indexing_remove">Remove</string>
+    <string name="initial_indexing_root_offer_title">Add the root directory to the index?</string>
+    <string name="initial_indexing_root_offer_message">Internal shared storage is always indexed. Root access was detected. Add / as well and index both locations with privileged access?</string>
+    <string name="initial_indexing_root_offer_accept">Add /</string>
+    <string name="initial_indexing_root_offer_decline">Without /</string>
+    <string name="initial_indexing_root_error_format">Root indexing could not be started: %1$s</string>
+    <string name="initial_indexing_setup_error">Automatic indexing could not be started. BlitzFiles will try again later.</string>
+
     <string name="about_title">About</string>
+    <string name="about_description" translatable="false">A fast file manager based on Material Files.</string>
+    <string name="about_upstream_source_title" translatable="false">Material Files source code</string>
+    <string name="about_upstream_author_title" translatable="false">Original Material Files author</string>
     <string name="about_version_title">Version</string>
     <string name="about_github_title">View on GitHub</string>
     <string name="about_licenses_title">Licenses</string>

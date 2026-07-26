@@ -1,82 +1,131 @@
-# Material Files
+# BlitzFiles
 
-[本文中文版](README_zh-CN.md)
+BlitzFiles is an open-source Android file manager with fast, device-wide indexed search. It is
+based on [Material Files](https://github.com/zhanghai/MaterialFiles) and keeps its filesystem,
+archive, network storage, root, and Material Design capabilities.
 
-[![Android CI status](https://github.com/zhanghai/MaterialFiles/workflows/Android%20CI/badge.svg)](https://github.com/zhanghai/MaterialFiles/actions) [![GitHub release](https://img.shields.io/github/v/release/zhanghai/MaterialFiles)](https://github.com/zhanghai/MaterialFiles/releases) [![License](https://img.shields.io/github/license/zhanghai/MaterialFiles?color=blue)](LICENSE)
+Package name: `com.blitzfiles.app`
 
-An open source Material Design file manager, for Android 5.0+.
-
-[<img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="240">](https://play.google.com/store/apps/details?id=me.zhanghai.android.files) [<img alt="Get it on F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" width="240">](https://f-droid.org/packages/me.zhanghai.android.files) [<img alt="Get it on GitHub" src="https://raw.githubusercontent.com/Kunzisoft/Github-badge/main/get-it-on-github.png" width="240">](https://github.com/zhanghai/MaterialFiles/releases/latest/download/app-release-universal.apk)
-
-[Help translation on Transifex](https://www.transifex.com/zhanghai/MaterialFiles/) ([Search Android & GNOME translations](https://translations.zhanghai.me/), [Microsoft language resources](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources), [MIME type translations](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/tree/master/po))
-
-## Preview
-
-<p><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="32%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="32%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="32%" />
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="32%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="32%" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="32%" /></p>
+Minimum supported version: Android 6.0 (API 23).
 
 ## Features
 
-- Open source: Lightweight, clean and secure.
-- Material Design: Follows Material Design guidelines, with attention into details.
-- Breadcrumbs: Navigate in the filesystem with ease.
-- Root support: View and manage files with root access.
-- Archive support: View, extract and create common compressed files.
-- NAS support: View and manage files on FTP, SFTP, SMB and WebDAV servers.
-- Themes: Customizable UI colors, plus night mode with optional true black.
-- Linux-aware: Like [Nautilus](https://apps.gnome.org/Nautilus/), knows symbolic links, file permissions and SELinux context.
-- Robust: Uses Linux system calls under the hood, not yet another [`ls` parser](https://news.ycombinator.com/item?id=7994720).
-- Well-implemented: Built upon the right things, including [Java NIO2 File API](https://docs.oracle.com/javase/8/docs/api/java/nio/file/package-summary.html) and [LiveData](https://developer.android.com/topic/libraries/architecture/livedata).
+### File management
 
-## Why Material Files?
+- Local storage and Storage Access Framework support.
+- Root file access through libsu.
+- ZIP, TAR, 7z, RAR and other common archive formats.
+- FTP, SFTP, SMB and WebDAV storage.
+- Symbolic links, POSIX permissions and SELinux contexts.
+- Material Design, Material You colors, light, dark and true-black themes.
+- File previews, checksums, properties, bookmarks and standard directories.
 
-Because I like Material Design, and clean Material Design.
+### Global indexed search
 
-There are already a handful of powerful file managers, but most of them just aren't Material Design. And even among the ones with Material Design, they usually have various minor design flaws (layout, alignment, padding, icon, font, etc) across the app which makes me uncomfortable, while still being minor enough so that not everybody would care to fix it. So I had to create my own.
+- SQLite FTS5 word-prefix and trigram indexes.
+- Search-as-you-type with a 50 ms UI debounce.
+- Substring, prefix, `*` and `?` wildcard matching.
+- Bounded relevance queries that return the first page without sorting every matching row.
+- Sorting by relevance, name, size or modification date.
+- Bounded result pages with incremental loading.
+- Standard-storage and explicit root index roots.
+- Full and targeted incremental scans.
+- Persistent scan configuration and exclusions.
+- Pause, resume and cancellation from the app or foreground notification.
+- Direct open, containing-folder navigation, sharing and path copying from results.
 
-Because I want an open source file manager.
+## Indexing safety
 
-Most of the popular and reliable file managers are just closed source, and I sometimes use them to view and modify files that require root access. But deep down inside, I just feel uneasy with giving any closed source app the root access to my device. After all, that means giving literally full access to my device, which stays with me every day and stores my own information, and what apps do with such access merely depends on their good intent.
+Root indexing uses Material Files' root-backed Linux NIO provider directly; it does not fall back
+to normal app access when a root is configured for root mode.
 
-Because I want a file manager that is implemented the right way.
+The following virtual or device-backed trees are always excluded:
 
-- This app implemented [Java NIO2 File API](https://docs.oracle.com/javase/8/docs/api/java/nio/file/package-summary.html) as its backend, instead of inventing a custom model for file information/operations, which often gets coupled with UI logic and grows into a mixture of everything ([example](https://github.com/TeamAmaze/AmazeFileManager/blob/master/app/src/main/java/com/amaze/filemanager/filesystem/HybridFile.java)). On the contrary, a decoupled backend allows cleaner code (which means less bugs), and easier addition of support for other file systems.
+```text
+/acct
+/config
+/d
+/debug_ramdisk
+/dev
+/proc
+/sys
+/data_mirror
+/data/media
+/mnt/androidwritable
+/mnt/installer
+/mnt/media_rw
+/mnt/pass_through
+/mnt/runtime
+/mnt/user
+```
 
-- This app doesn't use `java.io.File` or parse the output of `ls`, but built bindings to Linux syscalls to properly access the file system. `java.io.File` is an old API missing many features, and just can't handle things like symbolic links correctly, which is the reason why many people rather parse `ls` instead. However parsing the output `ls` is not only slow, but also [unreliable](https://news.ycombinator.com/item?id=7994720), which made [Cabinet](https://github.com/aminb/cabinet/blob/master/app/src/main/java/com/afollestad/cabinet/file/root/LsParser.java) broken on newer Android versions. By virtue of using Linux syscalls, this app is able to be fast and smooth, and handle advanced things like Linux permissions, symbolic links and even SELinux context. It can also handle file names with invalid UTF-8 encoding because paths are not naively stored as Java `String`s, which most file managers does and fails during file operation.
+These paths can contain device nodes, unbounded process data, kernel interfaces, or duplicate
+mounts. Canonical user storage remains available through `/storage`, and adopted storage remains
+available through `/mnt/expand`. The safety exclusions are enforced by the indexing engine and
+cannot be removed in the UI. Additional global or root-specific exclusions can be configured in
+**Settings → Search index**.
 
-- This app built its frontend upon modern `ViewModel` and `LiveData` which enables a clear code structure and support for rotation. It also properly handles things like errors during file operation, file conflicts and foreground/background state.
+Following symbolic links is disabled by default. Directory device/inode identities are tracked for
+every scan to prevent duplicate bind-mount traversal; normalized link targets also prevent cycles
+when following symbolic links is enabled.
 
-In a word, this app tries to follow the best practices on Android and do the right thing, while keeping its source code clean and maintainable.
+## Search architecture
 
-Because I know people can do it right.
+The `search` Android library module is independent of the app UI and contains:
 
-[Nautilus](https://wiki.gnome.org/Apps/Files) is a beautifully-designed and user-friendly file manager on Linux desktop, and it's fully Linux-aware. [Phonograph](https://github.com/kabouzeid/Phonograph) is an open source Material Design music player app (which I've been using for years), and it has just the right Material Design and implementation.
+- `FileIndexer` and `IndexFileSystem` traversal boundaries;
+- `IndexRepository` persistence boundary;
+- `SQLiteIndexRepository` with bounded transactional writes;
+- `SQLiteSearchEngine` and the FTS5 query compiler;
+- indexing and search domain models.
 
-So, it's time for yet another Android file manager.
+The app module provides the Material Files filesystem adapter, root-aware foreground service,
+global-search UI, and indexing settings.
 
-## Inclusion in custom ROMs
+Index entries are written in bounded batches. SQLite uses WAL mode, prepared statements, external
+content FTS tables, and trigger-maintained O(1) statistics. A scan never retains the complete file
+list in memory. Stale rows are removed only after a subtree was read successfully, so transient
+permission errors do not erase previously valid results.
 
-Thank you if you choose to include Material Files in your custom ROM! However since I've received several user complaints due to improper inclusion, I'd like to offer some suggestions on including this app properly for the good of end users:
+## Building
 
-- Please don't replace the AOSP [DocumentsUI](https://android.googlesource.com/platform/packages/apps/DocumentsUI/) app with this app. This app is not designed to replace DocumentsUI and can't handle a number of functionalities in DocumentsUI - in fact, it relies on DocumentsUI to do things like granting external SD card access.
+Requirements:
 
-- Please make sure this app can be uninstalled or at least disabled. Some users may not want this app for a variety of reasons, and get very upset when they can't remove it.
+- Android Studio with JDK 21;
+- Android SDK 36;
+- Android Build Tools 37.0.0;
+- Android NDK 28.1.13356709.
 
-- Please avoid conflict with the Play/F-Droid version of this app. App stores cannot update apps signed with a different certificate, so you can either ship an APK that's signed by me (or F-Droid) so that users will be able to update it on Play/F-Droid, or fork this project and rename the package name when you need to sign the APK with a different certificate and potentially making other changes.
+Build and test:
 
-## License
+```shell
+./gradlew :search:testDebugUnitTest :app:assembleDebug
+```
 
-    Copyright (C) 2018 Hai Zhang
+Static analysis:
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+```shell
+./gradlew :app:lintDebug
+```
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Release signing is configured through `signing.properties` or the `STORE_FILE`, `STORE_PASSWORD`,
+`KEY_ALIAS`, and `KEY_PASSWORD` environment variables.
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+On Windows, Android's AIDL tool may fail when the repository's absolute path contains non-ASCII
+characters. Moving the checkout to an ASCII-only path avoids that toolchain limitation.
+
+## Privacy
+
+The search index is stored locally in the app's private data directory. File names, paths and index
+metadata are not uploaded by the indexing or search engine.
+
+Network storage is available for normal file management but is not included in the local
+device-wide index.
+
+## Upstream and license
+
+BlitzFiles is derived from Material Files by Hai Zhang. The upstream project and its contributors
+retain copyright over their work.
+
+This project is licensed under the GNU General Public License version 3 or later. See
+[LICENSE](LICENSE).

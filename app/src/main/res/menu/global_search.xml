@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 BlitzFiles contributors
+  ~ All Rights Reserved.
+  -->
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@drawable/sort_icon_control_normal_24dp"
+        android:title="@string/global_search_sort_title"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/action_sort_relevance"
+                    android:title="@string/global_search_sort_relevance" />
+                <item
+                    android:id="@+id/action_sort_name_ascending"
+                    android:title="@string/global_search_sort_name_ascending" />
+                <item
+                    android:id="@+id/action_sort_name_descending"
+                    android:title="@string/global_search_sort_name_descending" />
+                <item
+                    android:id="@+id/action_sort_size_ascending"
+                    android:title="@string/global_search_sort_size_ascending" />
+                <item
+                    android:id="@+id/action_sort_size_descending"
+                    android:title="@string/global_search_sort_size_descending" />
+                <item
+                    android:id="@+id/action_sort_modified_ascending"
+                    android:title="@string/global_search_sort_modified_ascending" />
+                <item
+                    android:id="@+id/action_sort_modified_descending"
+                    android:title="@string/global_search_sort_modified_descending" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_index_settings"
+        android:icon="@drawable/settings_icon_white_24dp"
+        android:title="@string/indexing_settings_title"
+        app:showAsAction="never" />
+</menu>
