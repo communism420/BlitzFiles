@@ -7,17 +7,17 @@
 
 <resources>
 
-    <style name="Platform.V29.Theme.MaterialFiles" parent="Platform.V27.Theme.MaterialFiles">
+    <style name="Platform.V29.Theme.BlitzFiles" parent="Platform.V27.Theme.BlitzFiles">
         <item name="android:forceDarkAllowed">false</item>
 
         <item name="colorPrimaryDark">@android:color/transparent</item>
     </style>
-    <style name="Platform.Theme.MaterialFiles" parent="Platform.V29.Theme.MaterialFiles" />
+    <style name="Platform.Theme.BlitzFiles" parent="Platform.V29.Theme.BlitzFiles" />
 
-    <style name="Platform.V29.Theme.MaterialFiles.Immersive" parent="Platform.V27.Theme.MaterialFiles.Immersive">
+    <style name="Platform.V29.Theme.BlitzFiles.Immersive" parent="Platform.V27.Theme.BlitzFiles.Immersive">
         <item name="android:forceDarkAllowed">false</item>
 
         <item name="colorPrimaryDark">@android:color/transparent</item>
     </style>
-    <style name="Platform.Theme.MaterialFiles.Immersive" parent="Platform.V29.Theme.MaterialFiles.Immersive" />
+    <style name="Platform.Theme.BlitzFiles.Immersive" parent="Platform.V29.Theme.BlitzFiles.Immersive" />
 </resources>

@@ -76,7 +76,7 @@ THEME_SUFFIXES=(
 )
 CUSTOM_THEMES_XML='../app/src/main/res/values/themes_custom.xml'
 CUSTOM_THEMES_NIGHT_XML='../app/src/main/res/values-night/themes_custom.xml'
-CUSTOM_THEME_COLOR_KT='../app/src/main/java/me/zhanghai/android/files/theme/custom/ThemeColor.kt'
+CUSTOM_THEME_COLOR_KT='../app/src/main/java/com/blitzfiles/app/theme/custom/ThemeColor.kt'
 
 cat >"${CUSTOM_COLORS_XML}" <<EOF
 <?xml version="1.0" encoding="utf-8"?>
@@ -131,7 +131,7 @@ for color_index in "${!CUSTOM_COLORS[@]}"; do
             primary_color="${color}"
         fi
         cat >>"${CUSTOM_THEMES_XML}" <<EOF
-    <style name="Theme.MaterialFiles${theme_suffix}.${color}">
+    <style name="Theme.BlitzFiles${theme_suffix}.${color}">
         <item name="colorPrimary">@color/${primary_color}</item>
     </style>
 EOF
@@ -144,7 +144,7 @@ for color_index in "${!CUSTOM_COLORS[@]}"; do
     for theme_suffix in "${THEME_SUFFIXES[@]}"; do
         color="${CUSTOM_COLORS[color_index]}"
         cat >>"${CUSTOM_THEMES_XML}" <<EOF
-    <style name="Theme.MaterialFiles${theme_suffix}.${color}.Black" />
+    <style name="Theme.BlitzFiles${theme_suffix}.${color}.Black" />
 EOF
     done
 done
@@ -162,7 +162,7 @@ for color_index in "${!CUSTOM_COLORS[@]}"; do
     for theme_suffix in "${THEME_SUFFIXES[@]}"; do
         color="${CUSTOM_COLORS[color_index]}"
         cat >>"${CUSTOM_THEMES_NIGHT_XML}" <<EOF
-    <style name="Theme.MaterialFiles${theme_suffix}.${color}.Black">
+    <style name="Theme.BlitzFiles${theme_suffix}.${color}.Black">
         <item name="colorPrimaryDark">@color/color_primary_dark_black</item>
         <item name="colorSurface">@android:color/black</item>
     </style>
@@ -174,10 +174,10 @@ cat >>"${CUSTOM_THEMES_NIGHT_XML}" <<EOF
 EOF
 
 cat >"${CUSTOM_THEME_COLOR_KT}" <<EOF
-package me.zhanghai.android.files.theme.custom
+package com.blitzfiles.app.theme.custom
 
 import androidx.annotation.ColorRes
-import me.zhanghai.android.files.R
+import com.blitzfiles.app.R
 
 enum class ThemeColor(@ColorRes val resourceId: Int) {
 EOF

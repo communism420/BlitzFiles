@@ -10,7 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- app:statusBarBackground is broken when scrolling. -->
-    <me.zhanghai.android.files.ui.CoordinatorAppBarLayout
+    <com.blitzfiles.app.ui.CoordinatorAppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="@integer/file_list_toolbar_scroll_flags">
 
-            <me.zhanghai.android.files.ui.CrossfadeSubtitleToolbar
+            <com.blitzfiles.app.ui.CrossfadeSubtitleToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
@@ -35,7 +35,7 @@
                 app:popupTheme="?actionBarPopupTheme"
                 app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Small" />
 
-            <me.zhanghai.android.files.ui.OverlayToolbar
+            <com.blitzfiles.app.ui.OverlayToolbar
                 android:id="@+id/overlayToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
@@ -47,11 +47,74 @@
                 app:popupTheme="?actionBarPopupTheme" />
         </FrameLayout>
 
-        <me.zhanghai.android.files.filelist.BreadcrumbLayout
+        <com.blitzfiles.app.filelist.BreadcrumbLayout
             android:id="@+id/breadcrumbLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/content_start_margin_minus_12dp"
             android:paddingEnd="@dimen/screen_edge_margin_minus_12dp" />
-    </me.zhanghai.android.files.ui.CoordinatorAppBarLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/indexingProgressBanner"
+            style="@style/Widget.BlitzFiles.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_edge_margin"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/screen_edge_margin"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="52dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="?colorSurface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="52dp"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/indexingProgressIndicator"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:indeterminate="true"
+                    app:indicatorSize="20dp"
+                    app:trackThickness="2dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/indexingProgressText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="?android:textColorPrimary"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/indexingProgressPath"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="middle"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="?android:textColorSecondary" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </com.blitzfiles.app.ui.CoordinatorAppBarLayout>
 </merge>

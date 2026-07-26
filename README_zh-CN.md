@@ -1,12 +1,12 @@
-# Material Files
+# BlitzFiles
 
-[![Android CI 状态](https://github.com/zhanghai/MaterialFiles/workflows/Android%20CI/badge.svg)](https://github.com/zhanghai/MaterialFiles/actions) [![GitHub 发行版](https://img.shields.io/github/v/release/zhanghai/MaterialFiles)](https://github.com/zhanghai/MaterialFiles/releases) [![许可证](https://img.shields.io/github/license/zhanghai/MaterialFiles?color=blue)](LICENSE)
+[![Android CI 状态](https://github.com/communism420/BlitzFiles/actions/workflows/android.yml/badge.svg)](https://github.com/communism420/BlitzFiles/actions/workflows/android.yml) [![GitHub 发行版](https://img.shields.io/github/v/release/communism420/BlitzFiles)](https://github.com/communism420/BlitzFiles/releases) [![许可证](https://img.shields.io/github/license/communism420/BlitzFiles?color=blue)](LICENSE)
 
-一个开源的 Material Design 文件管理器，适用于 Android 5.0+。
+BlitzFiles 是一个基于 [Material Files](https://github.com/zhanghai/MaterialFiles) 的开源 Material Design 文件管理器，并加入了类似 Everything 的高速全局文件名搜索和本地索引。支持 Android 6.0+。
 
-[<img alt="下载应用，请到 Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png" width="240">](https://play.google.com/store/apps/details?id=me.zhanghai.android.files) [<img alt="下载应用，请到 F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on-zh-cn.png" width="240">](https://f-droid.org/packages/me.zhanghai.android.files) [<img alt="下载应用，请到 GitHub" src="https://raw.githubusercontent.com/Kunzisoft/Github-badge/main/get-it-on-github.png" width="240">](https://github.com/zhanghai/MaterialFiles/releases/latest/download/app-release-universal.apk)
+[在 GitHub Releases 下载 BlitzFiles](https://github.com/communism420/BlitzFiles/releases)
 
-[在 Transifex 上帮助翻译](https://www.transifex.com/zhanghai/MaterialFiles/)（[搜索 Android 和 GNOME 的翻译](https://translations.zhanghai.me/)、[微软语言资源](https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources)、[MIME 类型翻译](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/tree/master/po)）
+本项目保留 Material Files 的原有翻译；上游翻译资源可在 [Transifex](https://www.transifex.com/zhanghai/MaterialFiles/) 查看。
 
 ## 预览
 
@@ -19,6 +19,7 @@
 - Material Design：遵循 Material Design 规范，并且注重细节。
 - 面包屑导航栏：点击导航栏所显示路径中的任一文件夹即可快速访问。
 - Root 支持：使用 root 权限查看和管理文件。
+- 高速全局搜索：在本地 SQLite FTS5 索引中即时查找普通存储和 root 路径。
 - 压缩文件支持：查看、提取和创建常见的压缩文件。
 - NAS 支持：查看和管理 FTP、SFTP、SMB 和 WebDAV 服务器上的文件。
 - 主题：可定制的界面颜色，以及可选纯黑的夜间模式。
@@ -26,7 +27,7 @@
 - 健壮性：使用 Linux 系统调用实现，而不是另一个 [`ls` 解析器](https://news.ycombinator.com/item?id=7994720)。
 - 实现良好：使用正确的方式打造，包括 [Java NIO2 文件 API](https://docs.oracle.com/javase/8/docs/api/java/nio/file/package-summary.html) 和 [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)。
 
-## 为什么要有 Material Files?
+## 上游 Material Files 的设计理念
 
 因为喜爱 Material Design，并且是整洁、精致的 Material Design。
 

@@ -7,9 +7,9 @@
 
 <resources>
 
-    <style name="Platform.V23.Theme.MaterialFiles" parent="Platform.V21.Theme.MaterialFiles">
+    <style name="Platform.V23.Theme.BlitzFiles" parent="Platform.V21.Theme.BlitzFiles">
         <item name="colorPrimaryDark">@color/system_window_scrim</item>
         <item name="android:windowLightStatusBar">?isLightTheme</item>
     </style>
-    <style name="Platform.Theme.MaterialFiles" parent="Platform.V23.Theme.MaterialFiles" />
+    <style name="Platform.Theme.BlitzFiles" parent="Platform.V23.Theme.BlitzFiles" />
 </resources>

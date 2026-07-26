@@ -1,4 +1,4 @@
-An open source Material Design file manager.
+BlitzFiles is an open source Material Design file manager.
 
 Features:
 - Open source: Lightweight, clean and secure.
@@ -12,4 +12,5 @@ Features:
 - Robust: Uses Linux system calls under the hood, not yet another ls parser.
 - Well-implemented: Built upon the right things, including Java NIO2 File API and LiveData.
 
+BlitzFiles is based on Material Files:
 https://github.com/zhanghai/MaterialFiles

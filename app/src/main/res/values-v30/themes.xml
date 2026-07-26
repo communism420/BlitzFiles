@@ -7,13 +7,13 @@
 
 <resources>
 
-    <style name="Platform.V30.Theme.MaterialFiles" parent="Platform.V29.Theme.MaterialFiles">
+    <style name="Platform.V30.Theme.BlitzFiles" parent="Platform.V29.Theme.BlitzFiles">
         <item name="android:windowLayoutInDisplayCutoutMode">always</item>
     </style>
-    <style name="Platform.Theme.MaterialFiles" parent="Platform.V30.Theme.MaterialFiles" />
+    <style name="Platform.Theme.BlitzFiles" parent="Platform.V30.Theme.BlitzFiles" />
 
-    <style name="Platform.V30.Theme.MaterialFiles.Immersive" parent="Platform.V29.Theme.MaterialFiles.Immersive">
+    <style name="Platform.V30.Theme.BlitzFiles.Immersive" parent="Platform.V29.Theme.BlitzFiles.Immersive">
         <item name="android:windowLayoutInDisplayCutoutMode">always</item>
     </style>
-    <style name="Platform.Theme.MaterialFiles.Immersive" parent="Platform.V30.Theme.MaterialFiles.Immersive" />
+    <style name="Platform.Theme.BlitzFiles.Immersive" parent="Platform.V30.Theme.BlitzFiles.Immersive" />
 </resources>

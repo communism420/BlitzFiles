@@ -7,16 +7,16 @@
 
 <resources>
 
-    <style name="Platform.V21.Theme.MaterialFiles" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Platform.V21.Theme.BlitzFiles" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimaryDark">@color/system_window_scrim_compat</item>
     </style>
-    <style name="Platform.Theme.MaterialFiles" parent="Platform.V21.Theme.MaterialFiles" />
-    <style name="Base.Theme.MaterialFiles" parent="Platform.Theme.MaterialFiles">
+    <style name="Platform.Theme.BlitzFiles" parent="Platform.V21.Theme.BlitzFiles" />
+    <style name="Base.Theme.BlitzFiles" parent="Platform.Theme.BlitzFiles">
 
-        <item name="actionBarTheme">@style/ThemeOverlay.MaterialFiles.ActionBar</item>
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialFiles.ActionBarPopup</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.BlitzFiles.ActionBar</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.BlitzFiles.ActionBarPopup</item>
         <item name="android:colorBackground">?colorSurface</item>
-        <item name="dropDownListViewStyle">@style/Widget.MaterialFiles.ListView.DropDown</item>
+        <item name="dropDownListViewStyle">@style/Widget.BlitzFiles.ListView.DropDown</item>
         <!-- https://developer.android.com/training/tv/start/start#transition-color -->
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
@@ -27,24 +27,24 @@
         <item name="colorOnSecondary">?colorOnPrimary</item>
         <item name="colorSecondaryVariant">?colorSecondary</item>
         <item name="colorSurface">@color/color_surface</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MaterialFiles.MediumComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.BlitzFiles.MediumComponent</item>
         <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog</item>
-        <item name="materialCardViewStyle">@style/Widget.MaterialFiles.CardView</item>
-        <item name="navigationViewStyle">@style/Widget.MaterialFiles.NavigationView</item>
-        <item name="switchPreferenceCompatStyle">@style/Preference.MaterialFiles.SwitchPreferenceCompat</item>
+        <item name="materialCardViewStyle">@style/Widget.BlitzFiles.CardView</item>
+        <item name="navigationViewStyle">@style/Widget.BlitzFiles.NavigationView</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.BlitzFiles.SwitchPreferenceCompat</item>
         <item name="textInputStyle">?textInputOutlinedStyle</item>
         <item name="minTouchTargetSize">0dp</item>
 
         <item name="colorAppBarSurface">?colorSurface</item>
     </style>
-    <style name="Theme.MaterialFiles" parent="Base.Theme.MaterialFiles" />
+    <style name="Theme.BlitzFiles" parent="Base.Theme.BlitzFiles" />
 
-    <style name="Platform.V21.Theme.MaterialFiles.Translucent" parent="Theme.MaterialFiles">
+    <style name="Platform.V21.Theme.BlitzFiles.Translucent" parent="Theme.BlitzFiles">
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
-    <style name="Platform.Theme.MaterialFiles.Translucent" parent="Platform.V21.Theme.MaterialFiles.Translucent" />
-    <style name="Base.Theme.MaterialFiles.Translucent" parent="Platform.Theme.MaterialFiles.Translucent">
+    <style name="Platform.Theme.BlitzFiles.Translucent" parent="Platform.V21.Theme.BlitzFiles.Translucent" />
+    <style name="Base.Theme.BlitzFiles.Translucent" parent="Platform.Theme.BlitzFiles.Translucent">
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -53,20 +53,20 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="Theme.MaterialFiles.Translucent" parent="Base.Theme.MaterialFiles.Translucent" />
+    <style name="Theme.BlitzFiles.Translucent" parent="Base.Theme.BlitzFiles.Translucent" />
 
-    <style name="Platform.V21.Theme.MaterialFiles.Immersive" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="Platform.V21.Theme.BlitzFiles.Immersive" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:navigationBarColor">?colorPrimaryDark</item>
 
         <item name="colorPrimaryDark">@color/dark_50_percent</item>
     </style>
-    <style name="Platform.Theme.MaterialFiles.Immersive" parent="Platform.V21.Theme.MaterialFiles.Immersive" />
-    <style name="Base.Theme.MaterialFiles.Immersive" parent="Platform.Theme.MaterialFiles.Immersive">
+    <style name="Platform.Theme.BlitzFiles.Immersive" parent="Platform.V21.Theme.BlitzFiles.Immersive" />
+    <style name="Base.Theme.BlitzFiles.Immersive" parent="Platform.Theme.BlitzFiles.Immersive">
 
-        <item name="actionBarTheme">@style/ThemeOverlay.MaterialFiles.ActionBar</item>
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialFiles.ActionBarPopup</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.BlitzFiles.ActionBar</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.BlitzFiles.ActionBarPopup</item>
         <item name="android:colorBackground">?colorSurface</item>
-        <item name="dropDownListViewStyle">@style/Widget.MaterialFiles.ListView.DropDown</item>
+        <item name="dropDownListViewStyle">@style/Widget.BlitzFiles.ListView.DropDown</item>
         <!-- https://developer.android.com/training/tv/start/start#transition-color -->
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
@@ -78,15 +78,15 @@
         <item name="colorOnSecondary">?colorOnPrimary</item>
         <item name="colorSecondaryVariant">?colorSecondary</item>
         <item name="colorSurface">@color/color_surface_dark</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MaterialFiles.MediumComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.BlitzFiles.MediumComponent</item>
         <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog</item>
-        <item name="materialCardViewStyle">@style/Widget.MaterialFiles.CardView</item>
-        <item name="navigationViewStyle">@style/Widget.MaterialFiles.NavigationView</item>
-        <item name="switchPreferenceCompatStyle">@style/Preference.MaterialFiles.SwitchPreferenceCompat</item>
+        <item name="materialCardViewStyle">@style/Widget.BlitzFiles.CardView</item>
+        <item name="navigationViewStyle">@style/Widget.BlitzFiles.NavigationView</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.BlitzFiles.SwitchPreferenceCompat</item>
         <item name="textInputStyle">?textInputOutlinedStyle</item>
         <item name="minTouchTargetSize">0dp</item>
 
         <item name="colorAppBarSurface">@color/dark_50_percent</item>
     </style>
-    <style name="Theme.MaterialFiles.Immersive" parent="Base.Theme.MaterialFiles.Immersive" />
+    <style name="Theme.BlitzFiles.Immersive" parent="Base.Theme.BlitzFiles.Immersive" />
 </resources>

@@ -32,8 +32,8 @@
         android:maxSdkVersion="32" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
-    <!-- Crashlytics and Shizuku requires API 23. -->
-    <uses-sdk tools:overrideLibrary="com.google.firebase,com.google.firebase.components,com.google.firebase.crashlytics,com.google.firebase.crashlytics.ndk,com.google.firebase.installations,com.google.firebase.sessions,rikka.shizuku.aidl,rikka.shizuku.api,rikka.shizuku.shared" />
+    <!-- Shizuku requires API 23. -->
+    <uses-sdk tools:overrideLibrary="rikka.shizuku.aidl,rikka.shizuku.api,rikka.shizuku.shared" />
 
     <!--
       ~ Samsung DeX requires explicitly setting android:resizeableActivity="true" for the app to be
@@ -53,12 +53,12 @@
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/launcher_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaterialFiles"
+        android:theme="@style/Theme.BlitzFiles"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
 
         <activity
-            android:name="me.zhanghai.android.files.filelist.FileListActivity"
+            android:name="com.blitzfiles.app.filelist.FileListActivity"
             android:exported="true"
             android:visibleToInstantApps="true"
             tools:ignore="UnusedAttribute">
@@ -74,7 +74,7 @@
                 <data android:mimeType="resource/folder" />
                 <data android:mimeType="vnd.android.document/directory" />
             </intent-filter>
-            <!-- @see me.zhanghai.android.files.file.isSupportedArchive -->
+            <!-- @see com.blitzfiles.app.file.isSupportedArchive -->
             <intent-filter
                 android:label="@string/archive_viewer_title"
                 tools:ignore="AppLinkUrlError">
@@ -129,7 +129,7 @@
             </intent-filter>
             -->
             <intent-filter>
-                <action android:name="me.zhanghai.android.files.intent.action.VIEW_DOWNLOADS" />
+                <action android:name="com.blitzfiles.app.intent.action.VIEW_DOWNLOADS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data
@@ -142,100 +142,100 @@
           ~ Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK. Not sure why though.
           -->
         <activity
-            android:name="me.zhanghai.android.files.filelist.OpenFileActivity"
+            android:name="com.blitzfiles.app.filelist.OpenFileActivity"
             android:documentLaunchMode="always"
             android:excludeFromRecents="true"
             android:exported="true"
-            android:theme="@style/Theme.MaterialFiles.Translucent">
+            android:theme="@style/Theme.BlitzFiles.Translucent">
             <intent-filter>
-                <action android:name="me.zhanghai.android.files.intent.action.OPEN_FILE" />
+                <action android:name="com.blitzfiles.app.intent.action.OPEN_FILE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name="me.zhanghai.android.files.filelist.EditFileActivity"
+            android:name="com.blitzfiles.app.filelist.EditFileActivity"
             android:autoRemoveFromRecents="true"
             android:icon="@drawable/edit_icon"
             android:label="@string/file_edit_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.filelist.OpenFileAsDialogActivity"
+            android:name="com.blitzfiles.app.filelist.OpenFileAsDialogActivity"
             android:autoRemoveFromRecents="true"
             android:icon="@drawable/open_as_icon"
             android:label="@string/file_open_as_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.AddStorageDialogActivity"
+            android:name="com.blitzfiles.app.storage.AddStorageDialogActivity"
             android:label="@string/storage_add_storage_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.EditDeviceStorageDialogActivity"
+            android:name="com.blitzfiles.app.storage.EditDeviceStorageDialogActivity"
             android:label="@string/storage_edit_device_storage_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.AddExternalStorageShortcutActivity"
+            android:name="com.blitzfiles.app.storage.AddExternalStorageShortcutActivity"
             android:label="@string/storage_add_external_storage_shortcut_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.EditExternalStorageShortcutDialogActivity"
+            android:name="com.blitzfiles.app.storage.EditExternalStorageShortcutDialogActivity"
             android:label="@string/storage_edit_external_storage_shortcut_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.AddDocumentTreeActivity"
+            android:name="com.blitzfiles.app.storage.AddDocumentTreeActivity"
             android:label="@string/storage_add_document_tree_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.EditDocumentTreeDialogActivity"
+            android:name="com.blitzfiles.app.storage.EditDocumentTreeDialogActivity"
             android:label="@string/storage_edit_document_tree_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.EditFtpServerActivity"
+            android:name="com.blitzfiles.app.storage.EditFtpServerActivity"
             android:label="@string/storage_edit_ftp_server_title_edit"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.EditSftpServerActivity"
+            android:name="com.blitzfiles.app.storage.EditSftpServerActivity"
             android:label="@string/storage_edit_sftp_server_title_edit"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.AddLanSmbServerActivity"
+            android:name="com.blitzfiles.app.storage.AddLanSmbServerActivity"
             android:label="@string/storage_add_lan_smb_server_title"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.EditSmbServerActivity"
+            android:name="com.blitzfiles.app.storage.EditSmbServerActivity"
             android:label="@string/storage_edit_smb_server_title_edit"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.storage.EditWebDavServerActivity"
+            android:name="com.blitzfiles.app.storage.EditWebDavServerActivity"
             android:label="@string/storage_edit_webdav_server_title_edit"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.navigation.EditBookmarkDirectoryDialogActivity"
+            android:name="com.blitzfiles.app.navigation.EditBookmarkDirectoryDialogActivity"
             android:label="@string/navigation_edit_bookmark_directory_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.ftpserver.FtpServerActivity"
+            android:name="com.blitzfiles.app.ftpserver.FtpServerActivity"
             android:exported="true"
             android:label="@string/ftp_server_title"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.MaterialFiles">
+            android:theme="@style/Theme.BlitzFiles">
             <intent-filter>
-                <action android:name="me.zhanghai.android.files.intent.action.MANAGE_FTP_SERVER" />
+                <action android:name="com.blitzfiles.app.intent.action.MANAGE_FTP_SERVER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
@@ -245,11 +245,11 @@
         </activity>
 
         <activity
-            android:name="me.zhanghai.android.files.settings.SettingsActivity"
+            android:name="com.blitzfiles.app.settings.SettingsActivity"
             android:exported="true"
             android:label="@string/settings_title"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.MaterialFiles">
+            android:theme="@style/Theme.BlitzFiles">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -257,50 +257,62 @@
         </activity>
 
         <activity
-            android:name="me.zhanghai.android.files.storage.StorageListActivity"
+            android:name="com.blitzfiles.app.globalsearch.GlobalSearchActivity"
+            android:label="@string/global_search_title"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.BlitzFiles" />
+
+        <activity
+            android:name="com.blitzfiles.app.indexingsettings.IndexingSettingsActivity"
+            android:label="@string/indexing_settings_title"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.BlitzFiles" />
+
+        <activity
+            android:name="com.blitzfiles.app.storage.StorageListActivity"
             android:label="@string/storage_list_title"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.settings.StandardDirectoryListActivity"
+            android:name="com.blitzfiles.app.settings.StandardDirectoryListActivity"
             android:label="@string/settings_standard_directory_list_title"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.settings.BookmarkDirectoryListActivity"
+            android:name="com.blitzfiles.app.settings.BookmarkDirectoryListActivity"
             android:label="@string/settings_bookmark_directory_list_title"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.about.AboutActivity"
+            android:name="com.blitzfiles.app.about.AboutActivity"
             android:label="@string/about_title"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.MaterialFiles" />
+            android:theme="@style/Theme.BlitzFiles" />
 
         <activity
-            android:name="me.zhanghai.android.files.fileaction.ArchivePasswordDialogActivity"
+            android:name="com.blitzfiles.app.fileaction.ArchivePasswordDialogActivity"
             android:autoRemoveFromRecents="true"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.filejob.FileJobErrorDialogActivity"
+            android:name="com.blitzfiles.app.filejob.FileJobErrorDialogActivity"
             android:autoRemoveFromRecents="true"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.filejob.FileJobConflictDialogActivity"
+            android:name="com.blitzfiles.app.filejob.FileJobConflictDialogActivity"
             android:autoRemoveFromRecents="true"
-            android:theme="@style/Theme.MaterialFiles.Translucent" />
+            android:theme="@style/Theme.BlitzFiles.Translucent" />
 
         <activity
-            android:name="me.zhanghai.android.files.viewer.saveas.SaveAsActivity"
+            android:name="com.blitzfiles.app.viewer.saveas.SaveAsActivity"
             android:autoRemoveFromRecents="true"
             android:exported="true"
             android:label="@string/save_as_title"
-            android:theme="@style/Theme.MaterialFiles.Translucent">
+            android:theme="@style/Theme.BlitzFiles.Translucent">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -316,10 +328,10 @@
         </activity>
 
         <activity
-            android:name="me.zhanghai.android.files.viewer.text.TextEditorActivity"
+            android:name="com.blitzfiles.app.viewer.text.TextEditorActivity"
             android:exported="true"
             android:label="@string/text_editor_title"
-            android:theme="@style/Theme.MaterialFiles">
+            android:theme="@style/Theme.BlitzFiles">
             <intent-filter tools:ignore="AppLinkUrlError">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -336,10 +348,10 @@
         </activity>
 
         <activity
-            android:name="me.zhanghai.android.files.viewer.image.ImageViewerActivity"
+            android:name="com.blitzfiles.app.viewer.image.ImageViewerActivity"
             android:exported="true"
             android:label="@string/image_viewer_title"
-            android:theme="@style/Theme.MaterialFiles.Immersive">
+            android:theme="@style/Theme.BlitzFiles.Immersive">
             <intent-filter tools:ignore="AppLinkUrlError">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -348,14 +360,19 @@
         </activity>
 
         <service
-            android:name="me.zhanghai.android.files.filejob.FileJobService"
-            android:foregroundServiceType="dataSync" />
-
-        <service android:name="me.zhanghai.android.files.ftpserver.FtpServerService"
+            android:name="com.blitzfiles.app.filejob.FileJobService"
             android:foregroundServiceType="dataSync" />
 
         <service
-            android:name="me.zhanghai.android.files.ftpserver.FtpServerTileService"
+            android:name="com.blitzfiles.app.indexing.FileIndexingService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <service android:name="com.blitzfiles.app.ftpserver.FtpServerService"
+            android:foregroundServiceType="dataSync" />
+
+        <service
+            android:name="com.blitzfiles.app.ftpserver.FtpServerTileService"
             android:exported="true"
             android:icon="@drawable/shared_directory_icon_white_24dp"
             android:label="@string/ftp_server_title"
@@ -379,22 +396,19 @@
         </service>
 
         <provider
-            android:name="me.zhanghai.android.files.app.AppProvider"
+            android:name="com.blitzfiles.app.app.AppProvider"
             android:authorities="@string/app_provider_authority"
             android:exported="false" />
 
         <provider
-            android:name="me.zhanghai.android.files.file.FileProvider"
+            android:name="com.blitzfiles.app.file.FileProvider"
             android:authorities="@string/file_provider_authority"
             android:exported="false"
             android:grantUriPermissions="true" />
 
-        <receiver android:name="me.zhanghai.android.files.filejob.FileJobReceiver" />
+        <receiver android:name="com.blitzfiles.app.filejob.FileJobReceiver" />
 
-        <receiver android:name="me.zhanghai.android.files.ftpserver.FtpServerReceiver" />
+        <receiver android:name="com.blitzfiles.app.ftpserver.FtpServerReceiver" />
 
-        <meta-data
-            android:name="firebase_crashlytics_collection_enabled"
-            android:value="false" />
     </application>
 </manifest>
