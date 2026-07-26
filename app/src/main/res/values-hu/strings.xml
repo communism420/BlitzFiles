@@ -57,7 +57,7 @@
         <item quantity="other">%1$,d bájt</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">Az alkalmazásnak hozzáférésre van szüksége az összes fájl kezeléséhez. Engedélyezze a hozzáférést a következő rendszer beállításban.</string>
+    <string name="all_files_access_rationale_message">Az összes elérhető fájl sikeres vizsgálatához és indexeléséhez a BlitzFiles számára kötelező a „Hozzáférés az összes fájlhoz” engedély. Koppintson az „OK” gombra, majd engedélyezze a hozzáférést a rendszerbeállításokban. Az engedély megadásáig semmilyen vizsgálat nem indul el.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">Az alkalmazásnak engedélyre van szüksége, hogy elérje a fájlokat. Kattintson az „Engedélyezésre” a következő rendszerüzeneten.</string>
     <string name="storage_permission_permanently_denied_message">Az alkalmazásnak engedélyre van szüksége, hogy elérje a fájlokat. Adja meg a „Tároló” engedélyt a rendszerbeállításokban.</string>
@@ -313,7 +313,7 @@
         <item quantity="other">%1$,d elem, összesen %2$s</item>
     </plurals>
     <string name="file_properties_basic_last_modification_time">Legutóbb módosítva</string>
-    <string name="file_properties_basic_parent_directory"> Szülőmappa</string>
+    <string name="file_properties_basic_parent_directory">Szülőmappa</string>
     <string name="file_properties_basic_archive_file">Fájl archiválása</string>
     <string name="file_properties_basic_archive_entry">Bejegyzés archiválása</string>
     <string name="file_properties_basic_free_space">Szabad hely</string>
@@ -442,7 +442,7 @@
     <string name="storage_edit_sftp_server_private_key_password_placeholder">Üresen hagyható</string>
     <string name="storage_edit_sftp_server_private_key_password_error_invalid">Privát kulcs jelszava érvénytelen</string>
     <string name="storage_edit_sftp_server_connect_and_add">Kapcsolódás és hozzáadás</string>
-    <string name="storage_edit_sftp_server_add">Hozzáadása</string>
+    <string name="storage_edit_sftp_server_add">Hozzáadás</string>
     <string name="storage_add_lan_smb_server_loading">SMB-kiszolgálók keresése…</string>
     <string name="storage_add_lan_smb_server_add">Hozzáadás kézzel</string>
     <string name="storage_edit_smb_server_title_edit">SMB-kiszolgáló szerkesztése</string>
@@ -464,8 +464,8 @@
     </string-array>
     <string name="storage_edit_smb_server_username">Felhasználónév</string>
     <string name="storage_edit_smb_server_username_error_empty">Adjon meg egy felhasználónevet</string>
-    <string name="storage_edit_smb_server_password">Jelszót</string>
-    <string name="storage_edit_smb_server_domain">Domain</string>
+    <string name="storage_edit_smb_server_password">Jelszó</string>
+    <string name="storage_edit_smb_server_domain">Tartomány</string>
     <string name="storage_edit_smb_server_connect_and_add">Kapcsolódás és hozzáadás</string>
     <string name="storage_edit_smb_server_add">Hozzáadás</string>
     <string name="navigation_storage_subtitle_format">%1$s szabad ennyiből: %2$s</string>
@@ -553,7 +553,7 @@
     <string-array name="settings_root_strategy_entries">
         <item>Csak normál hozzáférés</item>
         <item>Automatikus</item>
-        <item>Csak root hozzéférés</item>
+        <item>Csak root hozzáférés</item>
     </string-array>
     <string name="settings_archive_file_name_encoding_title">Archívum fájlnévkódolása</string>
     <string name="settings_open_apk_default_action_title">Androidos csomag megnyitása</string>
@@ -565,6 +565,252 @@
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Az Android régebbi verzióinál instabillá teheti az alkalmazást</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Távoli fájlok olvasása a bélyegképekhez</string>
 
+    <string name="all_files_access_rationale_title">Fájlindexelési hozzáférés</string>
+    <string name="notification_permission_rationale_message">Az alkalmazásnak engedélyre van szüksége a fájlműveletekről szóló értesítések küldéséhez. Koppintson az „Engedélyezés” gombra a következő rendszerpárbeszédablakban.</string>
+    <string name="notification_permission_permanently_denied_message">Az alkalmazásnak engedélyre van szüksége a fájlműveletekről szóló értesítések küldéséhez. Adja meg az „Értesítések” engedélyt a rendszerbeállításokban.</string>
+    <string name="notification_channel_file_indexing_name">Fájlindexelés</string>
+    <string name="notification_channel_file_indexing_description">A fájlindexelés megjelenítése és vezérlése</string>
+    <string name="file_indexing_notification_title">Fájlok indexelése</string>
+    <string name="file_indexing_notification_preparing">Az index előkészítése…</string>
+    <string name="file_indexing_notification_progress_format">%1$,d bejegyzés indexelve</string>
+    <string name="file_indexing_notification_paused_format">Szüneteltetve %1$,d bejegyzés után</string>
+    <string name="file_indexing_notification_completed_format">%1$,d bejegyzés indexelve</string>
+    <string name="file_indexing_notification_completed_with_errors_format">%1$,d bejegyzés indexelve hozzáférési hibákkal</string>
+    <string name="file_indexing_notification_cancelled">Az indexelés megszakítva</string>
+    <string name="file_indexing_notification_failed">Az indexelés sikertelen</string>
+    <string name="file_indexing_action_pause">Szüneteltetés</string>
+    <string name="file_indexing_action_resume">Folytatás</string>
+    <string name="file_indexing_banner_scheduled">A teljes vizsgálat és indexelés elindult</string>
+    <string name="file_indexing_banner_preparing">A teljes eszközvizsgálat előkészítése…</string>
+    <string name="file_indexing_banner_running_format">Vizsgálat és indexelés • %1$,d bejegyzés</string>
+    <string name="file_indexing_banner_paused_format">Az indexelés szünetel • %1$,d bejegyzés</string>
+    <string name="file_indexing_banner_completed_format">Az indexelés befejeződött • %1$,d bejegyzés</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Az indexelés befejeződött • %1$,d bejegyzés • %2$,d hozzáférési hiba</string>
+    <string name="file_indexing_banner_cancelled_format">Az indexelés megszakítva • %1$,d bejegyzés</string>
+    <string name="file_indexing_banner_failed">Az indexelés sikertelen</string>
+    <string name="file_indexing_banner_details_hint">Koppintson az indexelés részleteinek megtekintéséhez</string>
+    <string name="indexing_all_files_access_required">Az indexelés indítása vagy folytatása előtt adja meg a „Hozzáférés az összes fájlhoz” engedélyt</string>
+
+    <string name="file_action_archive_password_title">Jelszó szükséges</string>
+    <string name="file_action_archive_password_message_format">A(z) „%1$s” jelszóval védett.</string>
+    <string name="file_action_archive_password_error_empty">A jelszó nem lehet üres</string>
+    <string name="file_replace_message_format">Lecseréli ezt: „%1$s”?</string>
+    <string name="file_create_archive_password">Jelszó (nem kötelező)</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="one">Fájl kiválasztása</item>
+        <item quantity="other">Fájlok kiválasztása</item>
+    </plurals>
+    <string name="file_list_title_create_file">Fájl mentése</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="one">Mappa kiválasztása</item>
+        <item quantity="other">Mappák kiválasztása</item>
+    </plurals>
+    <string name="file_list_search_result_limit_format">Az első %1$d találat látható – pontosítsa a keresést</string>
+    <string name="file_list_create_file_name_hint">Fájlnév</string>
+    <string name="file_list_open_current_directory_format">„%1$s” kiválasztása</string>
+
+    <string name="file_properties_permission">Engedélyek</string>
+    <string name="file_properties_permission_owner">Tulajdonos</string>
+    <string name="file_properties_permission_group">Csoport</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">Tulajdonos módosítása</string>
+    <string name="file_properties_permission_set_group_title">Csoport módosítása</string>
+    <string name="file_properties_permission_set_principal_filter_hint">Adjon meg egy nevet vagy azonosítót</string>
+    <string name="file_properties_permission_set_principal_system">Rendszer</string>
+    <string name="file_properties_permission_mode">Mód</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">Mód módosítása</string>
+    <string name="file_properties_permission_set_mode_others">Mások</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>Olvasás</item>
+        <item>Írás</item>
+        <item>Végrehajtás</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>Olvasás</item>
+        <item>Írás</item>
+        <item>Keresés</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">Speciális</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>UID beállítása</item>
+        <item>GID beállítása</item>
+        <item>Ragadós bit</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Ne adjon „Végrehajtás” engedélyt a tartalmazott fájlokhoz</string>
+    <string name="file_properties_permission_selinux_context">SELinux-környezet</string>
+    <string name="file_properties_permission_set_selinux_context_title">SELinux-környezet módosítása</string>
+    <string name="file_properties_permission_set_selinux_context_restore">Visszaállítás</string>
+    <string name="file_properties_permission_recursive">Alkalmazás a tartalmazott fájlokra</string>
+    <string name="file_properties_checksum">Ellenőrzőösszegek</string>
+    <string name="file_properties_checksum_compare">Összehasonlítás</string>
+    <string name="file_properties_checksum_compare_placeholder">Bármely ellenőrzőösszeg</string>
+    <string name="file_properties_checksum_compare_match_format">Egyezik a(z) %1$s ellenőrzőösszeggel</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Egyezik a(z) %1$s ellenőrzőösszeg előtagjával</string>
+    <string name="file_properties_checksum_compare_no_match">Nem található egyező ellenőrzőösszeg</string>
+
+    <string name="storage_add_storage_webdav_server">WebDAV-kiszolgáló</string>
+    <string name="storage_add_external_storage_shortcut_title">Külső tároló parancsikonjának hozzáadása</string>
+    <string name="storage_edit_external_storage_shortcut_title">Külső tároló parancsikonjának szerkesztése</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Tárolókötet</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Adjon meg egy tárolókötetet</string>
+    <string name="storage_edit_external_storage_shortcut_path">Útvonal</string>
+    <string name="storage_edit_webdav_server_title_edit">WebDAV-kiszolgáló szerkesztése</string>
+    <string name="storage_edit_webdav_server_title_add">WebDAV-kiszolgáló hozzáadása</string>
+    <string name="storage_edit_webdav_server_host">Gépnév</string>
+    <string name="storage_edit_webdav_server_host_error_empty">Adjon meg egy gépnevet</string>
+    <string name="storage_edit_webdav_server_host_error_invalid">Érvénytelen gépnév</string>
+    <string name="storage_edit_webdav_server_port">Port</string>
+    <string name="storage_edit_webdav_server_port_error_invalid">Érvénytelen port</string>
+    <string name="storage_edit_webdav_server_path">Útvonal</string>
+    <string name="storage_edit_webdav_server_path_placeholder">Üresen hagyható</string>
+    <string name="storage_edit_webdav_server_name">Név</string>
+    <string name="storage_edit_webdav_server_name_placeholder">Gépnév használata</string>
+    <string name="storage_edit_webdav_server_protocol">Protokoll</string>
+    <string name="storage_edit_webdav_server_authentication_type">Hitelesítés</string>
+    <string-array name="storage_edit_webdav_server_authentication_type_entries">
+        <item>Jelszó</item>
+        <item>Hozzáférési token</item>
+        <item>Nincs</item>
+    </string-array>
+    <string name="storage_edit_webdav_server_username">Felhasználónév</string>
+    <string name="storage_edit_webdav_server_username_error_empty">Adjon meg egy felhasználónevet</string>
+    <string name="storage_edit_webdav_server_password">Jelszó</string>
+    <string name="storage_edit_webdav_server_access_token">Hozzáférési token</string>
+    <string name="storage_edit_webdav_server_access_token_error_empty">Adjon meg egy hozzáférési tokent</string>
+    <string name="storage_edit_webdav_server_connect_and_add">Kapcsolódás és hozzáadás</string>
+    <string name="storage_edit_webdav_server_add">Hozzáadás</string>
+
+    <string name="save_as_title">Mentés másként</string>
+    <string name="save_as_error">Hiba a fájl mentésekor</string>
+    <string name="save_as_success_format">A(z) „%1$s” mentve ide: „%2$s”</string>
+    <string name="ftp_server_add_tile_result_added">Az „FTP-kiszolgáló” hozzáadva a gyorsbeállításokhoz</string>
+    <string name="ftp_server_add_tile_result_already_added">Az „FTP-kiszolgáló” már hozzá van adva a gyorsbeállításokhoz</string>
+    <string name="ftp_server_add_tile_result_error">Hiba az „FTP-kiszolgáló” gyorsbeállításokhoz adásakor</string>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">PDF-dokumentumok bélyegképeinek megjelenítése</string>
+
+    <string name="navigation_global_search">Globális keresés</string>
+    <string name="global_search_hint">Keresés az indexelt fájlokban</string>
+    <string name="global_search_prompt">Írjon be egy fájl- vagy mappanevet</string>
+    <string name="global_search_no_results">Nincsenek egyező fájlok</string>
+    <string name="global_search_index_empty">Az index üres. Állítsa be az indexelést, majd indítson vizsgálatot.</string>
+    <string name="global_search_configure_index">Indexelés beállítása</string>
+    <string name="global_search_error_format">A keresés sikertelen: %1$s</string>
+    <string name="global_search_action_error_format">A művelet nem hajtható végre: %1$s</string>
+    <string name="global_search_directory_metadata_format">Mappa • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_more_actions">További műveletek</string>
+    <string name="global_search_action_open">Megnyitás</string>
+    <string name="global_search_action_show_in_folder">Megjelenítés a mappában</string>
+    <string name="global_search_action_share">Megosztás</string>
+    <string name="global_search_sort_title">Rendezés</string>
+    <string name="global_search_sort_relevance">Relevancia</string>
+    <string name="global_search_sort_name_ascending">Név (A–Z)</string>
+    <string name="global_search_sort_name_descending">Név (Z–A)</string>
+    <string name="global_search_sort_size_ascending">Méret (legkisebb elöl)</string>
+    <string name="global_search_sort_size_descending">Méret (legnagyobb elöl)</string>
+    <string name="global_search_sort_modified_ascending">Módosítás (legrégebbi elöl)</string>
+    <string name="global_search_sort_modified_descending">Módosítás (legújabb elöl)</string>
+    <string name="global_search_index_status_error">Az index állapota nem érhető el • Koppintson az újrapróbálkozáshoz</string>
+    <string name="global_search_index_not_configured">Az indexelés nincs beállítva • Koppintson a beállításhoz</string>
+    <string name="global_search_index_running_format">Indexelés: %1$s • %2$,d bejegyzés</string>
+    <string name="global_search_index_paused_format">Az indexelés szünetel • %1$,d bejegyzés</string>
+    <string name="global_search_index_ready_format">%1$,d indexelt bejegyzés • Frissítve: %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d indexelt bejegyzés • Koppintson a beállításhoz</string>
+
+    <string name="settings_indexing_title">Keresési index</string>
+    <string name="settings_indexing_summary">Indexelt helyek, kizárások és a vizsgálat vezérlése</string>
+    <string name="indexing_settings_title">Keresési indexelés</string>
+    <string name="indexing_status_category">Index állapota</string>
+    <string name="indexing_controls_category">Vizsgálat vezérlése</string>
+    <string name="indexing_roots_category">Indexelt helyek</string>
+    <string name="indexing_exclusions_category">Kizárt helyek</string>
+    <string name="indexing_status_loading">Az index állapotának betöltése…</string>
+    <string name="indexing_status_error">Az index állapota nem olvasható</string>
+    <string name="indexing_status_empty">Még nincsenek indexelt bejegyzések</string>
+    <string name="indexing_status_format">%1$,d bejegyzés (%2$,d fájl, %3$,d mappa) • %4$s</string>
+    <string name="indexing_statistics_details_title">Index részletei</string>
+    <string name="indexing_statistics_coverage_format">%1$,d/%2$,d hely engedélyezve • %3$,d egyéni kizárás</string>
+    <string name="indexing_statistics_entries_format">%1$,d root-bejegyzés • %2$,d rejtett • %3$,d szimbolikus hivatkozás</string>
+    <string name="indexing_statistics_storage_format">Indexadatbázis: %1$s</string>
+    <string name="indexing_status_last_update_format">Utolsó frissítés: %1$s</string>
+    <string name="indexing_scan_status_format">Vizsgálat: %1$s</string>
+    <string name="indexing_scan_never_run">még nem futott</string>
+    <string name="indexing_scan_running">folyamatban</string>
+    <string name="indexing_scan_paused">szünetel</string>
+    <string name="indexing_scan_completed">befejeződött</string>
+    <string name="indexing_scan_completed_with_errors">hibákkal fejeződött be</string>
+    <string name="indexing_scan_failed">sikertelen</string>
+    <string name="indexing_scan_cancelled">megszakítva</string>
+    <string name="indexing_start_full_scan">Teljes vizsgálat indítása</string>
+    <string name="indexing_start_full_scan_summary">Az index újraépítése az összes engedélyezett helyhez</string>
+    <string name="indexing_pause_scan">Vizsgálat szüneteltetése</string>
+    <string name="indexing_resume_scan">Vizsgálat folytatása</string>
+    <string name="indexing_cancel_scan">Vizsgálat megszakítása</string>
+    <string name="indexing_add_root">Indexelt hely hozzáadása</string>
+    <string name="indexing_add_exclusion">Kizárás hozzáadása</string>
+    <string name="indexing_no_roots">Nincsenek beállított helyek</string>
+    <string name="indexing_no_exclusions">Nincsenek egyéni kizárt helyek</string>
+    <string name="indexing_built_in_exclusion">Beépített biztonsági kizárás</string>
+    <string name="indexing_no_enabled_roots">Előbb engedélyezzen legalább egy indexelt helyet</string>
+    <string name="indexing_operation_error_format">Az indexelési művelet sikertelen: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Az indexelés a befejezés előtt megszakadt</string>
+    <string name="indexing_diagnostic_root_not_found_format">Az indexgyökér nem található: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Egyes bejegyzések nem olvashatók</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d helyreállítható hiba)</item>
+        <item quantity="other">%1$s (%2$,d helyreállítható hiba)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Az indexgyökér le van tiltva: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Minden növekményes elérési útnak ezen a gyökéren belül kell lennie: %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">A hozzáférési mód nem módosítható a hely vizsgálata közben</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Minden indexelt helynek ugyanazt a hozzáférési módot kell használnia; %1$s módja: %2$s</string>
+    <string name="indexing_root_add_title">Indexelt hely hozzáadása</string>
+    <string name="indexing_root_edit_title">Indexelt hely szerkesztése</string>
+    <string name="indexing_default_internal_storage">Belső tárhely</string>
+    <string name="indexing_root_name_hint">Megjelenített név</string>
+    <string name="indexing_root_path_hint">Abszolút útvonal</string>
+    <string name="indexing_root_access_mode">Hozzáférési mód (automatikusan kiválasztva)</string>
+    <string name="indexing_root_enabled">A hely indexelése</string>
+    <string name="indexing_root_include_hidden">Rejtett fájlok belefoglalása</string>
+    <string name="indexing_root_follow_symlinks">Szimbolikus hivatkozások követése</string>
+    <string name="indexing_root_path_locked">Az útvonal a hely létrehozása után nem módosítható</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">normál</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">engedélyezve</string>
+    <string name="indexing_disabled">letiltva</string>
+    <string name="indexing_delete_root">Hely eltávolítása</string>
+    <string name="indexing_delete_root_confirmation">Eltávolítja a(z) „%1$s” helyet és az indexelt bejegyzéseit?</string>
+
+    <string name="indexing_exclusion_add_title">Kizárt hely hozzáadása</string>
+    <string name="indexing_exclusion_path_hint">Kizárt abszolút útvonal</string>
+    <string name="indexing_exclusion_scope">Alkalmazás erre</string>
+    <string name="indexing_exclusion_all_roots">Minden indexelt hely</string>
+    <string name="indexing_exclusion_summary_all">Minden indexelt hely</string>
+    <string name="indexing_exclusion_summary_root_format">Csak %1$s</string>
+    <string name="indexing_delete_exclusion_title">Kizárás eltávolítása</string>
+    <string name="indexing_delete_exclusion_confirmation">Megszünteti a(z) „%1$s” kizárását?</string>
+    <string name="indexing_field_required">Kötelező</string>
+    <string name="indexing_invalid_absolute_path">Adjon meg érvényes abszolút útvonalat</string>
+    <string name="indexing_root_requires_root_error">A fájlrendszer gyökere csak akkor indexelhető, ha elérhető az automatikus root vizsgálat</string>
+    <string name="indexing_protected_path_error">Ez a virtuális rendszerútvonal biztonsági okokból mindig ki van zárva</string>
+    <string name="indexing_overlapping_root_error">Ez a hely átfedésben van egy meglévő indexelt hellyel</string>
+    <string name="indexing_protected_exclusion_exists">Ezt az útvonalat a beépített biztonsági szabályzat már kizárja</string>
+    <string name="indexing_exclusion_outside_root">A kizárásnak a kiválasztott indexelt helyen belül kell lennie</string>
+    <string name="indexing_save">Mentés</string>
+    <string name="indexing_remove">Eltávolítás</string>
+
+    <string name="initial_indexing_root_offer_title">Hozzáadja a gyökérkönyvtárat az indexhez?</string>
+    <string name="initial_indexing_root_offer_message">A belső megosztott tárhely mindig indexelve van. Root hozzáférés észlelve. Hozzáadja a / helyet is, és mindkét helyet emelt szintű hozzáféréssel indexeli?</string>
+    <string name="initial_indexing_root_offer_accept">A / hozzáadása</string>
+    <string name="initial_indexing_root_offer_decline">A / nélkül</string>
+    <string name="initial_indexing_root_error_format">A root indexelés nem indítható el: %1$s</string>
+    <string name="initial_indexing_setup_error">Az automatikus indexelés nem indítható el. A BlitzFiles később újra megpróbálja.</string>
+
+    <string name="about_description">A Material Files alapján készült gyors fájlkezelő.</string>
+    <string name="about_upstream_source_title">A Material Files forráskódja</string>
+    <string name="about_upstream_author_title">A Material Files eredeti szerzője</string>
     <string name="about_title">Névjegy</string>
     <string name="about_version_title">Verzió</string>
     <string name="about_github_title">Megtekintés a GitHubon</string>

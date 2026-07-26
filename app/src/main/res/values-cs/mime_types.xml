@@ -19,7 +19,7 @@
     <string name="file_type_name_ebook">%1$s e-kniha</string>
     <string name="file_type_name_email">%1$s e-mailová zpráva</string>
     <string name="file_type_name_font">%1$s font</string>
-    <string name="file_type_name_generic">%1$s soubor </string>
+    <string name="file_type_name_generic">%1$s soubor</string>
     <string name="file_type_name_image">%1$s obrázek</string>
     <string name="file_type_name_pdf">Dokument PDF</string>
     <string name="file_type_name_presentation">%1$s prezentace</string>

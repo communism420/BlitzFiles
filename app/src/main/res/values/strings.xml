@@ -880,6 +880,17 @@
     <string name="indexing_built_in_exclusion">Built-in safety exclusion</string>
     <string name="indexing_no_enabled_roots">Enable at least one indexed location first</string>
     <string name="indexing_operation_error_format">Indexing operation failed: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Indexing was interrupted before completion</string>
+    <string name="indexing_diagnostic_root_not_found_format">Index root was not found: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Some entries could not be read</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d recoverable error)</item>
+        <item quantity="other">%1$s (%2$,d recoverable errors)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Index root is disabled: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Every incremental path must be inside root %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">Access mode cannot be changed while this location is being scanned</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Every indexed location must use the same access mode; %1$s uses %2$s</string>
     <string name="indexing_root_add_title">Add indexed location</string>
     <string name="indexing_root_edit_title">Edit indexed location</string>
     <string name="indexing_default_internal_storage">Internal storage</string>
@@ -922,9 +933,9 @@
     <string name="initial_indexing_setup_error">Automatic indexing could not be started. BlitzFiles will try again later.</string>
 
     <string name="about_title">About</string>
-    <string name="about_description" translatable="false">A fast file manager based on Material Files.</string>
-    <string name="about_upstream_source_title" translatable="false">Material Files source code</string>
-    <string name="about_upstream_author_title" translatable="false">Original Material Files author</string>
+    <string name="about_description">A fast file manager based on Material Files.</string>
+    <string name="about_upstream_source_title">Material Files source code</string>
+    <string name="about_upstream_author_title">Original Material Files author</string>
     <string name="about_version_title">Version</string>
     <string name="about_github_title">View on GitHub</string>
     <string name="about_licenses_title">Licenses</string>

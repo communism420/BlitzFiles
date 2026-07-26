@@ -80,6 +80,7 @@ import com.blitzfiles.app.indexing.FileIndexingProgress
 import com.blitzfiles.app.indexing.FileIndexingProgressStore
 import com.blitzfiles.app.indexing.FileIndexingStorageAccess
 import com.blitzfiles.app.indexing.InitialIndexingCoordinator
+import com.blitzfiles.app.indexing.localizeIndexingDiagnosticMessage
 import com.blitzfiles.app.indexingsettings.IndexingSettingsActivity
 import com.blitzfiles.app.navigation.BookmarkDirectories
 import com.blitzfiles.app.navigation.BookmarkDirectory
@@ -450,7 +451,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             )
             is FileIndexingProgress.Failed -> Triple(
                 getString(R.string.file_indexing_banner_failed),
-                progress.message,
+                requireContext().localizeIndexingDiagnosticMessage(progress.message),
                 false
             )
         }

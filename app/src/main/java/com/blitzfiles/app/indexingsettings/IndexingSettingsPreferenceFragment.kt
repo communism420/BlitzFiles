@@ -22,6 +22,7 @@ import com.blitzfiles.app.file.formatShort
 import com.blitzfiles.app.indexing.FileIndexingController
 import com.blitzfiles.app.indexing.InitialIndexingCoordinator
 import com.blitzfiles.app.indexing.IndexRootAccessPolicy
+import com.blitzfiles.app.indexing.localizeIndexingDiagnosticMessage
 import com.blitzfiles.app.ui.PreferenceFragmentCompat
 import com.blitzfiles.app.util.hideTextInputLayoutErrorOnTextChange
 import com.blitzfiles.app.util.layoutInflater
@@ -311,7 +312,9 @@ class IndexingSettingsPreferenceFragment : PreferenceFragmentCompat() {
                             R.string.indexing_scan_status_format,
                             getScanStatusText(root.lastScanStatus)
                         ),
-                        root.lastScanError?.take(MAX_DISPLAYED_ERROR_LENGTH)
+                        root.lastScanError
+                            ?.let { context.localizeIndexingDiagnosticMessage(it) }
+                            ?.take(MAX_DISPLAYED_ERROR_LENGTH)
                     ).joinToString(separator = "\n")
                     isEnabled = !operationInProgress && !scanActive
                     setOnPreferenceClickListener {
@@ -649,10 +652,12 @@ class IndexingSettingsPreferenceFragment : PreferenceFragmentCompat() {
     }
 
     private fun showOperationError(error: Throwable) {
+        val rawMessage = error.message?.takeIf(String::isNotBlank)
+            ?: error.javaClass.simpleName
         showToast(
             getString(
                 R.string.indexing_operation_error_format,
-                error.message?.takeIf(String::isNotBlank) ?: error.javaClass.simpleName
+                requireContext().localizeIndexingDiagnosticMessage(rawMessage)
             )
         )
     }

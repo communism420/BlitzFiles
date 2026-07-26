@@ -36,6 +36,9 @@ class AboutFragment : Fragment() {
         activity.setSupportActionBar(binding.toolbar)
         activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         binding.gitHubLayout.setOnClickListener {
+            startActivitySafe(BLITZFILES_SOURCE_URI.createViewIntent())
+        }
+        binding.upstreamGitHubLayout.setOnClickListener {
             startActivitySafe(UPSTREAM_SOURCE_URI.createViewIntent())
         }
         binding.licensesLayout.setOnClickListener { LicensesDialogFragment.show(this) }
@@ -51,6 +54,8 @@ class AboutFragment : Fragment() {
     }
 
     companion object {
+        private val BLITZFILES_SOURCE_URI =
+            Uri.parse("https://github.com/communism420/BlitzFiles")
         private val UPSTREAM_SOURCE_URI = Uri.parse("https://github.com/zhanghai/MaterialFiles")
         private val AUTHOR_RESUME_URI = Uri.parse("https://resume.zhanghai.me/")
         private val AUTHOR_GITHUB_URI = Uri.parse("https://github.com/zhanghai")

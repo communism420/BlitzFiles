@@ -56,7 +56,7 @@
         <item quantity="other">%1$,d byte</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">Aplikasi membutuhkan izin untuk mengelola semua berkas. Silakan izinkan akses di dalam pengaturan sistem berikut.</string>
+    <string name="all_files_access_rationale_message">Agar dapat memindai dan mengindeks semua berkas yang tersedia, BlitzFiles memerlukan izin “Akses semua berkas”. Ketuk “OK”, lalu izinkan akses di pengaturan sistem. Pemindaian tidak akan dimulai sebelum izin diberikan.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">Apl membutuhkan izin untuk mengakses berkas. Silakan klik \"IZINKAN\" pada dialog berikutnya</string>
     <string name="storage_permission_permanently_denied_message">Apl membutuhkan izin untuk mengakses berkas. Aktifkan izin \"Penyimpanan\" di dalam pengaturan sistem.</string>
@@ -548,6 +548,235 @@
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Mungkin membuat apl tidak stabil pada versi Android lama</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Baca berkas remote untuk thumbnail</string>
 
+    <string name="file_list_title_create_file">Simpan berkas</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="other">Pilih berkas</item>
+    </plurals>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="other">Pilih folder</item>
+    </plurals>
+    <string name="file_list_create_file_name_hint">Nama berkas</string>
+    <string name="file_list_open_current_directory_format">Pilih “%1$s”</string>
+    <string name="file_replace_message_format">Ganti “%1$s”?</string>
+    <string name="file_properties_permission">Izin</string>
+    <string name="file_properties_permission_owner">Pemilik</string>
+    <string name="file_properties_permission_group">Grup</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">Ubah pemilik</string>
+    <string name="file_properties_permission_set_group_title">Ubah grup</string>
+    <string name="file_properties_permission_set_principal_filter_hint">Masukkan nama atau ID</string>
+    <string name="file_properties_permission_set_principal_system">Sistem</string>
+    <string name="file_properties_permission_mode">Mode</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">Ubah mode</string>
+    <string name="file_properties_permission_set_mode_others">Lainnya</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>Baca</item>
+        <item>Tulis</item>
+        <item>Eksekusi</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>Baca</item>
+        <item>Tulis</item>
+        <item>Cari</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">Khusus</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>Set UID</item>
+        <item>Set GID</item>
+        <item>Sticky bit</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Jangan tambahkan “Eksekusi” untuk berkas di dalamnya</string>
+    <string name="file_properties_permission_selinux_context">Konteks SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_title">Ubah konteks SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_restore">Pulihkan</string>
+    <string name="file_properties_permission_recursive">Terapkan ke berkas di dalamnya</string>
+    <string name="file_properties_checksum">Checksum</string>
+    <string name="file_properties_checksum_compare">Bandingkan</string>
+    <string name="file_properties_checksum_compare_placeholder">Checksum apa pun</string>
+    <string name="file_properties_checksum_compare_match_format">Cocok dengan checksum %1$s</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Cocok dengan awalan checksum %1$s</string>
+    <string name="file_properties_checksum_compare_no_match">Tidak ditemukan checksum yang cocok</string>
+    <string name="storage_add_external_storage_shortcut_title">Tambahkan pintasan penyimpanan eksternal</string>
+    <string name="storage_edit_external_storage_shortcut_title">Edit pintasan penyimpanan eksternal</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Volume penyimpanan</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Masukkan volume penyimpanan</string>
+    <string name="storage_edit_external_storage_shortcut_path">Jalur</string>
+    <string name="storage_add_storage_webdav_server">Server WebDAV</string>
+    <string name="storage_edit_webdav_server_title_edit">Edit server WebDAV</string>
+    <string name="storage_edit_webdav_server_title_add">Tambahkan server WebDAV</string>
+    <string name="storage_edit_webdav_server_host">Nama host</string>
+    <string name="storage_edit_webdav_server_host_error_empty">Masukkan nama host</string>
+    <string name="storage_edit_webdav_server_host_error_invalid">Nama host tidak valid</string>
+    <string name="storage_edit_webdav_server_port">Port</string>
+    <string name="storage_edit_webdav_server_port_error_invalid">Port tidak valid</string>
+    <string name="storage_edit_webdav_server_path">Jalur</string>
+    <string name="storage_edit_webdav_server_path_placeholder">Boleh dikosongkan</string>
+    <string name="storage_edit_webdav_server_name">Nama</string>
+    <string name="storage_edit_webdav_server_name_placeholder">Gunakan nama host</string>
+    <string name="storage_edit_webdav_server_protocol">Protokol</string>
+    <string name="storage_edit_webdav_server_authentication_type">Autentikasi</string>
+    <string-array name="storage_edit_webdav_server_authentication_type_entries">
+        <item>Kata sandi</item>
+        <item>Token akses</item>
+        <item>Tidak ada</item>
+    </string-array>
+    <string name="storage_edit_webdav_server_username">Nama pengguna</string>
+    <string name="storage_edit_webdav_server_username_error_empty">Masukkan nama pengguna</string>
+    <string name="storage_edit_webdav_server_password">Kata sandi</string>
+    <string name="storage_edit_webdav_server_access_token">Token akses</string>
+    <string name="storage_edit_webdav_server_access_token_error_empty">Masukkan token akses</string>
+    <string name="storage_edit_webdav_server_connect_and_add">Hubungkan dan tambahkan</string>
+    <string name="storage_edit_webdav_server_add">Tambahkan</string>
+    <string name="save_as_title">Simpan sebagai</string>
+    <string name="save_as_error">Terjadi kesalahan saat menyimpan berkas</string>
+    <string name="save_as_success_format">“%1$s” telah disimpan ke “%2$s”</string>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">Tampilkan thumbnail dokumen PDF</string>
+
+    <string name="all_files_access_rationale_title">Izin pengindeksan berkas</string>
+    <string name="notification_channel_file_indexing_name">Pengindeksan berkas</string>
+    <string name="notification_channel_file_indexing_description">Tampilkan dan kelola progres pengindeksan berkas</string>
+    <string name="file_indexing_notification_title">Mengindeks berkas</string>
+    <string name="file_indexing_notification_preparing">Menyiapkan indeks…</string>
+    <string name="file_indexing_notification_progress_format">%1$,d entri telah diindeks</string>
+    <string name="file_indexing_notification_paused_format">Dijeda setelah memproses %1$,d entri</string>
+    <string name="file_indexing_notification_completed_format">%1$,d entri telah diindeks</string>
+    <string name="file_indexing_notification_completed_with_errors_format">%1$,d entri telah diindeks dengan kesalahan akses</string>
+    <string name="file_indexing_notification_cancelled">Pengindeksan dibatalkan</string>
+    <string name="file_indexing_notification_failed">Pengindeksan gagal</string>
+    <string name="file_indexing_action_pause">Jeda</string>
+    <string name="file_indexing_action_resume">Lanjutkan</string>
+    <string name="file_indexing_banner_scheduled">Pemindaian penuh dan pengindeksan dimulai</string>
+    <string name="file_indexing_banner_preparing">Menyiapkan pemindaian perangkat penuh…</string>
+    <string name="file_indexing_banner_running_format">Memindai dan mengindeks · %1$,d entri</string>
+    <string name="file_indexing_banner_paused_format">Pengindeksan dijeda · %1$,d entri</string>
+    <string name="file_indexing_banner_completed_format">Pengindeksan selesai · %1$,d entri</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Pengindeksan selesai · %1$,d entri · %2$,d kesalahan akses</string>
+    <string name="file_indexing_banner_cancelled_format">Pengindeksan dibatalkan · %1$,d entri</string>
+    <string name="file_indexing_banner_failed">Pengindeksan gagal</string>
+    <string name="file_indexing_banner_details_hint">Ketuk untuk melihat detail pengindeksan</string>
+    <string name="indexing_all_files_access_required">Berikan izin “Akses semua berkas” sebelum memulai atau melanjutkan pengindeksan</string>
+    <string name="file_list_search_result_limit_format">Menampilkan %1$d hasil pertama yang cocok; persempit pencarian Anda</string>
+
+    <string name="navigation_global_search">Pencarian global</string>
+    <string name="global_search_hint">Cari berkas yang diindeks</string>
+    <string name="global_search_prompt">Masukkan nama berkas atau folder</string>
+    <string name="global_search_no_results">Tidak ada berkas yang cocok</string>
+    <string name="global_search_index_empty">Indeks kosong. Konfigurasikan pengindeksan lalu jalankan pemindaian terlebih dahulu.</string>
+    <string name="global_search_configure_index">Konfigurasikan pengindeksan</string>
+    <string name="global_search_error_format">Pencarian gagal: %1$s</string>
+    <string name="global_search_action_error_format">Tidak dapat menyelesaikan tindakan: %1$s</string>
+    <string name="global_search_directory_metadata_format">Folder · %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s · %2$s</string>
+    <string name="global_search_more_actions">Tindakan lainnya</string>
+    <string name="global_search_action_open">Buka</string>
+    <string name="global_search_action_show_in_folder">Tampilkan di folder</string>
+    <string name="global_search_action_share">Bagikan</string>
+    <string name="global_search_sort_title">Urutkan</string>
+    <string name="global_search_sort_relevance">Relevansi</string>
+    <string name="global_search_sort_name_ascending">Nama (menaik)</string>
+    <string name="global_search_sort_name_descending">Nama (menurun)</string>
+    <string name="global_search_sort_size_ascending">Ukuran (terkecil lebih dahulu)</string>
+    <string name="global_search_sort_size_descending">Ukuran (terbesar lebih dahulu)</string>
+    <string name="global_search_sort_modified_ascending">Diubah (terlama lebih dahulu)</string>
+    <string name="global_search_sort_modified_descending">Diubah (terbaru lebih dahulu)</string>
+    <string name="global_search_index_status_error">Status indeks tidak tersedia · Ketuk untuk mencoba lagi</string>
+    <string name="global_search_index_not_configured">Pengindeksan belum dikonfigurasi · Ketuk untuk mengonfigurasi</string>
+    <string name="global_search_index_running_format">Mengindeks %1$s · %2$,d entri</string>
+    <string name="global_search_index_paused_format">Pengindeksan dijeda · %1$,d entri</string>
+    <string name="global_search_index_ready_format">%1$,d entri telah diindeks · Diperbarui %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d entri telah diindeks · Ketuk untuk mengonfigurasi</string>
+
+    <string name="settings_indexing_title">Indeks pencarian</string>
+    <string name="settings_indexing_summary">Lokasi yang diindeks, pengecualian, dan kontrol pemindaian</string>
+    <string name="indexing_settings_title">Pengindeksan pencarian</string>
+    <string name="indexing_status_category">Status indeks</string>
+    <string name="indexing_controls_category">Kontrol pemindaian</string>
+    <string name="indexing_roots_category">Lokasi yang diindeks</string>
+    <string name="indexing_exclusions_category">Lokasi yang dikecualikan</string>
+    <string name="indexing_status_loading">Memuat status indeks…</string>
+    <string name="indexing_status_error">Tidak dapat membaca status indeks</string>
+    <string name="indexing_status_empty">Belum ada entri yang diindeks</string>
+    <string name="indexing_status_format">%1$,d entri (%2$,d berkas, %3$,d folder) · %4$s</string>
+    <string name="indexing_statistics_details_title">Detail indeks</string>
+    <string name="indexing_statistics_coverage_format">%1$,d dari %2$,d lokasi diaktifkan · %3$,d pengecualian khusus</string>
+    <string name="indexing_statistics_entries_format">%1$,d entri memerlukan root · %2$,d tersembunyi · %3$,d tautan simbolis</string>
+    <string name="indexing_statistics_storage_format">Basis data indeks: %1$s</string>
+    <string name="indexing_status_last_update_format">Pembaruan terakhir: %1$s</string>
+    <string name="indexing_scan_status_format">Pemindaian: %1$s</string>
+    <string name="indexing_scan_never_run">belum pernah dijalankan</string>
+    <string name="indexing_scan_running">berjalan</string>
+    <string name="indexing_scan_paused">dijeda</string>
+    <string name="indexing_scan_completed">selesai</string>
+    <string name="indexing_scan_completed_with_errors">selesai dengan kesalahan</string>
+    <string name="indexing_scan_failed">gagal</string>
+    <string name="indexing_scan_cancelled">dibatalkan</string>
+    <string name="indexing_start_full_scan">Mulai pemindaian penuh</string>
+    <string name="indexing_start_full_scan_summary">Bangun ulang indeks untuk semua lokasi yang diaktifkan</string>
+    <string name="indexing_pause_scan">Jeda pemindaian</string>
+    <string name="indexing_resume_scan">Lanjutkan pemindaian</string>
+    <string name="indexing_cancel_scan">Batalkan pemindaian</string>
+    <string name="indexing_add_root">Tambahkan lokasi yang diindeks</string>
+    <string name="indexing_add_exclusion">Tambahkan pengecualian</string>
+    <string name="indexing_no_roots">Belum ada lokasi yang dikonfigurasi</string>
+    <string name="indexing_no_exclusions">Tidak ada lokasi khusus yang dikecualikan</string>
+    <string name="indexing_built_in_exclusion">Pengecualian keamanan bawaan</string>
+    <string name="indexing_no_enabled_roots">Aktifkan setidaknya satu lokasi yang diindeks terlebih dahulu</string>
+    <string name="indexing_operation_error_format">Operasi pengindeksan gagal: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Pengindeksan terhenti sebelum selesai</string>
+    <string name="indexing_diagnostic_root_not_found_format">Root indeks tidak ditemukan: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Beberapa entri tidak dapat dibaca</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="other">%1$s (%2$,d kesalahan yang dapat dipulihkan)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Root indeks dinonaktifkan: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Setiap jalur inkremental harus berada di dalam root %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">Mode akses tidak dapat diubah saat lokasi ini sedang dipindai</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Semua lokasi yang diindeks harus menggunakan mode akses yang sama; %1$s menggunakan %2$s</string>
+    <string name="indexing_root_add_title">Tambahkan lokasi yang diindeks</string>
+    <string name="indexing_root_edit_title">Edit lokasi yang diindeks</string>
+    <string name="indexing_default_internal_storage">Penyimpanan internal</string>
+    <string name="indexing_root_name_hint">Nama tampilan</string>
+    <string name="indexing_root_path_hint">Jalur absolut</string>
+    <string name="indexing_root_access_mode">Mode akses (dipilih otomatis)</string>
+    <string name="indexing_root_enabled">Indeks lokasi ini</string>
+    <string name="indexing_root_include_hidden">Sertakan berkas tersembunyi</string>
+    <string name="indexing_root_follow_symlinks">Ikuti tautan simbolis</string>
+    <string name="indexing_root_path_locked">Jalur tidak dapat diubah setelah lokasi dibuat</string>
+    <string name="indexing_root_summary_format">%1$s · %2$s · %3$s</string>
+    <string name="indexing_access_standard">normal</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">diaktifkan</string>
+    <string name="indexing_disabled">dinonaktifkan</string>
+    <string name="indexing_delete_root">Hapus lokasi</string>
+    <string name="indexing_delete_root_confirmation">Hapus “%1$s” dan entri indeksnya?</string>
+    <string name="indexing_exclusion_add_title">Tambahkan lokasi yang dikecualikan</string>
+    <string name="indexing_exclusion_path_hint">Jalur absolut yang dikecualikan</string>
+    <string name="indexing_exclusion_scope">Terapkan ke</string>
+    <string name="indexing_exclusion_all_roots">Semua lokasi yang diindeks</string>
+    <string name="indexing_exclusion_summary_all">Semua lokasi yang diindeks</string>
+    <string name="indexing_exclusion_summary_root_format">Hanya %1$s</string>
+    <string name="indexing_delete_exclusion_title">Hapus pengecualian</string>
+    <string name="indexing_delete_exclusion_confirmation">Berhenti mengecualikan “%1$s”?</string>
+    <string name="indexing_field_required">Wajib</string>
+    <string name="indexing_invalid_absolute_path">Masukkan jalur absolut yang valid</string>
+    <string name="indexing_root_requires_root_error">Root sistem berkas hanya dapat diindeks saat pemindaian root otomatis tersedia</string>
+    <string name="indexing_protected_path_error">Jalur sistem virtual ini selalu dikecualikan demi keamanan</string>
+    <string name="indexing_overlapping_root_error">Lokasi ini tumpang tindih dengan lokasi yang sudah diindeks</string>
+    <string name="indexing_protected_exclusion_exists">Jalur ini sudah dikecualikan oleh kebijakan keamanan bawaan</string>
+    <string name="indexing_exclusion_outside_root">Lokasi yang dikecualikan harus berada di dalam lokasi yang dipilih</string>
+    <string name="indexing_save">Simpan</string>
+    <string name="indexing_remove">Hapus</string>
+    <string name="initial_indexing_root_offer_title">Tambahkan direktori root ke indeks?</string>
+    <string name="initial_indexing_root_offer_message">Penyimpanan internal bersama selalu diindeks. Akses root terdeteksi. Tambahkan juga / dan indeks kedua lokasi dengan akses istimewa?</string>
+    <string name="initial_indexing_root_offer_accept">Tambahkan /</string>
+    <string name="initial_indexing_root_offer_decline">Jangan tambahkan /</string>
+    <string name="initial_indexing_root_error_format">Pengindeksan root tidak dapat dimulai: %1$s</string>
+    <string name="initial_indexing_setup_error">Pengindeksan otomatis tidak dapat dimulai. BlitzFiles akan mencoba lagi nanti.</string>
+
+    <string name="about_description">Pengelola berkas cepat berbasis Material Files.</string>
+    <string name="about_upstream_source_title">Kode sumber Material Files</string>
+    <string name="about_upstream_author_title">Pengembang asli Material Files</string>
     <string name="about_title">Tentang</string>
     <string name="about_version_title">Versi</string>
     <string name="about_github_title">Lihat di GitHub</string>

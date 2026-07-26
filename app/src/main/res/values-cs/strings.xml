@@ -59,7 +59,8 @@
         <item quantity="other">%1$,d bytů</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">Aplikace potřebuje přístup k práci se soubory. Povolte přístup v dalším systémovém dialogu, prosím.</string>
+    <string name="all_files_access_rationale_title">Přístup k indexování souborů</string>
+    <string name="all_files_access_rationale_message">Aby mohl BlitzFiles úspěšně prohledat a indexovat všechny dostupné soubory, potřebuje oprávnění „Spravovat všechny soubory“. Klepněte na „OK“ a poté povolte přístup v nastavení systému. Dokud přístup neudělíte, žádné prohledávání se nespustí.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">Aplikace vyžaduje povolení přístupu k souborům. V dalším dialogu klikněte na \"POVOLIT\", prosím.</string>
     <string name="storage_permission_permanently_denied_message">Aplikace potřebuje povolení přístupu k souborům. Prosím udělte povolení \"Úložiště\" v nastavení.</string>
@@ -71,8 +72,31 @@
     <string name="notification_channel_background_activity_start_description">Podnikněte kroky, když aplikace běžela na pozadí</string>
     <string name="notification_channel_file_job_name">Operace se souborem</string>
     <string name="notification_channel_file_job_description">Zobrazit a ovládat operace se souborem</string>
+    <string name="notification_channel_file_indexing_name">Indexování souborů</string>
+    <string name="notification_channel_file_indexing_description">Zobrazení a ovládání indexování souborů</string>
     <string name="notification_channel_ftp_server_name">Server FTP</string>
     <string name="notification_channel_ftp_server_description">Zobrazit a kontrolovat FTP server</string>
+
+    <string name="file_indexing_notification_title">Indexování souborů</string>
+    <string name="file_indexing_notification_preparing">Příprava indexu…</string>
+    <string name="file_indexing_notification_progress_format">Indexováno %1$,d položek</string>
+    <string name="file_indexing_notification_paused_format">Pozastaveno po %1$,d položkách</string>
+    <string name="file_indexing_notification_completed_format">Indexováno %1$,d položek</string>
+    <string name="file_indexing_notification_completed_with_errors_format">Indexováno %1$,d položek s chybami přístupu</string>
+    <string name="file_indexing_notification_cancelled">Indexování zrušeno</string>
+    <string name="file_indexing_notification_failed">Indexování selhalo</string>
+    <string name="file_indexing_action_pause">Pozastavit</string>
+    <string name="file_indexing_action_resume">Pokračovat</string>
+    <string name="file_indexing_banner_scheduled">Bylo spuštěno úplné prohledávání a indexování</string>
+    <string name="file_indexing_banner_preparing">Příprava úplného prohledání zařízení…</string>
+    <string name="file_indexing_banner_running_format">Prohledávání a indexování · %1$,d položek</string>
+    <string name="file_indexing_banner_paused_format">Indexování pozastaveno · %1$,d položek</string>
+    <string name="file_indexing_banner_completed_format">Indexování dokončeno · %1$,d položek</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Indexování dokončeno · %1$,d položek · %2$,d chyb přístupu</string>
+    <string name="file_indexing_banner_cancelled_format">Indexování zrušeno · %1$,d položek</string>
+    <string name="file_indexing_banner_failed">Indexování selhalo</string>
+    <string name="file_indexing_banner_details_hint">Klepnutím zobrazíte podrobnosti o indexování</string>
+    <string name="indexing_all_files_access_required">Před zahájením nebo obnovením indexování udělte oprávnění „Spravovat všechny soubory“</string>
 
     <string name="file_action_archive_password_title">Heslo vyžadováno</string>
     <string name="file_action_archive_password_message_format">\"%1$s\" je chráněno heslem.</string>
@@ -311,7 +335,19 @@
     <string name="file_create_directory_title">Nová složka</string>
 
     <string name="file_list_title">Soubory</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="one">Vybrat soubor</item>
+        <item quantity="few">Vybrat soubory</item>
+        <item quantity="many">Vybrat soubory</item>
+        <item quantity="other">Vybrat soubory</item>
+    </plurals>
     <string name="file_list_title_create_file">Uložit soubor</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="one">Vybrat složku</item>
+        <item quantity="few">Vybrat složky</item>
+        <item quantity="many">Vybrat složky</item>
+        <item quantity="other">Vybrat složky</item>
+    </plurals>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">%1$,d složka</item>
         <item quantity="few">%1$,d složky</item>
@@ -325,6 +361,7 @@
         <item quantity="other">%1$,d souborů</item>
     </plurals>
     <string name="file_list_subtitle_separator">,\u0020</string>
+    <string name="file_list_search_result_limit_format">Zobrazeno prvních %1$d výsledků — upřesněte dotaz</string>
     <string name="file_list_path_error_empty">Cesta nemůže být prázná</string>
     <string name="file_list_path_error_invalid">Neplatná cesta</string>
     <string name="file_list_action_view_sort">Zobrazení a seřazení</string>
@@ -346,7 +383,9 @@
     <string name="file_list_action_add_bookmark">Přidat záložku</string>
     <string name="file_list_action_create_shortcut">Vytvořit zástupce</string>
     <string name="file_list_breadcrumb_action_open_in_new_task">Otevřít v novém okně</string>
+    <string name="file_list_select_title_format">%1$,d</string>
     <string name="file_list_create_file_name_hint">Název souboru</string>
+    <string name="file_list_open_current_directory_format">Vybrat „%1$s“</string>
     <string name="file_list_paste_move_title_format">Přesouvání %1$,d</string>
     <string name="file_list_paste_copy_title_format">Kopírování %1$,d</string>
     <string name="file_list_paste_extract_title_format">Rozbalování %1$,d</string>
@@ -385,10 +424,13 @@
     <string name="file_properties_permission">Oprávnění</string>
     <string name="file_properties_permission_owner">Vlastník</string>
     <string name="file_properties_permission_group">Skupina</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
     <string name="file_properties_permission_set_owner_title">Změnit vlastníka</string>
     <string name="file_properties_permission_set_group_title">Změnit skupinu</string>
     <string name="file_properties_permission_set_principal_filter_hint">Zadejte název nebo ID</string>
+    <string name="file_properties_permission_set_principal_system">Systém</string>
     <string name="file_properties_permission_mode">Režim</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
     <string name="file_properties_permission_set_mode_title">Změnit režim</string>
     <string name="file_properties_permission_set_mode_others">Ostatní</string>
     <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
@@ -407,7 +449,11 @@
         <item>Nastavit GID</item>
         <item>Sticky bit</item>
     </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Nepřidávat „Spuštění“ pro vnořené soubory</string>
+    <string name="file_properties_permission_selinux_context">Kontext SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_title">Změnit kontext SELinux</string>
     <string name="file_properties_permission_set_selinux_context_restore">Obnovit</string>
+    <string name="file_properties_permission_recursive">Použít také na vnořené soubory</string>
     <string name="file_properties_image">Obrázek</string>
     <string name="file_properties_media_dimensions">Rozměry</string>
     <string name="file_properties_media_dimensions_format">%1$d \u00d7 %2$d</string>
@@ -467,6 +513,8 @@
     <string name="file_properties_checksum">Kontrolní součty</string>
     <string name="file_properties_checksum_compare">Porovnat</string>
     <string name="file_properties_checksum_compare_placeholder">Jakýkoli kontrolní součet</string>
+    <string name="file_properties_checksum_compare_match_format">Odpovídá kontrolnímu součtu %1$s</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Odpovídá začátku kontrolního součtu %1$s</string>
     <string name="file_properties_checksum_compare_no_match">Žádný odpovídající kontrolní součet</string>
     <string name="storage_file_system_root_title">Root</string>
     <string name="storage_list_title">Úložiště</string>
@@ -480,6 +528,11 @@
     <string name="storage_edit_device_storage_title">Upravit úložiště zařízení</string>
     <string name="storage_edit_device_storage_name">Název</string>
     <string name="storage_edit_device_storage_path">Cesta</string>
+    <string name="storage_add_external_storage_shortcut_title">Přidat zástupce externího úložiště</string>
+    <string name="storage_edit_external_storage_shortcut_title">Upravit zástupce externího úložiště</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Svazek úložiště</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Zadejte svazek úložiště</string>
+    <string name="storage_edit_external_storage_shortcut_path">Cesta</string>
     <string name="storage_add_document_tree_title">Přidat externí úložiště</string>
     <string name="storage_edit_document_tree_title">Upravit externí úložiště</string>
     <string name="storage_edit_document_tree_name">Název</string>
@@ -698,7 +751,129 @@
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Aplikace může být nestabilní na starších verzích systému Android.</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Přečíst vzdálené soubory pro náhled</string>
 
+    <string name="navigation_global_search">Globální hledání</string>
+    <string name="global_search_hint">Hledat v indexovaných souborech</string>
+    <string name="global_search_prompt">Zadejte název souboru nebo složky</string>
+    <string name="global_search_no_results">Nebyly nalezeny žádné odpovídající soubory</string>
+    <string name="global_search_index_empty">Index je prázdný. Nejprve nastavte indexování a spusťte prohledávání.</string>
+    <string name="global_search_configure_index">Nastavit indexování</string>
+    <string name="global_search_error_format">Hledání selhalo: %1$s</string>
+    <string name="global_search_action_error_format">Akci se nepodařilo dokončit: %1$s</string>
+    <string name="global_search_directory_metadata_format">Složka • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_more_actions">Další akce</string>
+    <string name="global_search_action_open">Otevřít</string>
+    <string name="global_search_action_show_in_folder">Zobrazit ve složce</string>
+    <string name="global_search_action_share">Sdílet</string>
+    <string name="global_search_sort_title">Řazení</string>
+    <string name="global_search_sort_relevance">Relevance</string>
+    <string name="global_search_sort_name_ascending">Název (A–Z)</string>
+    <string name="global_search_sort_name_descending">Název (Z–A)</string>
+    <string name="global_search_sort_size_ascending">Velikost (nejmenší první)</string>
+    <string name="global_search_sort_size_descending">Velikost (největší první)</string>
+    <string name="global_search_sort_modified_ascending">Změna (nejstarší první)</string>
+    <string name="global_search_sort_modified_descending">Změna (nejnovější první)</string>
+    <string name="global_search_index_status_error">Stav indexu není k dispozici • Klepnutím to zkuste znovu</string>
+    <string name="global_search_index_not_configured">Indexování není nastaveno • Klepnutím ho nastavíte</string>
+    <string name="global_search_index_running_format">Indexování %1$s • %2$,d položek</string>
+    <string name="global_search_index_paused_format">Indexování pozastaveno • %1$,d položek</string>
+    <string name="global_search_index_ready_format">%1$,d indexovaných položek • Aktualizováno: %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d indexovaných položek • Klepnutím nastavíte</string>
+
+    <string name="settings_indexing_title">Vyhledávací index</string>
+    <string name="settings_indexing_summary">Indexovaná umístění, vyloučení a ovládání prohledávání</string>
+    <string name="indexing_settings_title">Indexování pro hledání</string>
+    <string name="indexing_status_category">Stav indexu</string>
+    <string name="indexing_controls_category">Ovládání prohledávání</string>
+    <string name="indexing_roots_category">Indexovaná umístění</string>
+    <string name="indexing_exclusions_category">Vyloučená umístění</string>
+    <string name="indexing_status_loading">Načítání stavu indexu…</string>
+    <string name="indexing_status_error">Stav indexu se nepodařilo načíst</string>
+    <string name="indexing_status_empty">Zatím nejsou indexovány žádné položky</string>
+    <string name="indexing_status_format">%1$,d položek (%2$,d souborů, %3$,d složek) • %4$s</string>
+    <string name="indexing_statistics_details_title">Podrobnosti indexu</string>
+    <string name="indexing_statistics_coverage_format">Povoleno %1$,d z %2$,d umístění • %3$,d vlastních vyloučení</string>
+    <string name="indexing_statistics_entries_format">%1$,d položek s přístupem root • %2$,d skrytých • %3$,d symbolických odkazů</string>
+    <string name="indexing_statistics_storage_format">Databáze indexu: %1$s</string>
+    <string name="indexing_status_last_update_format">Poslední aktualizace: %1$s</string>
+    <string name="indexing_scan_status_format">Prohledávání: %1$s</string>
+    <string name="indexing_scan_never_run">nikdy nespuštěno</string>
+    <string name="indexing_scan_running">probíhá</string>
+    <string name="indexing_scan_paused">pozastaveno</string>
+    <string name="indexing_scan_completed">dokončeno</string>
+    <string name="indexing_scan_completed_with_errors">dokončeno s chybami</string>
+    <string name="indexing_scan_failed">selhalo</string>
+    <string name="indexing_scan_cancelled">zrušeno</string>
+    <string name="indexing_start_full_scan">Spustit úplné prohledávání</string>
+    <string name="indexing_start_full_scan_summary">Znovu vytvořit index všech povolených umístění</string>
+    <string name="indexing_pause_scan">Pozastavit prohledávání</string>
+    <string name="indexing_resume_scan">Pokračovat v prohledávání</string>
+    <string name="indexing_cancel_scan">Zrušit prohledávání</string>
+    <string name="indexing_add_root">Přidat indexované umístění</string>
+    <string name="indexing_add_exclusion">Přidat vyloučení</string>
+    <string name="indexing_no_roots">Nejsou nastavena žádná umístění</string>
+    <string name="indexing_no_exclusions">Žádná vlastní vyloučená umístění</string>
+    <string name="indexing_built_in_exclusion">Vestavěné bezpečnostní vyloučení</string>
+    <string name="indexing_no_enabled_roots">Nejprve povolte alespoň jedno indexované umístění</string>
+    <string name="indexing_operation_error_format">Operace indexování selhala: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Indexování bylo přerušeno před dokončením</string>
+    <string name="indexing_diagnostic_root_not_found_format">Kořen indexu nebyl nalezen: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Některé položky se nepodařilo přečíst</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d obnovitelná chyba)</item>
+        <item quantity="few">%1$s (%2$,d obnovitelné chyby)</item>
+        <item quantity="many">%1$s (%2$,d obnovitelných chyb)</item>
+        <item quantity="other">%1$s (%2$,d obnovitelných chyb)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Kořen indexu je zakázán: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Každá cesta přírůstkové aktualizace musí být uvnitř kořene %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">Režim přístupu nelze změnit, dokud probíhá prohledávání tohoto umístění</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Všechna indexovaná umístění musí používat stejný režim přístupu; %1$s používá %2$s</string>
+    <string name="indexing_root_add_title">Přidat indexované umístění</string>
+    <string name="indexing_root_edit_title">Upravit indexované umístění</string>
+    <string name="indexing_default_internal_storage">Sdílené interní úložiště</string>
+    <string name="indexing_root_name_hint">Zobrazovaný název</string>
+    <string name="indexing_root_path_hint">Absolutní cesta</string>
+    <string name="indexing_root_access_mode">Režim přístupu (vybrán automaticky)</string>
+    <string name="indexing_root_enabled">Indexovat toto umístění</string>
+    <string name="indexing_root_include_hidden">Zahrnout skryté soubory</string>
+    <string name="indexing_root_follow_symlinks">Následovat symbolické odkazy</string>
+    <string name="indexing_root_path_locked">Po vytvoření umístění nelze cestu změnit</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">běžný</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">povoleno</string>
+    <string name="indexing_disabled">zakázáno</string>
+    <string name="indexing_delete_root">Odstranit umístění</string>
+    <string name="indexing_delete_root_confirmation">Odstranit „%1$s“ a jeho indexované položky?</string>
+    <string name="indexing_exclusion_add_title">Přidat vyloučené umístění</string>
+    <string name="indexing_exclusion_path_hint">Vyloučená absolutní cesta</string>
+    <string name="indexing_exclusion_scope">Použít na</string>
+    <string name="indexing_exclusion_all_roots">Všechna indexovaná umístění</string>
+    <string name="indexing_exclusion_summary_all">Všechna indexovaná umístění</string>
+    <string name="indexing_exclusion_summary_root_format">Pouze %1$s</string>
+    <string name="indexing_delete_exclusion_title">Odstranit vyloučení</string>
+    <string name="indexing_delete_exclusion_confirmation">Přestat vylučovat „%1$s“?</string>
+    <string name="indexing_field_required">Povinné</string>
+    <string name="indexing_invalid_absolute_path">Zadejte platnou absolutní cestu</string>
+    <string name="indexing_root_requires_root_error">Kořen souborového systému lze indexovat pouze v případě, že je k dispozici automatické prohledávání s přístupem root</string>
+    <string name="indexing_protected_path_error">Tato virtuální systémová cesta je z bezpečnostních důvodů vždy vyloučena</string>
+    <string name="indexing_overlapping_root_error">Toto umístění se překrývá s existujícím indexovaným umístěním</string>
+    <string name="indexing_protected_exclusion_exists">Tato cesta je již vyloučena vestavěnými bezpečnostními pravidly</string>
+    <string name="indexing_exclusion_outside_root">Vyloučení musí být uvnitř vybraného indexovaného umístění</string>
+    <string name="indexing_save">Uložit</string>
+    <string name="indexing_remove">Odstranit</string>
+    <string name="initial_indexing_root_offer_title">Přidat kořenový adresář do indexu?</string>
+    <string name="initial_indexing_root_offer_message">Sdílené interní úložiště se indexuje vždy. Byl zjištěn přístup root. Chcete přidat také / a indexovat obě umístění s rozšířenými oprávněními?</string>
+    <string name="initial_indexing_root_offer_accept">Přidat /</string>
+    <string name="initial_indexing_root_offer_decline">Bez /</string>
+    <string name="initial_indexing_root_error_format">Indexování s přístupem root se nepodařilo spustit: %1$s</string>
+    <string name="initial_indexing_setup_error">Automatické indexování se nepodařilo spustit. BlitzFiles to zkusí znovu později.</string>
+
     <string name="about_title">O aplikaci</string>
+    <string name="about_description">Rychlý správce souborů založený na Material Files.</string>
+    <string name="about_upstream_source_title">Zdrojový kód Material Files</string>
+    <string name="about_upstream_author_title">Původní autor Material Files</string>
     <string name="about_version_title">Verze</string>
     <string name="about_github_title">Podívat se na GitHubu</string>
     <string name="about_licenses_title">Licence</string>

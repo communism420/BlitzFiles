@@ -21,28 +21,28 @@
     <string name="error">Eroare</string>
     <string name="hide">Ascunde</string>
     <string name="install">Instalează</string>
-    <string name="keep_editing">Contină editarea</string>
+    <string name="keep_editing">Continuă editarea</string>
     <string name="loading">Se încarcă…</string>
     <string name="maybe_later">Poate mai târziu</string>
-    <string name="merge">Îmbinare</string>
+    <string name="merge">Îmbină</string>
     <string name="none">Niciunul</string>
     <string name="open_navigation_drawer">Deschide sertarul de navigare</string>
     <string name="paste">Lipește</string>
-    <string name="refresh">Reîmprospătare</string>
+    <string name="refresh">Reîmprospătează</string>
     <string name="reload">Reîncarcă</string>
     <string name="remove">Elimină</string>
     <string name="rename">Redenumește</string>
     <string name="replace">Înlocuiește</string>
-    <string name="reset">Resetare</string>
+    <string name="reset">Resetează</string>
     <string name="retry">Reîncearcă</string>
     <string name="save">Salvează</string>
     <string name="search">Caută</string>
-    <string name="select">Seleactează</string>
+    <string name="select">Selectează</string>
     <string name="select_all">Selectează tot</string>
     <string name="share">Partajează</string>
     <string name="show">Arată</string>
     <string name="skip">Omite</string>
-    <string name="stop">Oprire</string>
+    <string name="stop">Oprește</string>
     <string name="system_default">Prestabilit de sistem</string>
     <string name="unknown">Necunoscut</string>
     <string name="view">Vizualizează</string>
@@ -58,7 +58,8 @@
         <item quantity="other">%1$,d de octeți</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">Aplicația are nevoie de acces pentru a gestiona toate fișierele. Permite accesul în setarea de sistem viitoare.</string>
+    <string name="all_files_access_rationale_title">Acces pentru indexarea fișierelor</string>
+    <string name="all_files_access_rationale_message">Pentru a scana și indexa corect toate fișierele disponibile, BlitzFiles are nevoie de permisiunea „Acces la toate fișierele”. Apasă OK, apoi activează accesul în setările sistemului. Scanarea nu va începe până când accesul nu este acordat.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">Aplicația necesită permisiunea de accesare a fișierelor. Apasă pe \"PERMITE\" în căsuța următoare.</string>
     <string name="storage_permission_permanently_denied_message">Aplicația are nevoie de permisiunea de a accesa fișierele. Acordă permisiunea „Stocare” în setările sistemului.</string>
@@ -70,55 +71,78 @@
     <string name="notification_channel_background_activity_start_description">Efectuează acțiuni în timp ce aplicația este în fundal</string>
     <string name="notification_channel_file_job_name">Operațiuni asupra fișierelor</string>
     <string name="notification_channel_file_job_description">Afișează și controlează operațiunile fișierelor</string>
+    <string name="notification_channel_file_indexing_name">Indexarea fișierelor</string>
+    <string name="notification_channel_file_indexing_description">Afișează și controlează indexarea fișierelor</string>
     <string name="notification_channel_ftp_server_name">Server FTP</string>
     <string name="notification_channel_ftp_server_description">Arată și controlează serverul FTP</string>
+
+    <string name="file_indexing_notification_title">Se indexează fișierele</string>
+    <string name="file_indexing_notification_preparing">Se pregătește indexul…</string>
+    <string name="file_indexing_notification_progress_format">%1$,d intrări indexate</string>
+    <string name="file_indexing_notification_paused_format">Indexare întreruptă după %1$,d intrări</string>
+    <string name="file_indexing_notification_completed_format">%1$,d intrări indexate</string>
+    <string name="file_indexing_notification_completed_with_errors_format">%1$,d intrări indexate cu erori de acces</string>
+    <string name="file_indexing_notification_cancelled">Indexare anulată</string>
+    <string name="file_indexing_notification_failed">Indexare eșuată</string>
+    <string name="file_indexing_action_pause">Întrerupe</string>
+    <string name="file_indexing_action_resume">Reia</string>
+    <string name="file_indexing_banner_scheduled">Scanarea completă și indexarea au început</string>
+    <string name="file_indexing_banner_preparing">Se pregătește scanarea completă a dispozitivului…</string>
+    <string name="file_indexing_banner_running_format">Scanare și indexare · %1$,d intrări</string>
+    <string name="file_indexing_banner_paused_format">Indexare întreruptă · %1$,d intrări</string>
+    <string name="file_indexing_banner_completed_format">Indexare finalizată · %1$,d intrări</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Indexare finalizată · %1$,d intrări · %2$,d erori de acces</string>
+    <string name="file_indexing_banner_cancelled_format">Indexare anulată · %1$,d intrări</string>
+    <string name="file_indexing_banner_failed">Indexare eșuată</string>
+    <string name="file_indexing_banner_details_hint">Apasă pentru a vedea detaliile indexării</string>
+    <string name="indexing_all_files_access_required">Acordă permisiunea „Acces la toate fișierele” înainte de a porni sau relua indexarea</string>
 
     <string name="file_action_archive_password_title">Parola este necesară</string>
     <string name="file_action_archive_password_message_format">\"%1$s\" este protejat de o parolă.</string>
     <string name="file_action_archive_password_error_empty">Câmpul parolă nu poate fi gol</string>
 
     <plurals name="file_job_archive_scan_notification_title_format">
-        <item quantity="one">Ss pregătesc de compresie %1$,d fișier (%2$s)</item>
-        <item quantity="few">Ss pregătesc de compresie %1$,d fișiere (%2$s)</item>
-        <item quantity="other">Se pregătesc de comprimare %1$,d de fișiere (%2$s)</item>
+        <item quantity="one">Se pregătește comprimarea: %1$,d fișier (%2$s)</item>
+        <item quantity="few">Se pregătește comprimarea: %1$,d fișiere (%2$s)</item>
+        <item quantity="other">Se pregătește comprimarea: %1$,d de fișiere (%2$s)</item>
     </plurals>
     <string name="file_job_archive_notification_title_one_format">Se comprimă \"%1$s\" în \"%2$s\"</string>
     <plurals name="file_job_archive_notification_title_multiple_format">
-        <item quantity="one">Se comprimă %1$,d fișier în “1%2$s”</item>
-        <item quantity="few">Se comprimă %1$,d fișiere în “1%2$s”</item>
+        <item quantity="one">Se comprimă %1$,d fișier în „%2$s”</item>
+        <item quantity="few">Se comprimă %1$,d fișiere în „%2$s”</item>
         <item quantity="other">Se comprimă %1$,d de fișiere în “%2$s”</item>
     </plurals>
     <plurals name="file_job_copy_scan_notification_title_format">
-        <item quantity="one">Ss pregătește de copiere %1$,d fișier (%2$s)</item>
+        <item quantity="one">Se pregătește copierea: %1$,d fișier (%2$s)</item>
         <item quantity="few">Se pregătesc de copiere %1$,d fișiere (%2$s)</item>
         <item quantity="other">Se pregătesc de copiere %1$,d de fișiere (%2$s)</item>
     </plurals>
     <string name="file_job_copy_notification_title_one_format">Se copiază \"%1$s\" în \"%2$s\"</string>
     <plurals name="file_job_copy_notification_title_multiple_format">
-        <item quantity="one">Se copiază %1$,d fișier în “1%2$s”</item>
-        <item quantity="few">Se copiază %1$,d fișiere în “1%2$s”</item>
+        <item quantity="one">Se copiază %1$,d fișier în „%2$s”</item>
+        <item quantity="few">Se copiază %1$,d fișiere în „%2$s”</item>
         <item quantity="other">Se copiază %1$,d de fișiere în “%2$s”</item>
     </plurals>
     <plurals name="file_job_extract_scan_notification_title_format">
-        <item quantity="one">Se pregătește de extragere %1$,d fișier (1%2$s)</item>
-        <item quantity="few">Se pregătesc de extragere %1$,d fișiere (1%2$s)</item>
+        <item quantity="one">Se pregătește extragerea: %1$,d fișier (%2$s)</item>
+        <item quantity="few">Se pregătește extragerea: %1$,d fișiere (%2$s)</item>
         <item quantity="other">Se pregătesc de extragere %1$,d de fișiere (%2$s)</item>
     </plurals>
     <string name="file_job_extract_notification_title_one_format">Se extrage \"%1$s\" în \"%2$s\"</string>
     <plurals name="file_job_extract_notification_title_multiple_format">
-        <item quantity="one">Se extrage %1$,d fișier în “1%2$s”</item>
-        <item quantity="few">Se extrag %1$,d fișiere în “1%2$s”</item>
+        <item quantity="one">Se extrage %1$,d fișier în „%2$s”</item>
+        <item quantity="few">Se extrag %1$,d fișiere în „%2$s”</item>
         <item quantity="other">Se extrag %1$,d de fișiere în “%2$s”</item>
     </plurals>
     <plurals name="file_job_move_scan_notification_title_format">
-        <item quantity="one">Se pregătește de mutare %1$,d fișier (1%2$s)</item>
-        <item quantity="few">Se pregătesc de mutare %1$,d fișiere (1%2$s)</item>
+        <item quantity="one">Se pregătește mutarea: %1$,d fișier (%2$s)</item>
+        <item quantity="few">Se pregătește mutarea: %1$,d fișiere (%2$s)</item>
         <item quantity="other">Se pregătesc de mutare %1$,d de fișiere (%2$s)</item>
     </plurals>
     <string name="file_job_move_notification_title_one_format">Se mută \"%1$s\" în \"%2$s\"</string>
     <plurals name="file_job_move_notification_title_multiple_format">
-        <item quantity="one">Se mută %1$,d fișier în “1%2$s”</item>
-        <item quantity="few">Se mută %1$,d fișiere în “1%2$s”</item>
+        <item quantity="one">Se mută %1$,d fișier în „%2$s”</item>
+        <item quantity="few">Se mută %1$,d fișiere în „%2$s”</item>
         <item quantity="other">Se mută %1$,d de fișiere în “%2$s”</item>
     </plurals>
     <string name="file_job_transfer_size_notification_text_one_format">%1$s / %2$s</string>
@@ -132,7 +156,7 @@
     <plurals name="file_job_delete_notification_title_multiple_format">
         <item quantity="one">Se șterge %1$,d fișier</item>
         <item quantity="few">Se șterg %1$,d fișiere</item>
-        <item quantity="other">Se șterg  %1$,d de fișiere</item>
+        <item quantity="other">Se șterg %1$,d de fișiere</item>
     </plurals>
     <plurals name="file_job_set_owner_scan_notification_title_format">
         <item quantity="one">Se pregătește schimbarea deținătorului pentru %1$,d fișier</item>
@@ -175,8 +199,8 @@
     <string name="file_job_set_selinux_context_notification_title_one_format">Se schimbă contextul SELinux pentru \"%1$s\"</string>
     <plurals name="file_job_set_selinux_context_notification_title_multiple_format">
         <item quantity="one">Se schimbă contextul SELinux pentru %1$,d fișier</item>
-        <item quantity="few">Se schimbă contextul SELinux pentru %1$,d files</item>
-        <item quantity="other">Se schimbă contextul SELinux pentru %1$,d files</item>
+        <item quantity="few">Se schimbă contextul SELinux pentru %1$,d fișiere</item>
+        <item quantity="other">Se schimbă contextul SELinux pentru %1$,d de fișiere</item>
     </plurals>
     <plurals name="file_job_restore_selinux_context_scan_notification_title_format">
         <item quantity="one">Se pregătește restaurarea contextului SELinux pentru %1$,d fișier</item>
@@ -198,17 +222,17 @@
     <string name="file_job_cannot_move_into_itself_title">Nu se poate muta un dosar în același dosar</string>
     <string name="file_job_cannot_copy_move_into_itself_message">Dosarul destinație este înăuntrul dosarului sursă.</string>
     <string name="file_job_cannot_copy_over_itself_title">Nu se poate copia un fișier peste sine</string>
-    <string name="file_job_cannot_extract_over_itself_title">Nu se poat extrage un fișier peste același fișier</string>
+    <string name="file_job_cannot_extract_over_itself_title">Nu se poate extrage un fișier peste el însuși</string>
     <string name="file_job_cannot_move_over_itself_title">Nu se poate muta un fișier peste același fișier</string>
-    <string name="file_job_cannot_copy_move_over_itself_message">Fișierul sursă va fii rescris de către fișierul destinație.</string>
+    <string name="file_job_cannot_copy_move_over_itself_message">Fișierul sursă ar fi suprascris de fișierul destinație.</string>
     <string name="file_job_replace_title_format">Înlocuiești fișierul \"%1$s\"?</string>
-    <string name="file_job_replace_message_format">Un alt fișier cu un același nume există deja în \"%1$s\".\nÎnlocuirea lui va suprascrie conținutul acestuia.</string>
+    <string name="file_job_replace_message_format">Un alt fișier cu același nume există deja în „%1$s”.\nÎnlocuirea lui va suprascrie conținutul existent.</string>
     <string name="file_job_replace_target_name">Fișier original</string>
     <string name="file_job_replace_source_name">Înlocuiește cu</string>
     <string name="file_job_merge_title_format">Îmbini dosarul \"%1$s\"?</string>
     <string name="file_job_merge_copy_message_format">Îmbinarea va cere confirmarea înainte de a înlocui orice fișiere din dosar ce sunt în conflict cu fișierele copiate.</string>
-    <string name="file_job_merge_extract_message_format">Îmbinarea va cere confirmarea înainte de a înlocui orice fișier din dosar ce intra în conflict cu fișierele care sunt extrase.</string>
-    <string name="file_job_merge_move_message_format">Îmbinarea va cere confirmarea înainte de a înlocui orice fișier din dosar ce intra în conflict cu fișierele mutate.</string>
+    <string name="file_job_merge_extract_message_format">Îmbinarea va cere confirmarea înainte de a înlocui orice fișier din dosar care intră în conflict cu fișierele extrase.</string>
+    <string name="file_job_merge_move_message_format">Îmbinarea va cere confirmarea înainte de a înlocui orice fișier din dosar care intră în conflict cu fișierele mutate.</string>
     <string name="file_job_merge_target_name">Dosar original</string>
     <string name="file_job_merge_source_name">Îmbină cu</string>
     <string name="file_job_conflict_show_name">Selectează un nume nou pentru destinație</string>
@@ -239,7 +263,7 @@
     <string name="file_job_write_error_message_format">A apărut o eroare în timpul scrierii “%1$s”.\n%2$s</string>
     <string name="file_job_get_information_error_message_format">A apărut o eroare în timpul obținerii informațiilor despre \"%1$s\".</string>
     <string name="file_job_remount_format">Remontează \"%1$s\" cu permisiuni de citire și scriere</string>
-    <string name="file_job_remount_loading_format">Se remontează  \"%1$s\" cu permisiuni de citire și scriere…</string>
+    <string name="file_job_remount_loading_format">Se remontează „%1$s” cu permisiuni de citire și scriere…</string>
     <string name="file_job_remount_success_format">\"%1$s\" a fost remontat cu permisiuni de citire și scriere</string>
     <string name="file_job_action_all">Aplică această setare tuturor fișierelor</string>
 
@@ -259,6 +283,7 @@
     <string name="file_name_error_empty">Numele fișierului nu poate fi gol</string>
     <string name="file_name_error_invalid">Numele fișierului este greșit</string>
     <string name="file_name_error_already_exists">Un fișier cu același nume există deja</string>
+    <string name="file_replace_message_format">Înlocuiești „%1$s”?</string>
     <string name="file_delete_message_file_format">Ștergi \"%1$s\"?</string>
     <string name="file_delete_message_directory_format">Ștergi dosarul \"%1$s\" și conținutul acestuia?</string>
     <plurals name="file_delete_message_multiple_files_format">
@@ -267,14 +292,14 @@
         <item quantity="other">Șterge %1$,d de fișiere?</item>
     </plurals>
     <plurals name="file_delete_message_multiple_directories_format">
-        <item quantity="one">Ștergi %1$,d fișiereși conținutul său ?</item>
-        <item quantity="few">Ștergi %1$,d fișiere și conținutul lor ?</item>
-        <item quantity="other">Ștergi %1$,d de fișiere și conținutul lor ?</item>
+        <item quantity="one">Ștergi %1$,d dosar și conținutul său?</item>
+        <item quantity="few">Ștergi %1$,d dosare și conținutul lor?</item>
+        <item quantity="other">Ștergi %1$,d de dosare și conținutul lor?</item>
     </plurals>
     <plurals name="file_delete_message_multiple_mixed_format">
-        <item quantity="one">Ștergi %1$,d fișier ?</item>
-        <item quantity="few">Ștergi %1$,d fișiere ?</item>
-        <item quantity="other">Ștergi %1$,d de fișiere ?</item>
+        <item quantity="one">Ștergi %1$,d element?</item>
+        <item quantity="few">Ștergi %1$,d elemente?</item>
+        <item quantity="other">Ștergi %1$,d de elemente?</item>
     </plurals>
     <string name="file_create_archive_title">Creează arhiva</string>
     <string name="file_create_archive_type_zip">.zip</string>
@@ -286,6 +311,17 @@
     <string name="file_create_directory_title">Dosar nou</string>
 
     <string name="file_list_title">Fișiere</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="one">Selectează un fișier</item>
+        <item quantity="few">Selectează fișiere</item>
+        <item quantity="other">Selectează fișiere</item>
+    </plurals>
+    <string name="file_list_title_create_file">Salvează fișierul</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="one">Selectează un dosar</item>
+        <item quantity="few">Selectează dosare</item>
+        <item quantity="other">Selectează dosare</item>
+    </plurals>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">%1$,d dosar</item>
         <item quantity="few">%1$,d dosare</item>
@@ -297,11 +333,12 @@
         <item quantity="other">%1$,d de fișiere</item>
     </plurals>
     <string name="file_list_subtitle_separator">,\u0020</string>
-    <string name="file_list_path_error_empty">Calea nu poate fi liberă</string>
+    <string name="file_list_search_result_limit_format">Sunt afișate primele %1$d rezultate — rafinează căutarea</string>
+    <string name="file_list_path_error_empty">Calea nu poate fi goală</string>
     <string name="file_list_path_error_invalid">Cale invalidă</string>
     <string name="file_list_action_view_sort">Vizualizare și sortare</string>
     <string name="file_list_action_view_list">Listă</string>
-    <string name="file_list_action_view_grid">Tabel</string>
+    <string name="file_list_action_view_grid">Grilă</string>
     <string name="file_list_action_sort_by_name">Nume</string>
     <string name="file_list_action_sort_by_type">Tip</string>
     <string name="file_list_action_sort_by_size">Mărime</string>
@@ -310,8 +347,8 @@
     <string name="file_list_action_sort_directories_first">Mai întâi dosarele</string>
     <string name="file_list_action_view_sort_path_specific">Doar pentru acest dosar</string>
     <string name="file_list_action_new_task">Fereastră nouă</string>
-    <string name="file_list_action_navigate_up">Dute sus</string>
-    <string name="file_list_action_navigate_to">Sari la</string>
+    <string name="file_list_action_navigate_up">Mergi în sus</string>
+    <string name="file_list_action_navigate_to">Mergi la</string>
     <string name="file_list_action_show_hidden_files">Arată fișiere ascunse</string>
     <string name="file_list_action_copy_path">Copiază calea</string>
     <string name="file_list_action_open_in_terminal">Deschide în terminal</string>
@@ -319,6 +356,8 @@
     <string name="file_list_action_create_shortcut">Creează scurtătură</string>
     <string name="file_list_breadcrumb_action_open_in_new_task">Deschide într-o fereastră nouă</string>
     <string name="file_list_select_title_format">%1$,d</string>
+    <string name="file_list_create_file_name_hint">Numele fișierului</string>
+    <string name="file_list_open_current_directory_format">Selectează „%1$s”</string>
     <string name="file_list_paste_move_title_format">Se mută %1$,d</string>
     <string name="file_list_paste_copy_title_format">Se copiază %1$,d</string>
     <string name="file_list_paste_extract_title_format">Se extrag %1$,d</string>
@@ -345,14 +384,47 @@
     <string name="file_properties_basic_contents">Conținut</string>
     <plurals name="file_properties_basic_contents_format">
         <item quantity="one">%1$,d articol, totalizând %2$s</item>
-        <item quantity="few">%1$,d articole, totalizând 1%2$s</item>
+        <item quantity="few">%1$,d articole, totalizând %2$s</item>
         <item quantity="other">%1$,d de articole, totalizând %2$s</item>
     </plurals>
     <string name="file_properties_basic_last_modification_time">Modificat ultima dată</string>
     <string name="file_properties_basic_parent_directory">Dosar părinte</string>
-    <string name="file_properties_basic_archive_file">Arhivează fișierul</string>
-    <string name="file_properties_basic_archive_entry">Articol din arhivă</string>
+    <string name="file_properties_basic_archive_file">Fișier arhivă</string>
+    <string name="file_properties_basic_archive_entry">Element din arhivă</string>
     <string name="file_properties_basic_free_space">Spațiu liber</string>
+    <string name="file_properties_permission">Permisiuni</string>
+    <string name="file_properties_permission_owner">Proprietar</string>
+    <string name="file_properties_permission_group">Grup</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">Schimbă proprietarul</string>
+    <string name="file_properties_permission_set_group_title">Schimbă grupul</string>
+    <string name="file_properties_permission_set_principal_filter_hint">Introdu un nume sau un ID</string>
+    <string name="file_properties_permission_set_principal_system">Sistem</string>
+    <string name="file_properties_permission_mode">Mod</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">Schimbă modul</string>
+    <string name="file_properties_permission_set_mode_others">Alții</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>Citire</item>
+        <item>Scriere</item>
+        <item>Executare</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>Citire</item>
+        <item>Scriere</item>
+        <item>Căutare</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">Special</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>Setează UID</item>
+        <item>Setează GID</item>
+        <item>Bit sticky</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Nu adăuga „Executare” pentru fișierele incluse</string>
+    <string name="file_properties_permission_selinux_context">Context SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_title">Schimbă contextul SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_restore">Restabilește</string>
+    <string name="file_properties_permission_recursive">Aplică fișierelor incluse</string>
     <string name="file_properties_image">Imagine</string>
     <string name="file_properties_media_dimensions">Dimensiuni</string>
     <string name="file_properties_media_dimensions_format">%1$d \u00d7 %2$d</string>
@@ -408,6 +480,12 @@
     <string name="file_properties_apk_signature_digests">Semnături</string>
     <string name="file_properties_apk_signature_digests_empty">Nu există semnături valide</string>
     <string name="file_properties_apk_past_signature_digests">Semnături vechi</string>
+    <string name="file_properties_checksum">Sume de control</string>
+    <string name="file_properties_checksum_compare">Compară</string>
+    <string name="file_properties_checksum_compare_placeholder">Orice sumă de control</string>
+    <string name="file_properties_checksum_compare_match_format">Se potrivește cu suma de control %1$s</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Se potrivește cu prefixul sumei de control %1$s</string>
+    <string name="file_properties_checksum_compare_no_match">Nu a fost găsită nicio sumă de control corespunzătoare</string>
     <string name="storage_file_system_root_title">Root</string>
     <string name="storage_list_title">Stocare</string>
     <string name="storage_list_empty">Nu există stocare</string>
@@ -416,9 +494,15 @@
     <string name="storage_add_storage_ftp_server">Server FTP</string>
     <string name="storage_add_storage_sftp_server">Server SFTP</string>
     <string name="storage_add_storage_smb_server">Server SMB</string>
+    <string name="storage_add_storage_webdav_server">Server WebDAV</string>
     <string name="storage_edit_device_storage_title">Editează stocarea dispozitivului</string>
     <string name="storage_edit_device_storage_name">Nume</string>
     <string name="storage_edit_device_storage_path">Cale</string>
+    <string name="storage_add_external_storage_shortcut_title">Adaugă o comandă rapidă pentru stocarea externă</string>
+    <string name="storage_edit_external_storage_shortcut_title">Editează comanda rapidă pentru stocarea externă</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Volum de stocare</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Introdu un volum de stocare</string>
+    <string name="storage_edit_external_storage_shortcut_path">Cale</string>
     <string name="storage_add_document_tree_title">Adaugă stocare externă</string>
     <string name="storage_edit_document_tree_title">Editează stocarea externă</string>
     <string name="storage_edit_document_tree_name">Nume</string>
@@ -426,15 +510,15 @@
     <string name="storage_edit_document_tree_path">Cale</string>
     <string name="storage_edit_ftp_server_title_edit">Editează serverul FTP</string>
     <string name="storage_edit_ftp_server_title_add">Adaugă serverul FTP</string>
-    <string name="storage_edit_ftp_server_host">Hostname</string>
-    <string name="storage_edit_ftp_server_host_error_empty">Editează hostname</string>
-    <string name="storage_edit_ftp_server_host_error_invalid">Hostname invalid</string>
+    <string name="storage_edit_ftp_server_host">Nume de gazdă</string>
+    <string name="storage_edit_ftp_server_host_error_empty">Introdu un nume de gazdă</string>
+    <string name="storage_edit_ftp_server_host_error_invalid">Nume de gazdă nevalid</string>
     <string name="storage_edit_ftp_server_port">Port</string>
-    <string name="storage_edit_ftp_server_port_error_invalid">Port invalid</string>
+    <string name="storage_edit_ftp_server_port_error_invalid">Port nevalid</string>
     <string name="storage_edit_ftp_server_path">Cale</string>
-    <string name="storage_edit_ftp_server_path_placeholder">Poate fi lăsat liber</string>
+    <string name="storage_edit_ftp_server_path_placeholder">Poate fi lăsată necompletată</string>
     <string name="storage_edit_ftp_server_name">Nume</string>
-    <string name="storage_edit_ftp_server_name_placeholder">Folosește hostname</string>
+    <string name="storage_edit_ftp_server_name_placeholder">Folosește numele gazdei</string>
     <string name="storage_edit_ftp_server_protocol">Protocol</string>
     <string name="storage_edit_ftp_server_authentication_type">Autentificare</string>
     <string-array name="storage_edit_ftp_server_authentication_type_entries">
@@ -449,16 +533,16 @@
         <item>Activ</item>
         <item>Pasiv</item>
     </string-array>
-    <string name="storage_edit_ftp_server_encoding">Encodare</string>
+    <string name="storage_edit_ftp_server_encoding">Codificare</string>
     <string name="storage_edit_ftp_server_connect_and_add">Conectează și adaugă</string>
     <string name="storage_edit_ftp_server_add">Adaugă</string>
     <string name="storage_edit_sftp_server_title_edit">Editează serverul SFTP</string>
     <string name="storage_edit_sftp_server_title_add">Adaugă server SFTP</string>
     <string name="storage_edit_sftp_server_host">Nume de gazdă</string>
     <string name="storage_edit_sftp_server_host_error_empty">Introdu un nume de gazdă</string>
-    <string name="storage_edit_sftp_server_host_error_invalid">Hostname invalid</string>
+    <string name="storage_edit_sftp_server_host_error_invalid">Nume de gazdă nevalid</string>
     <string name="storage_edit_sftp_server_port">Port</string>
-    <string name="storage_edit_sftp_server_port_error_invalid">Port greșit</string>
+    <string name="storage_edit_sftp_server_port_error_invalid">Port nevalid</string>
     <string name="storage_edit_sftp_server_path">Cale</string>
     <string name="storage_edit_sftp_server_path_placeholder">Poate fi lăsat gol</string>
     <string name="storage_edit_sftp_server_name">Nume</string>
@@ -474,9 +558,9 @@
     <string name="storage_edit_sftp_server_private_key">Cheie privată</string>
     <string name="storage_edit_sftp_server_private_key_open_file">Deschide fișier</string>
     <string name="storage_edit_sftp_server_private_key_error_empty">Introdu o cheie privată</string>
-    <string name="storage_edit_sftp_server_private_key_error_invalid">Cheie privată greșită</string>
+    <string name="storage_edit_sftp_server_private_key_error_invalid">Cheie privată nevalidă</string>
     <string name="storage_edit_sftp_server_private_key_password">Parola cheii private</string>
-    <string name="storage_edit_sftp_server_private_key_password_placeholder">Poate fi lăsat liber</string>
+    <string name="storage_edit_sftp_server_private_key_password_placeholder">Poate fi lăsată necompletată</string>
     <string name="storage_edit_sftp_server_private_key_password_error_invalid">Parola cheii private este invalidă</string>
     <string name="storage_edit_sftp_server_connect_and_add">Conectează și adaugă</string>
     <string name="storage_edit_sftp_server_add">Adaugă</string>
@@ -486,9 +570,9 @@
     <string name="storage_edit_smb_server_title_add">Adaugă server SMB</string>
     <string name="storage_edit_smb_server_host">Nume de gazdă</string>
     <string name="storage_edit_smb_server_host_error_empty">Introdu un nume de gazdă</string>
-    <string name="storage_edit_smb_server_host_error_invalid">Hostname invalid</string>
+    <string name="storage_edit_smb_server_host_error_invalid">Nume de gazdă nevalid</string>
     <string name="storage_edit_smb_server_port">Port</string>
-    <string name="storage_edit_smb_server_port_error_invalid">Port greșit</string>
+    <string name="storage_edit_smb_server_port_error_invalid">Port nevalid</string>
     <string name="storage_edit_smb_server_path">Cale</string>
     <string name="storage_edit_smb_server_path_placeholder">Poate fi lăsat gol</string>
     <string name="storage_edit_smb_server_name">Nume</string>
@@ -505,7 +589,32 @@
     <string name="storage_edit_smb_server_domain">Domeniu</string>
     <string name="storage_edit_smb_server_connect_and_add">Conectează și adaugă</string>
     <string name="storage_edit_smb_server_add">Adaugă</string>
-    <string name="navigation_storage_subtitle_format">%1$s liber din %2$s</string>
+    <string name="storage_edit_webdav_server_title_edit">Editează serverul WebDAV</string>
+    <string name="storage_edit_webdav_server_title_add">Adaugă un server WebDAV</string>
+    <string name="storage_edit_webdav_server_host">Nume de gazdă</string>
+    <string name="storage_edit_webdav_server_host_error_empty">Introdu un nume de gazdă</string>
+    <string name="storage_edit_webdav_server_host_error_invalid">Nume de gazdă nevalid</string>
+    <string name="storage_edit_webdav_server_port">Port</string>
+    <string name="storage_edit_webdav_server_port_error_invalid">Port nevalid</string>
+    <string name="storage_edit_webdav_server_path">Cale</string>
+    <string name="storage_edit_webdav_server_path_placeholder">Poate fi lăsată necompletată</string>
+    <string name="storage_edit_webdav_server_name">Nume</string>
+    <string name="storage_edit_webdav_server_name_placeholder">Folosește numele gazdei</string>
+    <string name="storage_edit_webdav_server_protocol">Protocol</string>
+    <string name="storage_edit_webdav_server_authentication_type">Autentificare</string>
+    <string-array name="storage_edit_webdav_server_authentication_type_entries">
+        <item>Parolă</item>
+        <item>Token de acces</item>
+        <item>Niciuna</item>
+    </string-array>
+    <string name="storage_edit_webdav_server_username">Nume de utilizator</string>
+    <string name="storage_edit_webdav_server_username_error_empty">Introdu un nume de utilizator</string>
+    <string name="storage_edit_webdav_server_password">Parolă</string>
+    <string name="storage_edit_webdav_server_access_token">Token de acces</string>
+    <string name="storage_edit_webdav_server_access_token_error_empty">Introdu un token de acces</string>
+    <string name="storage_edit_webdav_server_connect_and_add">Conectează și adaugă</string>
+    <string name="storage_edit_webdav_server_add">Adaugă</string>
+    <string name="navigation_storage_subtitle_format">%1$s disponibili din %2$s</string>
     <string name="navigation_add_storage">Adăugare stocare…</string>
     <string name="navigation_standard_directory_alarms">Alarme</string>
     <string name="navigation_standard_directory_dcim">DCIM</string>
@@ -523,16 +632,19 @@
     <string name="navigation_edit_bookmark_directory_title">Dosar cu marcaje</string>
     <string name="navigation_edit_bookmark_directory_name">Nume</string>
     <string name="navigation_edit_bookmark_directory_path">Cale</string>
-    <string name="archive_viewer_title">Arhivează ce se vede pe ecran</string>
+    <string name="archive_viewer_title">Vizualizator de arhive</string>
     <string name="image_viewer_title">Vizualizator de imagini</string>
     <string name="image_viewer_subtitle_format">%1$,d/%2$,d</string>
+    <string name="save_as_title">Salvează ca</string>
+    <string name="save_as_error">Eroare la salvarea fișierului</string>
+    <string name="save_as_success_format">„%1$s” a fost salvat în „%2$s”</string>
     <string name="text_editor_title">Editor de text</string>
     <string name="text_editor_title_format">%1$s</string>
     <string name="text_editor_title_changed_format">*%1$s</string>
     <string name="text_editor_save_success">Salvat</string>
     <string name="text_editor_reload_message">Ești sigur că dorești să reîncarci? Schimbările nesalvate la acest document vor fi pierdute.</string>
     <string name="text_editor_encoding">Codificare</string>
-    <string name="text_editor_close_message">Ești sigur că dorești să renunți schimbările nesalvate la cest document?</string>
+    <string name="text_editor_close_message">Sigur renunți la modificările nesalvate din acest document?</string>
 
     <string name="ftp_server_title">Server FTP</string>
     <string name="ftp_server_state_title">Stare</string>
@@ -544,7 +656,10 @@
     <string name="ftp_server_url_summary_no_local_inet_address">Adresa IP locală nu este cunoscută</string>
     <string name="ftp_server_url_menu_copy_url">Copiază URL</string>
     <string name="ftp_server_url_menu_copy_password">Copiază parola</string>
-    <string name="ftp_server_add_tile_title">Adaugă la Setările Rapide</string>
+    <string name="ftp_server_add_tile_title">Adaugă la Setări rapide</string>
+    <string name="ftp_server_add_tile_result_added">„Server FTP” a fost adăugat la Setări rapide</string>
+    <string name="ftp_server_add_tile_result_already_added">„Server FTP” este deja adăugat la Setări rapide</string>
+    <string name="ftp_server_add_tile_result_error">Eroare la adăugarea opțiunii „Server FTP” la Setări rapide</string>
     <string name="ftp_server_configuration_title">Configurare</string>
     <string name="ftp_server_anonymous_login_title">Autentificare anonimă</string>
     <string name="ftp_server_username_title">Nume utilizator</string>
@@ -584,9 +699,9 @@
     <string name="settings_bookmark_directories_summary_empty">Nu există dosare cu marcaje</string>
     <string name="settings_root_strategy_title">Mod de acces root</string>
     <plurals name="settings_root_strategy_message_format">
-        <item quantity="one">Aveți %1$,d operațiune cu fișiere în desfășurare și schimbarea accesului de root acum ar putea rezulta o eroare neaștetată. Ești sigur că dorești să facia ceastă schimbare acum ?</item>
-        <item quantity="few">Aveți %1$,d operațiuni cu fișiere în desfășurare și schimbarea accesului de root acum ar putea rezulta o eroare neaștetată. Ești sigur că dorești să facia ceastă schimbare acum ?</item>
-        <item quantity="other">Ai %1$,d operațiuni cu fișiere în desfășurare și schimbarea accesului la root acum ar putea rezulta o eroare neașteptată. Ești sigur că dorești să faci această schimbare acum?</item>
+        <item quantity="one">Ai %1$,d operațiune cu fișiere în desfășurare, iar schimbarea modului de acces root poate cauza o eroare neașteptată. Sigur îl schimbi acum?</item>
+        <item quantity="few">Ai %1$,d operațiuni cu fișiere în desfășurare, iar schimbarea modului de acces root poate cauza o eroare neașteptată. Sigur îl schimbi acum?</item>
+        <item quantity="other">Ai %1$,d de operațiuni cu fișiere în desfășurare, iar schimbarea modului de acces root poate cauza o eroare neașteptată. Sigur îl schimbi acum?</item>
     </plurals>
     <string-array name="settings_root_strategy_entries">
         <item>Numai acces normal</item>
@@ -600,14 +715,136 @@
         <item>Vizualizează conținutul</item>
         <item>Întreabă ce să fac</item>
     </string-array>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">Afișează miniaturile documentelor PDF</string>
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Ar putea face aplicația instabilă pe versiunile vechi de Android</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Citește fișiere la distanță pentru miniaturi</string>
 
+    <string name="navigation_global_search">Căutare globală</string>
+    <string name="global_search_hint">Caută în fișierele indexate</string>
+    <string name="global_search_prompt">Introdu numele unui fișier sau dosar</string>
+    <string name="global_search_no_results">Niciun fișier corespunzător</string>
+    <string name="global_search_index_empty">Indexul este gol. Configurează indexarea și pornește mai întâi o scanare.</string>
+    <string name="global_search_configure_index">Configurează indexarea</string>
+    <string name="global_search_error_format">Căutarea a eșuat: %1$s</string>
+    <string name="global_search_action_error_format">Acțiunea nu a putut fi finalizată: %1$s</string>
+    <string name="global_search_directory_metadata_format">Dosar • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_more_actions">Mai multe acțiuni</string>
+    <string name="global_search_action_open">Deschide</string>
+    <string name="global_search_action_show_in_folder">Afișează în dosar</string>
+    <string name="global_search_action_share">Trimite</string>
+    <string name="global_search_sort_title">Sortare</string>
+    <string name="global_search_sort_relevance">Relevanță</string>
+    <string name="global_search_sort_name_ascending">Nume (A–Z)</string>
+    <string name="global_search_sort_name_descending">Nume (Z–A)</string>
+    <string name="global_search_sort_size_ascending">Dimensiune (cele mai mici mai întâi)</string>
+    <string name="global_search_sort_size_descending">Dimensiune (cele mai mari mai întâi)</string>
+    <string name="global_search_sort_modified_ascending">Data modificării (cele mai vechi mai întâi)</string>
+    <string name="global_search_sort_modified_descending">Data modificării (cele mai noi mai întâi)</string>
+    <string name="global_search_index_status_error">Starea indexului nu este disponibilă • Apasă pentru a reîncerca</string>
+    <string name="global_search_index_not_configured">Indexarea nu este configurată • Apasă pentru configurare</string>
+    <string name="global_search_index_running_format">Se indexează %1$s • %2$,d intrări</string>
+    <string name="global_search_index_paused_format">Indexare întreruptă • %1$,d intrări</string>
+    <string name="global_search_index_ready_format">%1$,d intrări indexate • Actualizat: %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d intrări indexate • Apasă pentru configurare</string>
+
+    <string name="settings_indexing_title">Index de căutare</string>
+    <string name="settings_indexing_summary">Locații indexate, excluderi și comenzi de scanare</string>
+    <string name="indexing_settings_title">Indexarea pentru căutare</string>
+    <string name="indexing_status_category">Starea indexului</string>
+    <string name="indexing_controls_category">Comenzi de scanare</string>
+    <string name="indexing_roots_category">Locații indexate</string>
+    <string name="indexing_exclusions_category">Locații excluse</string>
+    <string name="indexing_status_loading">Se încarcă starea indexului…</string>
+    <string name="indexing_status_error">Starea indexului nu a putut fi citită</string>
+    <string name="indexing_status_empty">Încă nu există intrări indexate</string>
+    <string name="indexing_status_format">%1$,d intrări (%2$,d fișiere, %3$,d dosare) • %4$s</string>
+    <string name="indexing_statistics_details_title">Detaliile indexului</string>
+    <string name="indexing_statistics_coverage_format">%1$,d din %2$,d locații activate • %3$,d excluderi personalizate</string>
+    <string name="indexing_statistics_entries_format">%1$,d intrări root • %2$,d ascunse • %3$,d linkuri simbolice</string>
+    <string name="indexing_statistics_storage_format">Baza de date a indexului: %1$s</string>
+    <string name="indexing_status_last_update_format">Ultima actualizare: %1$s</string>
+    <string name="indexing_scan_status_format">Scanare: %1$s</string>
+    <string name="indexing_scan_never_run">nu a rulat niciodată</string>
+    <string name="indexing_scan_running">în desfășurare</string>
+    <string name="indexing_scan_paused">întreruptă</string>
+    <string name="indexing_scan_completed">finalizată</string>
+    <string name="indexing_scan_completed_with_errors">finalizată cu erori</string>
+    <string name="indexing_scan_failed">eșuată</string>
+    <string name="indexing_scan_cancelled">anulată</string>
+    <string name="indexing_start_full_scan">Pornește scanarea completă</string>
+    <string name="indexing_start_full_scan_summary">Recreează indexul pentru toate locațiile activate</string>
+    <string name="indexing_pause_scan">Întrerupe scanarea</string>
+    <string name="indexing_resume_scan">Reia scanarea</string>
+    <string name="indexing_cancel_scan">Anulează scanarea</string>
+    <string name="indexing_add_root">Adaugă o locație indexată</string>
+    <string name="indexing_add_exclusion">Adaugă o excludere</string>
+    <string name="indexing_no_roots">Nu este configurată nicio locație</string>
+    <string name="indexing_no_exclusions">Nu există locații excluse personalizate</string>
+    <string name="indexing_built_in_exclusion">Excludere de siguranță încorporată</string>
+    <string name="indexing_no_enabled_roots">Activează mai întâi cel puțin o locație indexată</string>
+    <string name="indexing_operation_error_format">Operațiunea de indexare a eșuat: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Indexarea a fost întreruptă înainte de finalizare</string>
+    <string name="indexing_diagnostic_root_not_found_format">Locația indexată nu a fost găsită: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Unele intrări nu au putut fi citite</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d eroare recuperabilă)</item>
+        <item quantity="few">%1$s (%2$,d erori recuperabile)</item>
+        <item quantity="other">%1$s (%2$,d de erori recuperabile)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Locația indexată este dezactivată: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Fiecare cale incrementală trebuie să fie în rădăcina %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">Modul de acces nu poate fi schimbat în timp ce această locație este scanată</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Toate locațiile indexate trebuie să folosească același mod de acces; %1$s folosește %2$s</string>
+    <string name="indexing_root_add_title">Adaugă o locație indexată</string>
+    <string name="indexing_root_edit_title">Editează locația indexată</string>
+    <string name="indexing_default_internal_storage">Stocare internă</string>
+    <string name="indexing_root_name_hint">Nume afișat</string>
+    <string name="indexing_root_path_hint">Cale absolută</string>
+    <string name="indexing_root_access_mode">Mod de acces (selectat automat)</string>
+    <string name="indexing_root_enabled">Indexează această locație</string>
+    <string name="indexing_root_include_hidden">Include fișierele ascunse</string>
+    <string name="indexing_root_follow_symlinks">Urmează linkurile simbolice</string>
+    <string name="indexing_root_path_locked">Calea nu poate fi schimbată după crearea locației</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">normal</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">activată</string>
+    <string name="indexing_disabled">dezactivată</string>
+    <string name="indexing_delete_root">Elimină locația</string>
+    <string name="indexing_delete_root_confirmation">Elimini „%1$s” și intrările sale indexate?</string>
+    <string name="indexing_exclusion_add_title">Adaugă o locație exclusă</string>
+    <string name="indexing_exclusion_path_hint">Calea absolută exclusă</string>
+    <string name="indexing_exclusion_scope">Se aplică pentru</string>
+    <string name="indexing_exclusion_all_roots">Toate locațiile indexate</string>
+    <string name="indexing_exclusion_summary_all">Toate locațiile indexate</string>
+    <string name="indexing_exclusion_summary_root_format">Numai %1$s</string>
+    <string name="indexing_delete_exclusion_title">Elimină excluderea</string>
+    <string name="indexing_delete_exclusion_confirmation">Oprești excluderea locației „%1$s”?</string>
+    <string name="indexing_field_required">Obligatoriu</string>
+    <string name="indexing_invalid_absolute_path">Introdu o cale absolută validă</string>
+    <string name="indexing_root_requires_root_error">Rădăcina sistemului de fișiere poate fi indexată numai când scanarea root automată este disponibilă</string>
+    <string name="indexing_protected_path_error">Această cale virtuală de sistem este exclusă permanent din motive de siguranță</string>
+    <string name="indexing_overlapping_root_error">Această locație se suprapune peste o locație indexată existentă</string>
+    <string name="indexing_protected_exclusion_exists">Această cale este deja exclusă prin politica de siguranță încorporată</string>
+    <string name="indexing_exclusion_outside_root">Excluderea trebuie să se afle în locația indexată selectată</string>
+    <string name="indexing_save">Salvează</string>
+    <string name="indexing_remove">Elimină</string>
+    <string name="initial_indexing_root_offer_title">Adaugi directorul rădăcină în index?</string>
+    <string name="initial_indexing_root_offer_message">Stocarea internă partajată este indexată întotdeauna. A fost detectat acces root. Adaugi și /, iar ambele locații să fie indexate cu acces privilegiat?</string>
+    <string name="initial_indexing_root_offer_accept">Adaugă /</string>
+    <string name="initial_indexing_root_offer_decline">Fără /</string>
+    <string name="initial_indexing_root_error_format">Indexarea root nu a putut fi pornită: %1$s</string>
+    <string name="initial_indexing_setup_error">Indexarea automată nu a putut fi pornită. BlitzFiles va încerca din nou mai târziu.</string>
+
     <string name="about_title">Despre</string>
+    <string name="about_description">Un manager de fișiere rapid bazat pe Material Files.</string>
+    <string name="about_upstream_source_title">Codul sursă Material Files</string>
+    <string name="about_upstream_author_title">Autorul original al Material Files</string>
     <string name="about_version_title">Versiune</string>
     <string name="about_github_title">Vizualizează pe GitHub</string>
     <string name="about_licenses_title">Licențe</string>
-    <string name="about_privacy_policy_title">Politică de Confidențialitate</string>
+    <string name="about_privacy_policy_title">Politică de confidențialitate</string>
     <string name="about_author_title">Autor</string>
     <string name="about_author_name_title">Hai Zhang</string>
     <string name="about_author_github_title">Urmărește pe GitHub</string>

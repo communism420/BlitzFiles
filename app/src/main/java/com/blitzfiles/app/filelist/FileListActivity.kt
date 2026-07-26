@@ -25,6 +25,7 @@ import com.blitzfiles.app.indexing.FileIndexingProgressStore
 import com.blitzfiles.app.indexing.FileIndexingStorageAccess
 import com.blitzfiles.app.indexing.InitialIndexingAction
 import com.blitzfiles.app.indexing.InitialIndexingCoordinator
+import com.blitzfiles.app.indexing.localizeIndexingDiagnosticMessage
 import com.blitzfiles.app.util.createIntent
 import com.blitzfiles.app.util.extraPath
 import com.blitzfiles.app.util.putArgs
@@ -131,7 +132,9 @@ class FileListActivity : AppActivity(), RootIndexingOfferDialogFragment.Listener
                 showToast(
                     getString(
                         R.string.initial_indexing_root_error_format,
-                        error.message ?: error.javaClass.simpleName
+                        localizeIndexingDiagnosticMessage(
+                            error.message ?: error.javaClass.simpleName
+                        )
                     )
                 )
             }

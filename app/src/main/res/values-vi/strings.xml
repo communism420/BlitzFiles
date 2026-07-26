@@ -55,7 +55,7 @@
         <item quantity="other">%1$,d byte</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">Ứng dụng cần quyền quản lý tất cả tệp. Vui lòng cấp quyền ở cài đặt hệ thống tiếp theo.</string>
+    <string name="all_files_access_rationale_message">Để quét và lập chỉ mục thành công mọi tệp có thể truy cập, BlitzFiles cần quyền “Quản lý tất cả tệp”. Hãy nhấn “OK”, sau đó cấp quyền trong phần cài đặt hệ thống. Quá trình quét sẽ không bắt đầu cho đến khi quyền được cấp.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">Ứng dụng cần quyền truy cập tệp. Hãy nhấn \"CHO PHÉP\" trong hộp thoại hệ thống sắp hiện ra sau đây.</string>
     <string name="storage_permission_permanently_denied_message">Ứng dụng cần quyền truy cập tệp. Hãy cấp quyền \"Bộ nhớ\" trong cài đặt hệ thống.</string>
@@ -317,7 +317,7 @@
     <string name="file_properties_audio_genre">Thể loại</string>
     <string name="file_properties_media_duration">Độ dài</string>
     <string name="file_properties_media_bit_rate">Tốc độ bit</string>
-    <string name="file_properties_media_bit_rate_format">%1$d kbps </string>
+    <string name="file_properties_media_bit_rate_format">%1$d kbps</string>
     <string name="file_properties_audio_sample_rate">Tần số lấy mẫu</string>
     <string name="file_properties_audio_sample_rate_format">%1$d Hz</string>
     <string name="file_properties_video">Video</string>
@@ -527,6 +527,253 @@
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Có thể làm ứng dụng không ổn định trên các phiên bản Android thấp hơn</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Đọc tệp từ xa để lấy ảnh xem trước</string>
 
+    <string name="system_default">Mặc định hệ thống</string>
+    <string name="notification_permission_rationale_message">Ứng dụng cần quyền gửi thông báo về các thao tác với tệp. Hãy nhấn “Cho phép” trong hộp thoại hệ thống sắp xuất hiện.</string>
+    <string name="notification_permission_permanently_denied_message">Ứng dụng cần quyền gửi thông báo về các thao tác với tệp. Hãy cấp quyền “Thông báo” trong phần cài đặt hệ thống.</string>
+    <string name="file_action_archive_password_title">Cần mật khẩu</string>
+    <string name="file_action_archive_password_message_format">“%1$s” được bảo vệ bằng mật khẩu.</string>
+    <string name="file_action_archive_password_error_empty">Mật khẩu không được để trống</string>
+    <string name="file_create_archive_password">Mật khẩu (không bắt buộc)</string>
+    <string name="file_list_title_create_file">Lưu tệp</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="other">Chọn tệp</item>
+    </plurals>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="other">Chọn thư mục</item>
+    </plurals>
+    <string name="file_list_action_view_sort">Chế độ xem và sắp xếp</string>
+    <string name="file_list_action_view_list">Danh sách</string>
+    <string name="file_list_action_view_grid">Lưới</string>
+    <string name="file_list_action_view_sort_path_specific">Chỉ áp dụng cho thư mục này</string>
+    <string name="file_list_select_title_format">%1$,d</string>
+    <string name="file_list_create_file_name_hint">Tên tệp</string>
+    <string name="file_list_open_current_directory_format">Chọn “%1$s”</string>
+    <string name="file_replace_message_format">Thay thế “%1$s”?</string>
+    <string name="file_properties_permission">Quyền truy cập</string>
+    <string name="file_properties_permission_owner">Chủ sở hữu</string>
+    <string name="file_properties_permission_group">Nhóm</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">Đổi chủ sở hữu</string>
+    <string name="file_properties_permission_set_group_title">Đổi nhóm</string>
+    <string name="file_properties_permission_set_principal_filter_hint">Nhập tên hoặc ID</string>
+    <string name="file_properties_permission_set_principal_system">Hệ thống</string>
+    <string name="file_properties_permission_mode">Chế độ</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">Đổi chế độ</string>
+    <string name="file_properties_permission_set_mode_others">Khác</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>Đọc</item>
+        <item>Ghi</item>
+        <item>Thực thi</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>Đọc</item>
+        <item>Ghi</item>
+        <item>Tìm kiếm</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">Đặc biệt</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>Đặt UID</item>
+        <item>Đặt GID</item>
+        <item>Bit sticky</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Không thêm quyền “Thực thi” cho các tệp bên trong</string>
+    <string name="file_properties_permission_selinux_context">Ngữ cảnh SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_title">Đổi ngữ cảnh SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_restore">Khôi phục</string>
+    <string name="file_properties_permission_recursive">Áp dụng cho các tệp bên trong</string>
+    <string name="file_properties_checksum">Tổng kiểm</string>
+    <string name="file_properties_checksum_compare">So sánh</string>
+    <string name="file_properties_checksum_compare_placeholder">Tổng kiểm bất kỳ</string>
+    <string name="file_properties_checksum_compare_match_format">Khớp với tổng kiểm %1$s</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Khớp với phần đầu của tổng kiểm %1$s</string>
+    <string name="file_properties_checksum_compare_no_match">Không tìm thấy tổng kiểm trùng khớp</string>
+    <string name="storage_add_external_storage_shortcut_title">Thêm lối tắt bộ nhớ ngoài</string>
+    <string name="storage_edit_external_storage_shortcut_title">Sửa lối tắt bộ nhớ ngoài</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Ổ lưu trữ</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Nhập ổ lưu trữ</string>
+    <string name="storage_edit_external_storage_shortcut_path">Đường dẫn</string>
+    <string name="storage_add_storage_webdav_server">Máy chủ WebDAV</string>
+    <string name="storage_edit_webdav_server_title_edit">Sửa máy chủ WebDAV</string>
+    <string name="storage_edit_webdav_server_title_add">Thêm máy chủ WebDAV</string>
+    <string name="storage_edit_webdav_server_host">Tên máy chủ</string>
+    <string name="storage_edit_webdav_server_host_error_empty">Nhập tên máy chủ</string>
+    <string name="storage_edit_webdav_server_host_error_invalid">Tên máy chủ không hợp lệ</string>
+    <string name="storage_edit_webdav_server_port">Cổng</string>
+    <string name="storage_edit_webdav_server_port_error_invalid">Cổng không hợp lệ</string>
+    <string name="storage_edit_webdav_server_path">Đường dẫn</string>
+    <string name="storage_edit_webdav_server_path_placeholder">Có thể để trống</string>
+    <string name="storage_edit_webdav_server_name">Tên</string>
+    <string name="storage_edit_webdav_server_name_placeholder">Dùng tên máy chủ</string>
+    <string name="storage_edit_webdav_server_protocol">Giao thức</string>
+    <string name="storage_edit_webdav_server_authentication_type">Xác thực</string>
+    <string-array name="storage_edit_webdav_server_authentication_type_entries">
+        <item>Mật khẩu</item>
+        <item>Mã truy cập</item>
+        <item>Không</item>
+    </string-array>
+    <string name="storage_edit_webdav_server_username">Tên người dùng</string>
+    <string name="storage_edit_webdav_server_username_error_empty">Nhập tên người dùng</string>
+    <string name="storage_edit_webdav_server_password">Mật khẩu</string>
+    <string name="storage_edit_webdav_server_access_token">Mã truy cập</string>
+    <string name="storage_edit_webdav_server_access_token_error_empty">Nhập mã truy cập</string>
+    <string name="storage_edit_webdav_server_connect_and_add">Kết nối và thêm</string>
+    <string name="storage_edit_webdav_server_add">Thêm</string>
+    <string name="save_as_title">Lưu thành</string>
+    <string name="save_as_error">Lỗi khi lưu tệp</string>
+    <string name="save_as_success_format">Đã lưu “%1$s” vào “%2$s”</string>
+    <string name="ftp_server_url_summary_no_local_inet_address">Không xác định được địa chỉ IP cục bộ</string>
+    <string name="ftp_server_add_tile_title">Thêm vào phần Cài đặt nhanh</string>
+    <string name="ftp_server_add_tile_result_added">Đã thêm “Máy chủ FTP” vào phần Cài đặt nhanh</string>
+    <string name="ftp_server_add_tile_result_already_added">“Máy chủ FTP” đã có trong phần Cài đặt nhanh</string>
+    <string name="ftp_server_add_tile_result_error">Lỗi khi thêm “Máy chủ FTP” vào phần Cài đặt nhanh</string>
+    <string name="settings_locale_title">Ngôn ngữ</string>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">Hiển thị ảnh thu nhỏ cho tài liệu PDF</string>
+
+    <string name="all_files_access_rationale_title">Quyền lập chỉ mục tệp</string>
+    <string name="notification_channel_file_indexing_name">Lập chỉ mục tệp</string>
+    <string name="notification_channel_file_indexing_description">Hiển thị và quản lý tiến trình lập chỉ mục tệp</string>
+    <string name="file_indexing_notification_title">Đang lập chỉ mục tệp</string>
+    <string name="file_indexing_notification_preparing">Đang chuẩn bị chỉ mục…</string>
+    <string name="file_indexing_notification_progress_format">Đã lập chỉ mục %1$,d mục</string>
+    <string name="file_indexing_notification_paused_format">Đã tạm dừng sau khi xử lý %1$,d mục</string>
+    <string name="file_indexing_notification_completed_format">Đã lập chỉ mục %1$,d mục</string>
+    <string name="file_indexing_notification_completed_with_errors_format">Đã lập chỉ mục %1$,d mục nhưng có lỗi truy cập</string>
+    <string name="file_indexing_notification_cancelled">Đã hủy lập chỉ mục</string>
+    <string name="file_indexing_notification_failed">Lập chỉ mục không thành công</string>
+    <string name="file_indexing_action_pause">Tạm dừng</string>
+    <string name="file_indexing_action_resume">Tiếp tục</string>
+    <string name="file_indexing_banner_scheduled">Đã bắt đầu quét toàn bộ và lập chỉ mục</string>
+    <string name="file_indexing_banner_preparing">Đang chuẩn bị quét toàn bộ thiết bị…</string>
+    <string name="file_indexing_banner_running_format">Đang quét và lập chỉ mục · %1$,d mục</string>
+    <string name="file_indexing_banner_paused_format">Đã tạm dừng lập chỉ mục · %1$,d mục</string>
+    <string name="file_indexing_banner_completed_format">Đã hoàn tất lập chỉ mục · %1$,d mục</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Đã hoàn tất lập chỉ mục · %1$,d mục · %2$,d lỗi truy cập</string>
+    <string name="file_indexing_banner_cancelled_format">Đã hủy lập chỉ mục · %1$,d mục</string>
+    <string name="file_indexing_banner_failed">Lập chỉ mục không thành công</string>
+    <string name="file_indexing_banner_details_hint">Nhấn để xem chi tiết lập chỉ mục</string>
+    <string name="indexing_all_files_access_required">Hãy cấp quyền “Quản lý tất cả tệp” trước khi bắt đầu hoặc tiếp tục lập chỉ mục</string>
+    <string name="file_list_search_result_limit_format">Đang hiển thị %1$d kết quả khớp đầu tiên; hãy thu hẹp nội dung tìm kiếm</string>
+
+    <string name="navigation_global_search">Tìm kiếm toàn cục</string>
+    <string name="global_search_hint">Tìm các tệp đã được lập chỉ mục</string>
+    <string name="global_search_prompt">Nhập tên tệp hoặc thư mục</string>
+    <string name="global_search_no_results">Không có tệp trùng khớp</string>
+    <string name="global_search_index_empty">Chỉ mục đang trống. Hãy cấu hình việc lập chỉ mục rồi chạy quét trước.</string>
+    <string name="global_search_configure_index">Cấu hình lập chỉ mục</string>
+    <string name="global_search_error_format">Tìm kiếm không thành công: %1$s</string>
+    <string name="global_search_action_error_format">Không thể hoàn tất thao tác: %1$s</string>
+    <string name="global_search_directory_metadata_format">Thư mục · %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s · %2$s</string>
+    <string name="global_search_more_actions">Thao tác khác</string>
+    <string name="global_search_action_open">Mở</string>
+    <string name="global_search_action_show_in_folder">Hiển thị trong thư mục</string>
+    <string name="global_search_action_share">Chia sẻ</string>
+    <string name="global_search_sort_title">Sắp xếp</string>
+    <string name="global_search_sort_relevance">Mức độ liên quan</string>
+    <string name="global_search_sort_name_ascending">Tên (tăng dần)</string>
+    <string name="global_search_sort_name_descending">Tên (giảm dần)</string>
+    <string name="global_search_sort_size_ascending">Kích thước (nhỏ trước)</string>
+    <string name="global_search_sort_size_descending">Kích thước (lớn trước)</string>
+    <string name="global_search_sort_modified_ascending">Thời gian sửa đổi (cũ trước)</string>
+    <string name="global_search_sort_modified_descending">Thời gian sửa đổi (mới trước)</string>
+    <string name="global_search_index_status_error">Không thể lấy trạng thái chỉ mục · Nhấn để thử lại</string>
+    <string name="global_search_index_not_configured">Chưa cấu hình lập chỉ mục · Nhấn để cấu hình</string>
+    <string name="global_search_index_running_format">Đang lập chỉ mục %1$s · %2$,d mục</string>
+    <string name="global_search_index_paused_format">Đã tạm dừng lập chỉ mục · %1$,d mục</string>
+    <string name="global_search_index_ready_format">Đã lập chỉ mục %1$,d mục · Cập nhật %2$s</string>
+    <string name="global_search_index_entries_format">Đã lập chỉ mục %1$,d mục · Nhấn để cấu hình</string>
+
+    <string name="settings_indexing_title">Chỉ mục tìm kiếm</string>
+    <string name="settings_indexing_summary">Vị trí lập chỉ mục, vị trí loại trừ và điều khiển quét</string>
+    <string name="indexing_settings_title">Lập chỉ mục tìm kiếm</string>
+    <string name="indexing_status_category">Trạng thái chỉ mục</string>
+    <string name="indexing_controls_category">Điều khiển quét</string>
+    <string name="indexing_roots_category">Vị trí được lập chỉ mục</string>
+    <string name="indexing_exclusions_category">Vị trí bị loại trừ</string>
+    <string name="indexing_status_loading">Đang tải trạng thái chỉ mục…</string>
+    <string name="indexing_status_error">Không thể đọc trạng thái chỉ mục</string>
+    <string name="indexing_status_empty">Chưa có mục nào được lập chỉ mục</string>
+    <string name="indexing_status_format">%1$,d mục (%2$,d tệp, %3$,d thư mục) · %4$s</string>
+    <string name="indexing_statistics_details_title">Chi tiết chỉ mục</string>
+    <string name="indexing_statistics_coverage_format">Đã bật %1$,d/%2$,d vị trí · %3$,d mục loại trừ tùy chỉnh</string>
+    <string name="indexing_statistics_entries_format">%1$,d mục cần quyền root · %2$,d mục ẩn · %3$,d liên kết tượng trưng</string>
+    <string name="indexing_statistics_storage_format">Cơ sở dữ liệu chỉ mục: %1$s</string>
+    <string name="indexing_status_last_update_format">Cập nhật lần cuối: %1$s</string>
+    <string name="indexing_scan_status_format">Quét: %1$s</string>
+    <string name="indexing_scan_never_run">chưa từng chạy</string>
+    <string name="indexing_scan_running">đang chạy</string>
+    <string name="indexing_scan_paused">đã tạm dừng</string>
+    <string name="indexing_scan_completed">đã hoàn tất</string>
+    <string name="indexing_scan_completed_with_errors">đã hoàn tất nhưng có lỗi</string>
+    <string name="indexing_scan_failed">không thành công</string>
+    <string name="indexing_scan_cancelled">đã hủy</string>
+    <string name="indexing_start_full_scan">Bắt đầu quét toàn bộ</string>
+    <string name="indexing_start_full_scan_summary">Tạo lại chỉ mục cho mọi vị trí đã bật</string>
+    <string name="indexing_pause_scan">Tạm dừng quét</string>
+    <string name="indexing_resume_scan">Tiếp tục quét</string>
+    <string name="indexing_cancel_scan">Hủy quét</string>
+    <string name="indexing_add_root">Thêm vị trí lập chỉ mục</string>
+    <string name="indexing_add_exclusion">Thêm mục loại trừ</string>
+    <string name="indexing_no_roots">Chưa cấu hình vị trí nào</string>
+    <string name="indexing_no_exclusions">Không có vị trí loại trừ tùy chỉnh</string>
+    <string name="indexing_built_in_exclusion">Mục loại trừ an toàn tích hợp</string>
+    <string name="indexing_no_enabled_roots">Hãy bật ít nhất một vị trí lập chỉ mục trước</string>
+    <string name="indexing_operation_error_format">Thao tác lập chỉ mục không thành công: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Quá trình lập chỉ mục bị gián đoạn trước khi hoàn tất</string>
+    <string name="indexing_diagnostic_root_not_found_format">Không tìm thấy vị trí được lập chỉ mục: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Không thể đọc một số mục</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="other">%1$s (%2$,d lỗi có thể khắc phục)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Vị trí được lập chỉ mục đã bị tắt: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Mọi đường dẫn gia tăng phải nằm trong thư mục gốc %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">Không thể thay đổi chế độ truy cập khi vị trí này đang được quét</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Mọi vị trí được lập chỉ mục phải dùng cùng một chế độ truy cập; %1$s dùng %2$s</string>
+    <string name="indexing_root_add_title">Thêm vị trí lập chỉ mục</string>
+    <string name="indexing_root_edit_title">Sửa vị trí lập chỉ mục</string>
+    <string name="indexing_default_internal_storage">Bộ nhớ trong</string>
+    <string name="indexing_root_name_hint">Tên hiển thị</string>
+    <string name="indexing_root_path_hint">Đường dẫn tuyệt đối</string>
+    <string name="indexing_root_access_mode">Chế độ truy cập (được chọn tự động)</string>
+    <string name="indexing_root_enabled">Lập chỉ mục vị trí này</string>
+    <string name="indexing_root_include_hidden">Bao gồm tệp ẩn</string>
+    <string name="indexing_root_follow_symlinks">Đi theo liên kết tượng trưng</string>
+    <string name="indexing_root_path_locked">Không thể đổi đường dẫn sau khi tạo vị trí</string>
+    <string name="indexing_root_summary_format">%1$s · %2$s · %3$s</string>
+    <string name="indexing_access_standard">thông thường</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">đã bật</string>
+    <string name="indexing_disabled">đã tắt</string>
+    <string name="indexing_delete_root">Xóa vị trí</string>
+    <string name="indexing_delete_root_confirmation">Xóa “%1$s” và các mục đã lập chỉ mục của vị trí này?</string>
+    <string name="indexing_exclusion_add_title">Thêm vị trí loại trừ</string>
+    <string name="indexing_exclusion_path_hint">Đường dẫn tuyệt đối cần loại trừ</string>
+    <string name="indexing_exclusion_scope">Áp dụng cho</string>
+    <string name="indexing_exclusion_all_roots">Mọi vị trí được lập chỉ mục</string>
+    <string name="indexing_exclusion_summary_all">Mọi vị trí được lập chỉ mục</string>
+    <string name="indexing_exclusion_summary_root_format">Chỉ %1$s</string>
+    <string name="indexing_delete_exclusion_title">Xóa mục loại trừ</string>
+    <string name="indexing_delete_exclusion_confirmation">Ngừng loại trừ “%1$s”?</string>
+    <string name="indexing_field_required">Bắt buộc</string>
+    <string name="indexing_invalid_absolute_path">Nhập đường dẫn tuyệt đối hợp lệ</string>
+    <string name="indexing_root_requires_root_error">Chỉ có thể lập chỉ mục gốc hệ thống tệp khi tính năng quét root tự động khả dụng</string>
+    <string name="indexing_protected_path_error">Đường dẫn hệ thống ảo này luôn bị loại trừ để đảm bảo an toàn</string>
+    <string name="indexing_overlapping_root_error">Vị trí này trùng lặp với một vị trí đã được lập chỉ mục</string>
+    <string name="indexing_protected_exclusion_exists">Đường dẫn này đã bị loại trừ theo chính sách an toàn tích hợp</string>
+    <string name="indexing_exclusion_outside_root">Vị trí loại trừ phải nằm trong vị trí lập chỉ mục đã chọn</string>
+    <string name="indexing_save">Lưu</string>
+    <string name="indexing_remove">Xóa</string>
+    <string name="initial_indexing_root_offer_title">Thêm thư mục gốc vào chỉ mục?</string>
+    <string name="initial_indexing_root_offer_message">Bộ nhớ dùng chung nội bộ luôn được lập chỉ mục. Đã phát hiện quyền truy cập root. Bạn có muốn thêm cả / và lập chỉ mục cả hai vị trí bằng quyền truy cập đặc biệt không?</string>
+    <string name="initial_indexing_root_offer_accept">Thêm /</string>
+    <string name="initial_indexing_root_offer_decline">Không thêm /</string>
+    <string name="initial_indexing_root_error_format">Không thể bắt đầu lập chỉ mục root: %1$s</string>
+    <string name="initial_indexing_setup_error">Không thể bắt đầu lập chỉ mục tự động. BlitzFiles sẽ thử lại sau.</string>
+
+    <string name="about_description">Trình quản lý tệp nhanh dựa trên Material Files.</string>
+    <string name="about_upstream_source_title">Mã nguồn Material Files</string>
+    <string name="about_upstream_author_title">Tác giả ban đầu của Material Files</string>
     <string name="about_title">Giới thiệu</string>
     <string name="about_version_title">Phiên bản</string>
     <string name="about_github_title">Xem trên GitHub</string>

@@ -45,6 +45,7 @@
     <string name="show">نمایش</string>
     <string name="skip">پرش</string>
     <string name="stop">توقّف</string>
+    <string name="system_default">پیش‌گزیدهٔ سامانه</string>
     <string name="unknown">ناشناس</string>
     <string name="view">دیدن</string>
 
@@ -58,16 +59,46 @@
         <item quantity="other">%1$,d بایت</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">برنامه برای مدیریت همهٔ پرونده‌ها نیاز به دسترسی دارد. لطفاً اجازهٔ دسترسی را در تنظیمات سامانهٔ پیش‌رو، بدهید.</string>
+    <string name="all_files_access_rationale_title">دسترسی برای نمایه‌سازی پرونده‌ها</string>
+    <string name="all_files_access_rationale_message">برای پویش و نمایه‌سازی موفق همهٔ پرونده‌های در دسترس، BlitzFiles به مجوز «مدیریت همهٔ پرونده‌ها» نیاز دارد. «تأیید» را بزنید و سپس دسترسی را در تنظیمات سامانه فعال کنید. تا زمانی که این دسترسی داده نشود، هیچ پویشی آغاز نخواهد شد.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">برنامه اجازهٔ دسترسی به پرونده‌ها را نیاز دارد. لطفاً در کادر گفت‌وگوی سامانه که به زودی می‌آید، روی «پذیرش» کلیک کنید.</string>
     <string name="storage_permission_permanently_denied_message">برنامه اجازهٔ دسترسی به پرونده‌ها را نیاز دارد. لطفاً اجازهٔ «ذخیره‌سازی» را در تنظیمات سامانه بدهید.</string>
+    <string name="notification_permission_rationale_message">برنامه برای فرستادن اعلان دربارهٔ عملیات پرونده‌ها به مجوز نیاز دارد. لطفاً در گفت‌وگوی بعدی سامانه «اجازه دادن» را بزنید.</string>
+    <string name="notification_permission_permanently_denied_message">برنامه برای فرستادن اعلان دربارهٔ عملیات پرونده‌ها به مجوز نیاز دارد. لطفاً مجوز «اعلان‌ها» را در تنظیمات سامانه بدهید.</string>
     <string name="notification_channel_background_activity_start_name">کنش‌های در پس‌زمیه</string>
     <string name="notification_channel_background_activity_start_description">هنگامی که برنامه در پس‌زمینه است، کنش‌ها را انجام دهید</string>
     <string name="notification_channel_file_job_name">عملیات‌های پرونده</string>
     <string name="notification_channel_file_job_description">نمایش و کنترل عملیات‌های پرونده</string>
+    <string name="notification_channel_file_indexing_name">نمایه‌سازی پرونده‌ها</string>
+    <string name="notification_channel_file_indexing_description">نمایش و کنترل نمایه‌سازی پرونده‌ها</string>
     <string name="notification_channel_ftp_server_name">کارساز اف‌تی‌پی</string>
     <string name="notification_channel_ftp_server_description">نمایش و مهار کارساز اف‌تی‌پی</string>
+
+    <string name="file_indexing_notification_title">نمایه‌سازی پرونده‌ها</string>
+    <string name="file_indexing_notification_preparing">در حال آماده‌سازی نمایه…</string>
+    <string name="file_indexing_notification_progress_format">%1$,d ورودی نمایه‌سازی شد</string>
+    <string name="file_indexing_notification_paused_format">پس از %1$,d ورودی مکث شد</string>
+    <string name="file_indexing_notification_completed_format">%1$,d ورودی نمایه‌سازی شد</string>
+    <string name="file_indexing_notification_completed_with_errors_format">%1$,d ورودی با خطاهای دسترسی نمایه‌سازی شد</string>
+    <string name="file_indexing_notification_cancelled">نمایه‌سازی لغو شد</string>
+    <string name="file_indexing_notification_failed">نمایه‌سازی ناموفق بود</string>
+    <string name="file_indexing_action_pause">مکث</string>
+    <string name="file_indexing_action_resume">ادامه</string>
+    <string name="file_indexing_banner_scheduled">پویش کامل و نمایه‌سازی آغاز شد</string>
+    <string name="file_indexing_banner_preparing">در حال آماده‌سازی پویش کامل دستگاه…</string>
+    <string name="file_indexing_banner_running_format">در حال پویش و نمایه‌سازی · %1$,d ورودی</string>
+    <string name="file_indexing_banner_paused_format">نمایه‌سازی متوقف شده · %1$,d ورودی</string>
+    <string name="file_indexing_banner_completed_format">نمایه‌سازی کامل شد · %1$,d ورودی</string>
+    <string name="file_indexing_banner_completed_with_errors_format">نمایه‌سازی کامل شد · %1$,d ورودی · %2$,d خطای دسترسی</string>
+    <string name="file_indexing_banner_cancelled_format">نمایه‌سازی لغو شد · %1$,d ورودی</string>
+    <string name="file_indexing_banner_failed">نمایه‌سازی ناموفق بود</string>
+    <string name="file_indexing_banner_details_hint">برای دیدن جزئیات نمایه‌سازی بزنید</string>
+    <string name="indexing_all_files_access_required">پیش از آغاز یا ادامهٔ نمایه‌سازی، مجوز «دسترسی به همهٔ پرونده‌ها» را بدهید</string>
+
+    <string name="file_action_archive_password_title">گذرواژه لازم است</string>
+    <string name="file_action_archive_password_message_format">«%1$s» با گذرواژه محافظت می‌شود</string>
+    <string name="file_action_archive_password_error_empty">گذرواژه نمی‌تواند خالی باشد</string>
 
     <plurals name="file_job_archive_scan_notification_title_format">
         <item quantity="one">در حال آماده‌سازی برای فشرده کردن %1$,d پرونده (⁨%2$s⁩)</item>
@@ -231,6 +262,7 @@
     <string name="file_name_error_empty">نام پرونده نمی‌تواند خالی باشد</string>
     <string name="file_name_error_invalid">نام پرونده نامعتبر است</string>
     <string name="file_name_error_already_exists">پرونده‌ای با این نام هم‌اکنون موجود است</string>
+    <string name="file_replace_message_format">«⁨%1$s⁩» جایگزین شود؟</string>
     <string name="file_delete_message_file_format">مورد «⁨%1$s⁩» حذف شود؟</string>
     <string name="file_delete_message_directory_format">شاخهٔ «⁨%1$s⁩» و محتویاتش حذف شود؟</string>
     <plurals name="file_delete_message_multiple_files_format">
@@ -249,11 +281,21 @@
     <string name="file_create_archive_type_zip">.zip</string>
     <string name="file_create_archive_type_tar_xz">.tar.xz</string>
     <string name="file_create_archive_type_7z">.7z</string>
+    <string name="file_create_archive_password">گذرواژه (اختیاری)</string>
     <string name="file_add_bookmark_success">نشانک افزوده شد</string>
     <string name="file_create_file_title">پروندهٔ جدید</string>
     <string name="file_create_directory_title">شاخهٔ جدید</string>
 
     <string name="file_list_title">پرونده‌ها</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="one">یک پرونده را برگزینید</item>
+        <item quantity="other">پرونده‌ها را برگزینید</item>
+    </plurals>
+    <string name="file_list_title_create_file">ذخیرهٔ پرونده</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="one">یک شاخه را برگزینید</item>
+        <item quantity="other">شاخه‌ها را برگزینید</item>
+    </plurals>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">%1$,d شاخه</item>
         <item quantity="other">%1$,d شاخه</item>
@@ -263,14 +305,19 @@
         <item quantity="other">%1$,d پرونده</item>
     </plurals>
     <string name="file_list_subtitle_separator">،\u0020</string>
+    <string name="file_list_search_result_limit_format">نخستین %1$d نتیجه نمایش داده شده است — عبارت جست‌وجو را دقیق‌تر کنید</string>
     <string name="file_list_path_error_empty">مسیر نمی‌تواند خالی باشد</string>
     <string name="file_list_path_error_invalid">مسیر نامعتبر است</string>
+    <string name="file_list_action_view_sort">نما و مرتب‌سازی</string>
+    <string name="file_list_action_view_list">فهرست</string>
+    <string name="file_list_action_view_grid">شبکه</string>
     <string name="file_list_action_sort_by_name">نام</string>
     <string name="file_list_action_sort_by_type">گونه</string>
     <string name="file_list_action_sort_by_size">اندازه</string>
     <string name="file_list_action_sort_by_last_modified">آخرین تغییر</string>
     <string name="file_list_action_sort_order_ascending">بالا رونده</string>
     <string name="file_list_action_sort_directories_first">ابتدا شاخه‌ها</string>
+    <string name="file_list_action_view_sort_path_specific">فقط برای این شاخه</string>
     <string name="file_list_action_new_task">پنجرهٔ جدید</string>
     <string name="file_list_action_navigate_up">برو بالا</string>
     <string name="file_list_action_navigate_to">رفتن به</string>
@@ -280,6 +327,9 @@
     <string name="file_list_action_add_bookmark">افزودن نشانک</string>
     <string name="file_list_action_create_shortcut">ایجاد میان‌بر</string>
     <string name="file_list_breadcrumb_action_open_in_new_task">گشودن در پنجرهٔ جدید</string>
+    <string name="file_list_select_title_format">%1$,d</string>
+    <string name="file_list_create_file_name_hint">نام پرونده</string>
+    <string name="file_list_open_current_directory_format">گزینش «⁨%1$s⁩»</string>
     <string name="file_list_paste_move_title_format">در حال جابه‌جایی %1$,d</string>
     <string name="file_list_paste_copy_title_format">در حال رونوشت %1$,d</string>
     <string name="file_list_paste_extract_title_format">در حال استخراج %1$,d</string>
@@ -313,6 +363,39 @@
     <string name="file_properties_basic_archive_file">پروندهٔ بایگانی</string>
     <string name="file_properties_basic_archive_entry">ورودی بایگانی</string>
     <string name="file_properties_basic_free_space">فضای خالی</string>
+    <string name="file_properties_permission">مجوزها</string>
+    <string name="file_properties_permission_owner">مالک</string>
+    <string name="file_properties_permission_group">گروه</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">تغییر مالک</string>
+    <string name="file_properties_permission_set_group_title">تغییر گروه</string>
+    <string name="file_properties_permission_set_principal_filter_hint">نام یا شناسه‌ای وارد کنید</string>
+    <string name="file_properties_permission_set_principal_system">سامانه</string>
+    <string name="file_properties_permission_mode">حالت دسترسی</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">تغییر حالت دسترسی</string>
+    <string name="file_properties_permission_set_mode_others">دیگران</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>خواندن</item>
+        <item>نوشتن</item>
+        <item>اجرا</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>خواندن</item>
+        <item>نوشتن</item>
+        <item>جست‌وجو</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">ویژه</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>تنظیم UID</item>
+        <item>تنظیم GID</item>
+        <item>بیت چسبنده</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">«اجرا» به پرونده‌های درون شاخه افزوده نشود</string>
+    <string name="file_properties_permission_selinux_context">زمینهٔ SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_title">تغییر زمینهٔ SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_restore">بازگردانی</string>
+    <string name="file_properties_permission_recursive">اعمال به پرونده‌های درون شاخه</string>
     <string name="file_properties_image">تصویر</string>
     <string name="file_properties_media_dimensions">ابعاد</string>
     <string name="file_properties_media_dimensions_format">⁦%1$d \u00d7 %2$d⁩</string>
@@ -367,6 +450,12 @@
     <string name="file_properties_apk_signature_digests">امضاها</string>
     <string name="file_properties_apk_signature_digests_empty">بدون امضای معتبر</string>
     <string name="file_properties_apk_past_signature_digests">امضاهای قدیمی</string>
+    <string name="file_properties_checksum">جمع‌های کنترلی</string>
+    <string name="file_properties_checksum_compare">مقایسه</string>
+    <string name="file_properties_checksum_compare_placeholder">هر جمع کنترلی</string>
+    <string name="file_properties_checksum_compare_match_format">با جمع کنترلی %1$s مطابقت دارد</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">با پیشوند جمع کنترلی %1$s مطابقت دارد</string>
+    <string name="file_properties_checksum_compare_no_match">جمع کنترلی مطابقی پیدا نشد</string>
     <string name="storage_file_system_root_title">ریشه</string>
     <string name="storage_list_title">ذخیره‌ساز</string>
     <string name="storage_list_empty">بدون ذخیره‌ساز</string>
@@ -375,9 +464,15 @@
     <string name="storage_add_storage_ftp_server">کارساز اف‌تی‌پی</string>
     <string name="storage_add_storage_sftp_server">کارساز اس‌اف‌تی‌پی</string>
     <string name="storage_add_storage_smb_server">کارساز اس‌ام‌بی</string>
+    <string name="storage_add_storage_webdav_server">کارساز WebDAV</string>
     <string name="storage_edit_device_storage_title">ویرایش ذخیره‌ساز افزاره</string>
     <string name="storage_edit_device_storage_name">نام</string>
     <string name="storage_edit_device_storage_path">مسیر</string>
+    <string name="storage_add_external_storage_shortcut_title">افزودن میان‌بر ذخیره‌ساز خارجی</string>
+    <string name="storage_edit_external_storage_shortcut_title">ویرایش میان‌بر ذخیره‌ساز خارجی</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">حجم ذخیره‌سازی</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">یک حجم ذخیره‌سازی وارد کنید</string>
+    <string name="storage_edit_external_storage_shortcut_path">مسیر</string>
     <string name="storage_add_document_tree_title">افزودن ذخیره‌ساز خارجی</string>
     <string name="storage_edit_document_tree_title">ویرایش ذخیره‌ساز خارجی</string>
     <string name="storage_edit_document_tree_name">نام</string>
@@ -464,6 +559,31 @@
     <string name="storage_edit_smb_server_domain">دامنه</string>
     <string name="storage_edit_smb_server_connect_and_add">اتّصال و افزودن</string>
     <string name="storage_edit_smb_server_add">افزودن</string>
+    <string name="storage_edit_webdav_server_title_edit">ویرایش کارساز WebDAV</string>
+    <string name="storage_edit_webdav_server_title_add">افزودن کارساز WebDAV</string>
+    <string name="storage_edit_webdav_server_host">نام میزبان</string>
+    <string name="storage_edit_webdav_server_host_error_empty">یک نام میزبان وارد کنید</string>
+    <string name="storage_edit_webdav_server_host_error_invalid">نام میزبان نامعتبر است</string>
+    <string name="storage_edit_webdav_server_port">درگاه</string>
+    <string name="storage_edit_webdav_server_port_error_invalid">درگاه نامعتبر است</string>
+    <string name="storage_edit_webdav_server_path">مسیر</string>
+    <string name="storage_edit_webdav_server_path_placeholder">می‌تواند خالی بماند</string>
+    <string name="storage_edit_webdav_server_name">نام</string>
+    <string name="storage_edit_webdav_server_name_placeholder">استفاده از نام میزبان</string>
+    <string name="storage_edit_webdav_server_protocol">شیوه‌نامه</string>
+    <string name="storage_edit_webdav_server_authentication_type">احراز هویت</string>
+    <string-array name="storage_edit_webdav_server_authentication_type_entries">
+        <item>گذرواژه</item>
+        <item>توکن دسترسی</item>
+        <item>هیچ‌کدام</item>
+    </string-array>
+    <string name="storage_edit_webdav_server_username">نام کاربری</string>
+    <string name="storage_edit_webdav_server_username_error_empty">یک نام کاربری وارد کنید</string>
+    <string name="storage_edit_webdav_server_password">گذرواژه</string>
+    <string name="storage_edit_webdav_server_access_token">توکن دسترسی</string>
+    <string name="storage_edit_webdav_server_access_token_error_empty">یک توکن دسترسی وارد کنید</string>
+    <string name="storage_edit_webdav_server_connect_and_add">اتّصال و افزودن</string>
+    <string name="storage_edit_webdav_server_add">افزودن</string>
     <string name="navigation_storage_subtitle_format">%1$s آزاد از %2$s</string>
     <string name="navigation_add_storage">افزودن ذخیره‌ساز…</string>
     <string name="navigation_standard_directory_alarms">زنگ‌ها</string>
@@ -485,6 +605,9 @@
     <string name="archive_viewer_title">نمایشگر بایگانی</string>
     <string name="image_viewer_title">نمایشگر تصویر</string>
     <string name="image_viewer_subtitle_format">%1$,d/%2$,d</string>
+    <string name="save_as_title">ذخیره با نام</string>
+    <string name="save_as_error">خطا هنگام ذخیرهٔ پرونده</string>
+    <string name="save_as_success_format">«⁨%1$s⁩» در «⁨%2$s⁩» ذخیره شد</string>
     <string name="text_editor_title">ویرایشگر متن</string>
     <string name="text_editor_title_format">%1$s</string>
     <string name="text_editor_title_changed_format">*%1$s</string>
@@ -500,8 +623,13 @@
     <string name="ftp_server_state_summary_stopping">در حال توقّف…</string>
     <string name="ftp_server_state_summary_stopped">شروع نشد</string>
     <string name="ftp_server_url_title">نشانی</string>
+    <string name="ftp_server_url_summary_no_local_inet_address">نشانی IP محلی در دسترس نیست</string>
     <string name="ftp_server_url_menu_copy_url">رونوشت نشانی</string>
     <string name="ftp_server_url_menu_copy_password">رونوشت گذرواژه</string>
+    <string name="ftp_server_add_tile_title">افزودن به تنظیمات سریع</string>
+    <string name="ftp_server_add_tile_result_added">«کارساز FTP» به تنظیمات سریع افزوده شد</string>
+    <string name="ftp_server_add_tile_result_already_added">«کارساز FTP» از پیش در تنظیمات سریع وجود دارد</string>
+    <string name="ftp_server_add_tile_result_error">خطا هنگام افزودن «کارساز FTP» به تنظیمات سریع</string>
     <string name="ftp_server_configuration_title">پیکربندی</string>
     <string name="ftp_server_anonymous_login_title">ورود ناشناس</string>
     <string name="ftp_server_username_title">نام کاربری</string>
@@ -511,6 +639,7 @@
     <string name="ftp_server_writable_title">اجازهٔ نوشتن</string>
     <string name="settings_title">تنظیمات</string>
     <string name="settings_interface_title">رابط</string>
+    <string name="settings_locale_title">زبان</string>
     <string name="settings_theme_color_title">رنگ زمینه</string>
     <string name="settings_theme_color_summary">رنگی که بیشتر در برنامه ظاهر می‌شود</string>
     <string name="settings_material_design_3_title">طراحی متریال ۳</string>
@@ -555,10 +684,131 @@
         <item>دیدن محتویات</item>
         <item>بپرس چه باید کرد</item>
     </string-array>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">نمایش تصویر بندانگشتی برای سندهای PDF</string>
     <string name="settings_show_pdf_thumbnail_pre_28_summary">ممکن است برنامه را در نگارش‌های قدیمی‌تر اندروید ناپایدار کند</string>
     <string name="settings_read_remote_files_for_thumbnail_title">پرونده‌های دوردست را برای بندانگشتی بخوان</string>
 
+    <string name="navigation_global_search">جست‌وجوی سراسری</string>
+    <string name="global_search_hint">جست‌وجو در پرونده‌های نمایه‌شده</string>
+    <string name="global_search_prompt">نام پرونده یا شاخه‌ای را بنویسید</string>
+    <string name="global_search_no_results">پروندهٔ مطابقی پیدا نشد</string>
+    <string name="global_search_index_empty">نمایه خالی است. نخست نمایه‌سازی را تنظیم و یک پویش اجرا کنید.</string>
+    <string name="global_search_configure_index">تنظیم نمایه‌سازی</string>
+    <string name="global_search_error_format">جست‌وجو ناموفق بود: %1$s</string>
+    <string name="global_search_action_error_format">انجام عملیات ممکن نبود: %1$s</string>
+    <string name="global_search_directory_metadata_format">شاخه • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_more_actions">عملیات بیشتر</string>
+    <string name="global_search_action_open">گشودن</string>
+    <string name="global_search_action_show_in_folder">نمایش در شاخه</string>
+    <string name="global_search_action_share">هم‌رسانی</string>
+    <string name="global_search_sort_title">مرتب‌سازی</string>
+    <string name="global_search_sort_relevance">ارتباط</string>
+    <string name="global_search_sort_name_ascending">نام (الف–ی)</string>
+    <string name="global_search_sort_name_descending">نام (ی–الف)</string>
+    <string name="global_search_sort_size_ascending">اندازه (کوچک‌ترین نخست)</string>
+    <string name="global_search_sort_size_descending">اندازه (بزرگ‌ترین نخست)</string>
+    <string name="global_search_sort_modified_ascending">تغییر (قدیمی‌ترین نخست)</string>
+    <string name="global_search_sort_modified_descending">تغییر (جدیدترین نخست)</string>
+    <string name="global_search_index_status_error">وضعیت نمایه در دسترس نیست • برای تلاش دوباره بزنید</string>
+    <string name="global_search_index_not_configured">نمایه‌سازی تنظیم نشده است • برای تنظیم بزنید</string>
+    <string name="global_search_index_running_format">در حال نمایه‌سازی %1$s • %2$,d ورودی</string>
+    <string name="global_search_index_paused_format">نمایه‌سازی متوقف شده • %1$,d ورودی</string>
+    <string name="global_search_index_ready_format">%1$,d ورودی نمایه‌شده • به‌روزرسانی: %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d ورودی نمایه‌شده • برای تنظیم بزنید</string>
+
+    <string name="settings_indexing_title">نمایهٔ جست‌وجو</string>
+    <string name="settings_indexing_summary">مکان‌های نمایه‌شده، استثناها و کنترل‌های پویش</string>
+    <string name="indexing_settings_title">نمایه‌سازی برای جست‌وجو</string>
+    <string name="indexing_status_category">وضعیت نمایه</string>
+    <string name="indexing_controls_category">کنترل‌های پویش</string>
+    <string name="indexing_roots_category">مکان‌های نمایه‌شده</string>
+    <string name="indexing_exclusions_category">مکان‌های مستثناشده</string>
+    <string name="indexing_status_loading">در حال بار کردن وضعیت نمایه…</string>
+    <string name="indexing_status_error">خواندن وضعیت نمایه ممکن نبود</string>
+    <string name="indexing_status_empty">هنوز ورودی‌ای نمایه نشده است</string>
+    <string name="indexing_status_format">%1$,d ورودی (%2$,d پرونده، %3$,d شاخه) • %4$s</string>
+    <string name="indexing_statistics_details_title">جزئیات نمایه</string>
+    <string name="indexing_statistics_coverage_format">%1$,d از %2$,d مکان فعال • %3$,d استثنای سفارشی</string>
+    <string name="indexing_statistics_entries_format">%1$,d ورودی با دسترسی ریشه • %2$,d پنهان • %3$,d پیوند نمادین</string>
+    <string name="indexing_statistics_storage_format">پایگاه دادهٔ نمایه: %1$s</string>
+    <string name="indexing_status_last_update_format">آخرین به‌روزرسانی: %1$s</string>
+    <string name="indexing_scan_status_format">پویش: %1$s</string>
+    <string name="indexing_scan_never_run">هرگز اجرا نشده</string>
+    <string name="indexing_scan_running">در حال اجرا</string>
+    <string name="indexing_scan_paused">متوقف</string>
+    <string name="indexing_scan_completed">کامل شده</string>
+    <string name="indexing_scan_completed_with_errors">با خطا کامل شده</string>
+    <string name="indexing_scan_failed">ناموفق</string>
+    <string name="indexing_scan_cancelled">لغوشده</string>
+    <string name="indexing_start_full_scan">آغاز پویش کامل</string>
+    <string name="indexing_start_full_scan_summary">ساخت دوبارهٔ نمایه برای همهٔ مکان‌های فعال</string>
+    <string name="indexing_pause_scan">مکث پویش</string>
+    <string name="indexing_resume_scan">ادامهٔ پویش</string>
+    <string name="indexing_cancel_scan">لغو پویش</string>
+    <string name="indexing_add_root">افزودن مکان نمایه‌شده</string>
+    <string name="indexing_add_exclusion">افزودن استثنا</string>
+    <string name="indexing_no_roots">هیچ مکانی تنظیم نشده است</string>
+    <string name="indexing_no_exclusions">هیچ مکان سفارشی‌ای مستثنا نشده است</string>
+    <string name="indexing_built_in_exclusion">استثنای ایمنی داخلی</string>
+    <string name="indexing_no_enabled_roots">نخست دست‌کم یک مکان نمایه‌شده را فعال کنید</string>
+    <string name="indexing_operation_error_format">عملیات نمایه‌سازی ناموفق بود: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">نمایه‌سازی پیش از تکمیل متوقف شد</string>
+    <string name="indexing_diagnostic_root_not_found_format">ریشهٔ نمایه پیدا نشد: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">برخی ورودی‌ها خوانده نشدند</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d خطای قابل بازیابی)</item>
+        <item quantity="other">%1$s (%2$,d خطای قابل بازیابی)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">ریشهٔ نمایه غیرفعال است: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">هر مسیر افزایشی باید درون ریشهٔ %1$s باشد</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">هنگام پویش این مکان نمی‌توان حالت دسترسی را تغییر داد</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">همهٔ مکان‌های نمایه‌شده باید از حالت دسترسی یکسانی استفاده کنند؛ %1$s از %2$s استفاده می‌کند</string>
+    <string name="indexing_root_add_title">افزودن مکان نمایه‌شده</string>
+    <string name="indexing_root_edit_title">ویرایش مکان نمایه‌شده</string>
+    <string name="indexing_default_internal_storage">حافظهٔ داخلی مشترک</string>
+    <string name="indexing_root_name_hint">نام نمایشی</string>
+    <string name="indexing_root_path_hint">مسیر مطلق</string>
+    <string name="indexing_root_access_mode">حالت دسترسی (به‌طور خودکار انتخاب می‌شود)</string>
+    <string name="indexing_root_enabled">نمایه‌سازی این مکان</string>
+    <string name="indexing_root_include_hidden">شامل پرونده‌های پنهان</string>
+    <string name="indexing_root_follow_symlinks">دنبال کردن پیوندهای نمادین</string>
+    <string name="indexing_root_path_locked">پس از ایجاد مکان نمی‌توان مسیر را تغییر داد</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">معمولی</string>
+    <string name="indexing_access_root">ریشه</string>
+    <string name="indexing_enabled">فعال</string>
+    <string name="indexing_disabled">غیرفعال</string>
+    <string name="indexing_delete_root">حذف مکان</string>
+    <string name="indexing_delete_root_confirmation">«⁨%1$s⁩» و ورودی‌های نمایه‌شدهٔ آن حذف شوند؟</string>
+    <string name="indexing_exclusion_add_title">افزودن مکان مستثنا</string>
+    <string name="indexing_exclusion_path_hint">مسیر مطلق مستثنا</string>
+    <string name="indexing_exclusion_scope">اعمال به</string>
+    <string name="indexing_exclusion_all_roots">همهٔ مکان‌های نمایه‌شده</string>
+    <string name="indexing_exclusion_summary_all">همهٔ مکان‌های نمایه‌شده</string>
+    <string name="indexing_exclusion_summary_root_format">فقط %1$s</string>
+    <string name="indexing_delete_exclusion_title">حذف استثنا</string>
+    <string name="indexing_delete_exclusion_confirmation">«⁨%1$s⁩» دیگر مستثنا نباشد؟</string>
+    <string name="indexing_field_required">لازم</string>
+    <string name="indexing_invalid_absolute_path">یک مسیر مطلق معتبر وارد کنید</string>
+    <string name="indexing_root_requires_root_error">ریشهٔ سامانهٔ پرونده‌ها فقط هنگامی نمایه می‌شود که پویش خودکار با دسترسی ریشه در دسترس باشد</string>
+    <string name="indexing_protected_path_error">این مسیر مجازی سامانه برای ایمنی همیشه مستثنا است</string>
+    <string name="indexing_overlapping_root_error">این مکان با یکی از مکان‌های نمایه‌شده هم‌پوشانی دارد</string>
+    <string name="indexing_protected_exclusion_exists">این مسیر از پیش به‌دست سیاست ایمنی داخلی مستثنا شده است</string>
+    <string name="indexing_exclusion_outside_root">مکان مستثنا باید درون مکان نمایه‌شدهٔ انتخابی باشد</string>
+    <string name="indexing_save">ذخیره</string>
+    <string name="indexing_remove">حذف</string>
+    <string name="initial_indexing_root_offer_title">شاخهٔ ریشه به نمایه افزوده شود؟</string>
+    <string name="initial_indexing_root_offer_message">حافظهٔ داخلی مشترک همیشه نمایه می‌شود. دسترسی ریشه تشخیص داده شد. آیا / نیز افزوده شود و هر دو مکان با دسترسی ویژه نمایه شوند؟</string>
+    <string name="initial_indexing_root_offer_accept">افزودن /</string>
+    <string name="initial_indexing_root_offer_decline">بدون /</string>
+    <string name="initial_indexing_root_error_format">آغاز نمایه‌سازی با دسترسی ریشه ممکن نبود: %1$s</string>
+    <string name="initial_indexing_setup_error">آغاز نمایه‌سازی خودکار ممکن نبود. BlitzFiles بعداً دوباره تلاش خواهد کرد.</string>
+
     <string name="about_title">درباره</string>
+    <string name="about_description">مدیر پروندهٔ سریعی بر پایهٔ Material Files.</string>
+    <string name="about_upstream_source_title">کد منبع Material Files</string>
+    <string name="about_upstream_author_title">سازندهٔ اصلی Material Files</string>
     <string name="about_version_title">نگارش</string>
     <string name="about_github_title">دیدن در گیت‌هاب</string>
     <string name="about_licenses_title">پروانه‌ها</string>

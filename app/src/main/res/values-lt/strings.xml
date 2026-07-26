@@ -61,16 +61,46 @@
         <item quantity="other">%1$,d baitai</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">Programėlei reikia prieigos, kad būtų galima valdyti visus failus. Leisk prieigą būsimame sistemos nustatyme.</string>
+    <string name="all_files_access_rationale_title">Prieiga failams indeksuoti</string>
+    <string name="all_files_access_rationale_message">Kad galėtų sėkmingai nuskaityti ir indeksuoti visus pasiekiamus failus, BlitzFiles reikia leidimo „Tvarkyti visus failus“. Palieskite „Gerai“, tada sistemos nustatymuose įjunkite prieigą. Kol prieiga nesuteikta, nuskaitymas nebus pradėtas.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">Programėlei reikia leidimo pasiekti failus. Būsimame sistemos dialogo lange spustelėk „LEISTI“.</string>
     <string name="storage_permission_permanently_denied_message">Programėlei reikia leidimo pasiekti failus. Suteik saugyklos leidimą sistemos nustatymuose.</string>
+    <string name="notification_permission_rationale_message">Programėlei reikia leidimo siųsti pranešimus apie failų operacijas. Būsimame sistemos dialogo lange palieskite „Leisti“.</string>
+    <string name="notification_permission_permanently_denied_message">Programėlei reikia leidimo siųsti pranešimus apie failų operacijas. Sistemos nustatymuose suteikite leidimą „Pranešimai“.</string>
     <string name="notification_channel_background_activity_start_name">Veiksmai, kol fone</string>
     <string name="notification_channel_background_activity_start_description">Daryti veiksmus kai programėlė veikia fone</string>
     <string name="notification_channel_file_job_name">Failo operacijos</string>
     <string name="notification_channel_file_job_description">Rodyti ir valdyti failų operacijas</string>
+    <string name="notification_channel_file_indexing_name">Failų indeksavimas</string>
+    <string name="notification_channel_file_indexing_description">Rodyti ir valdyti failų indeksavimą</string>
     <string name="notification_channel_ftp_server_name">FTP serveris</string>
     <string name="notification_channel_ftp_server_description">Rodyti ir valdyti FTP serverį</string>
+
+    <string name="file_indexing_notification_title">Failų indeksavimas</string>
+    <string name="file_indexing_notification_preparing">Ruošiamas indeksas…</string>
+    <string name="file_indexing_notification_progress_format">Indeksuota %1$,d įrašų</string>
+    <string name="file_indexing_notification_paused_format">Pristabdyta po %1$,d įrašų</string>
+    <string name="file_indexing_notification_completed_format">Indeksuota %1$,d įrašų</string>
+    <string name="file_indexing_notification_completed_with_errors_format">Indeksuota %1$,d įrašų su prieigos klaidomis</string>
+    <string name="file_indexing_notification_cancelled">Indeksavimas atšauktas</string>
+    <string name="file_indexing_notification_failed">Indeksavimas nepavyko</string>
+    <string name="file_indexing_action_pause">Pristabdyti</string>
+    <string name="file_indexing_action_resume">Tęsti</string>
+    <string name="file_indexing_banner_scheduled">Pradėtas visas nuskaitymas ir indeksavimas</string>
+    <string name="file_indexing_banner_preparing">Ruošiamasi visam įrenginio nuskaitymui…</string>
+    <string name="file_indexing_banner_running_format">Nuskaitoma ir indeksuojama · %1$,d įrašų</string>
+    <string name="file_indexing_banner_paused_format">Indeksavimas pristabdytas · %1$,d įrašų</string>
+    <string name="file_indexing_banner_completed_format">Indeksavimas baigtas · %1$,d įrašų</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Indeksavimas baigtas · %1$,d įrašų · %2$,d prieigos klaidų</string>
+    <string name="file_indexing_banner_cancelled_format">Indeksavimas atšauktas · %1$,d įrašų</string>
+    <string name="file_indexing_banner_failed">Indeksavimas nepavyko</string>
+    <string name="file_indexing_banner_details_hint">Palieskite, kad peržiūrėtumėte indeksavimo informaciją</string>
+    <string name="indexing_all_files_access_required">Prieš pradėdami arba tęsdami indeksavimą suteikite leidimą „Tvarkyti visus failus“</string>
+
+    <string name="file_action_archive_password_title">Reikalingas slaptažodis</string>
+    <string name="file_action_archive_password_message_format">„%1$s“ apsaugotas slaptažodžiu.</string>
+    <string name="file_action_archive_password_error_empty">Slaptažodis negali būti tuščias</string>
 
     <plurals name="file_job_archive_scan_notification_title_format">
         <item quantity="one">Ruošiamasi suspausti %1$,d failą (%2$s)</item>
@@ -274,6 +304,7 @@
     <string name="file_name_error_empty">Failo pavadinimas negali būti tuščias</string>
     <string name="file_name_error_invalid">Netinkamas failo pavadinimas</string>
     <string name="file_name_error_already_exists">Failas šiuo pavadinimu jau egzistuoja</string>
+    <string name="file_replace_message_format">Pakeisti „%1$s“?</string>
     <string name="file_delete_message_file_format">Ištrinti \"%1$s\"?</string>
     <string name="file_delete_message_directory_format">Ištrinti aplanką \"%1$s\" ir jo turinį?</string>
     <plurals name="file_delete_message_multiple_files_format">
@@ -298,11 +329,25 @@
     <string name="file_create_archive_type_zip">.zip</string>
     <string name="file_create_archive_type_tar_xz">.tar.xz</string>
     <string name="file_create_archive_type_7z">.7z</string>
+    <string name="file_create_archive_password">Slaptažodis (nebūtinas)</string>
     <string name="file_add_bookmark_success">Pridėta žymė</string>
     <string name="file_create_file_title">Naujas failas</string>
     <string name="file_create_directory_title">Naujas aplankas</string>
 
     <string name="file_list_title">Failai</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="one">Pasirinkti failą</item>
+        <item quantity="few">Pasirinkti failus</item>
+        <item quantity="many">Pasirinkti failus</item>
+        <item quantity="other">Pasirinkti failus</item>
+    </plurals>
+    <string name="file_list_title_create_file">Išsaugoti failą</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="one">Pasirinkti aplanką</item>
+        <item quantity="few">Pasirinkti aplankus</item>
+        <item quantity="many">Pasirinkti aplankus</item>
+        <item quantity="other">Pasirinkti aplankus</item>
+    </plurals>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">%1$,d aplankas</item>
         <item quantity="few">%1$,d aplankai</item>
@@ -316,6 +361,7 @@
         <item quantity="other">%1$,d failai</item>
     </plurals>
     <string name="file_list_subtitle_separator">,\u0020</string>
+    <string name="file_list_search_result_limit_format">Rodomi pirmieji %1$d atitikmenys — patikslinkite užklausą</string>
     <string name="file_list_path_error_empty">Kelias negali būti tuščias</string>
     <string name="file_list_path_error_invalid">Netinkamas kelias</string>
     <string name="file_list_action_view_sort">Peržiūra ir rūšiavimas</string>
@@ -338,6 +384,8 @@
     <string name="file_list_action_create_shortcut">Sukurti spartųjį kelią</string>
     <string name="file_list_breadcrumb_action_open_in_new_task">Atidaryti naujame lange</string>
     <string name="file_list_select_title_format">%1$,d</string>
+    <string name="file_list_create_file_name_hint">Failo pavadinimas</string>
+    <string name="file_list_open_current_directory_format">Pasirinkti „%1$s“</string>
     <string name="file_list_paste_move_title_format">Perkeliama %1$,d</string>
     <string name="file_list_paste_copy_title_format">Kopijuojama %1$,d</string>
     <string name="file_list_paste_extract_title_format">Išskleidžiama %1$,d</string>
@@ -373,6 +421,39 @@
     <string name="file_properties_basic_archive_file">Archyvo failas</string>
     <string name="file_properties_basic_archive_entry">Archyvo įrašas</string>
     <string name="file_properties_basic_free_space">Laisvos vietos</string>
+    <string name="file_properties_permission">Leidimai</string>
+    <string name="file_properties_permission_owner">Savininkas</string>
+    <string name="file_properties_permission_group">Grupė</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">Keisti savininką</string>
+    <string name="file_properties_permission_set_group_title">Keisti grupę</string>
+    <string name="file_properties_permission_set_principal_filter_hint">Įveskite pavadinimą arba ID</string>
+    <string name="file_properties_permission_set_principal_system">Sistema</string>
+    <string name="file_properties_permission_mode">Režimas</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">Keisti režimą</string>
+    <string name="file_properties_permission_set_mode_others">Kiti</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>Skaityti</item>
+        <item>Rašyti</item>
+        <item>Vykdyti</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>Skaityti</item>
+        <item>Rašyti</item>
+        <item>Ieškoti</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">Specialūs</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>Nustatyti UID</item>
+        <item>Nustatyti GID</item>
+        <item>Lipnusis bitas</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Nepridėti „Vykdyti“ aplanke esantiems failams</string>
+    <string name="file_properties_permission_selinux_context">SELinux kontekstas</string>
+    <string name="file_properties_permission_set_selinux_context_title">Keisti SELinux kontekstą</string>
+    <string name="file_properties_permission_set_selinux_context_restore">Atkurti</string>
+    <string name="file_properties_permission_recursive">Taikyti aplanke esantiems failams</string>
     <string name="file_properties_image">Nuotrauka</string>
     <string name="file_properties_media_dimensions">Matmenys</string>
     <string name="file_properties_media_dimensions_format">%1$d \u00d7 %2$d</string>
@@ -429,6 +510,12 @@
     <string name="file_properties_apk_signature_digests">Parašai</string>
     <string name="file_properties_apk_signature_digests_empty">Nėra tinkamų parašų</string>
     <string name="file_properties_apk_past_signature_digests">Seni parašai</string>
+    <string name="file_properties_checksum">Kontrolinės sumos</string>
+    <string name="file_properties_checksum_compare">Palyginti</string>
+    <string name="file_properties_checksum_compare_placeholder">Bet kokia kontrolinė suma</string>
+    <string name="file_properties_checksum_compare_match_format">Atitinka %1$s kontrolinę sumą</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Atitinka %1$s kontrolinės sumos pradžią</string>
+    <string name="file_properties_checksum_compare_no_match">Atitinkanti kontrolinė suma nerasta</string>
     <string name="storage_file_system_root_title">Root</string>
     <string name="storage_list_title">Saugykla</string>
     <string name="storage_list_empty">Nėra saugyklos</string>
@@ -437,9 +524,15 @@
     <string name="storage_add_storage_ftp_server">FTP serveris</string>
     <string name="storage_add_storage_sftp_server">SFTP serveris</string>
     <string name="storage_add_storage_smb_server">SMB serveris</string>
+    <string name="storage_add_storage_webdav_server">WebDAV serveris</string>
     <string name="storage_edit_device_storage_title">Redaguoti įrenginio saugylką</string>
     <string name="storage_edit_device_storage_name">Pavadinimas</string>
     <string name="storage_edit_device_storage_path">Kelias</string>
+    <string name="storage_add_external_storage_shortcut_title">Pridėti išorinės saugyklos spartųjį kelią</string>
+    <string name="storage_edit_external_storage_shortcut_title">Redaguoti išorinės saugyklos spartųjį kelią</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Saugyklos tomas</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Įveskite saugyklos tomą</string>
+    <string name="storage_edit_external_storage_shortcut_path">Kelias</string>
     <string name="storage_add_document_tree_title">Pridėti išorinę saugyklą</string>
     <string name="storage_edit_document_tree_title">Redaguoti išorinę saugyklą</string>
     <string name="storage_edit_document_tree_name">Pavadinimas</string>
@@ -526,6 +619,31 @@
     <string name="storage_edit_smb_server_domain">Domenas</string>
     <string name="storage_edit_smb_server_connect_and_add">Prisijungti ir pridėti</string>
     <string name="storage_edit_smb_server_add">Pridėti</string>
+    <string name="storage_edit_webdav_server_title_edit">Redaguoti WebDAV serverį</string>
+    <string name="storage_edit_webdav_server_title_add">Pridėti WebDAV serverį</string>
+    <string name="storage_edit_webdav_server_host">Serverio vardas</string>
+    <string name="storage_edit_webdav_server_host_error_empty">Įveskite serverio vardą</string>
+    <string name="storage_edit_webdav_server_host_error_invalid">Netinkamas serverio vardas</string>
+    <string name="storage_edit_webdav_server_port">Prievadas</string>
+    <string name="storage_edit_webdav_server_port_error_invalid">Netinkamas prievadas</string>
+    <string name="storage_edit_webdav_server_path">Kelias</string>
+    <string name="storage_edit_webdav_server_path_placeholder">Gali būti paliktas tuščias</string>
+    <string name="storage_edit_webdav_server_name">Pavadinimas</string>
+    <string name="storage_edit_webdav_server_name_placeholder">Naudoti serverio vardą</string>
+    <string name="storage_edit_webdav_server_protocol">Protokolas</string>
+    <string name="storage_edit_webdav_server_authentication_type">Autentifikacija</string>
+    <string-array name="storage_edit_webdav_server_authentication_type_entries">
+        <item>Slaptažodis</item>
+        <item>Prieigos raktas</item>
+        <item>Nėra</item>
+    </string-array>
+    <string name="storage_edit_webdav_server_username">Naudotojo vardas</string>
+    <string name="storage_edit_webdav_server_username_error_empty">Įveskite naudotojo vardą</string>
+    <string name="storage_edit_webdav_server_password">Slaptažodis</string>
+    <string name="storage_edit_webdav_server_access_token">Prieigos raktas</string>
+    <string name="storage_edit_webdav_server_access_token_error_empty">Įveskite prieigos raktą</string>
+    <string name="storage_edit_webdav_server_connect_and_add">Prisijungti ir pridėti</string>
+    <string name="storage_edit_webdav_server_add">Pridėti</string>
     <string name="navigation_storage_subtitle_format">%1$s laisva iš %2$s</string>
     <string name="navigation_add_storage">Pridėti saugyklą…</string>
     <string name="navigation_standard_directory_alarms">Aliarmai</string>
@@ -547,6 +665,9 @@
     <string name="archive_viewer_title">Archyvų žiūryklė</string>
     <string name="image_viewer_title">Nuotraukų žiūryklė</string>
     <string name="image_viewer_subtitle_format">%1$,d/%2$,d</string>
+    <string name="save_as_title">Išsaugoti kaip</string>
+    <string name="save_as_error">Klaida išsaugant failą</string>
+    <string name="save_as_success_format">„%1$s“ išsaugotas „%2$s“</string>
     <string name="text_editor_title">Teksto redaktorius</string>
     <string name="text_editor_title_format">%1$s</string>
     <string name="text_editor_title_changed_format">*%1$s</string>
@@ -566,6 +687,9 @@
     <string name="ftp_server_url_menu_copy_url">Kopijuoti URL</string>
     <string name="ftp_server_url_menu_copy_password">Kopijuoti slaptažodį</string>
     <string name="ftp_server_add_tile_title">Pridėti prie greitųjų nustatymų</string>
+    <string name="ftp_server_add_tile_result_added">„FTP serveris“ pridėtas prie greitųjų nustatymų</string>
+    <string name="ftp_server_add_tile_result_already_added">„FTP serveris“ jau pridėtas prie greitųjų nustatymų</string>
+    <string name="ftp_server_add_tile_result_error">Pridedant „FTP serverį“ prie greitųjų nustatymų įvyko klaida</string>
     <string name="ftp_server_configuration_title">Konfigūracija</string>
     <string name="ftp_server_anonymous_login_title">Anonimiškas prisijungimas</string>
     <string name="ftp_server_username_title">Naudotojo vardas</string>
@@ -622,10 +746,133 @@
         <item>Peržiūrėti turinį</item>
         <item>Klausti ką daryti</item>
     </string-array>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">Rodyti PDF dokumentų miniatiūras</string>
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Gali padaryti programėlę nestabilią senesnėse Android versijose</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Rodyti nuotolinių failų miniatiūras</string>
 
+    <string name="navigation_global_search">Visuotinė paieška</string>
+    <string name="global_search_hint">Ieškoti indeksuotuose failuose</string>
+    <string name="global_search_prompt">Įveskite failo arba aplanko pavadinimą</string>
+    <string name="global_search_no_results">Atitinkančių failų nerasta</string>
+    <string name="global_search_index_empty">Indeksas tuščias. Pirmiausia nustatykite indeksavimą ir paleiskite nuskaitymą.</string>
+    <string name="global_search_configure_index">Nustatyti indeksavimą</string>
+    <string name="global_search_error_format">Paieška nepavyko: %1$s</string>
+    <string name="global_search_action_error_format">Nepavyko atlikti veiksmo: %1$s</string>
+    <string name="global_search_directory_metadata_format">Aplankas • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_more_actions">Daugiau veiksmų</string>
+    <string name="global_search_action_open">Atidaryti</string>
+    <string name="global_search_action_show_in_folder">Rodyti aplanke</string>
+    <string name="global_search_action_share">Bendrinti</string>
+    <string name="global_search_sort_title">Rūšiuoti</string>
+    <string name="global_search_sort_relevance">Atitikimas</string>
+    <string name="global_search_sort_name_ascending">Pavadinimas (A–Ž)</string>
+    <string name="global_search_sort_name_descending">Pavadinimas (Ž–A)</string>
+    <string name="global_search_sort_size_ascending">Dydis (pirmiausia mažiausi)</string>
+    <string name="global_search_sort_size_descending">Dydis (pirmiausia didžiausi)</string>
+    <string name="global_search_sort_modified_ascending">Keitimo laikas (pirmiausia seniausi)</string>
+    <string name="global_search_sort_modified_descending">Keitimo laikas (pirmiausia naujausi)</string>
+    <string name="global_search_index_status_error">Indekso būsena nepasiekiama • Palieskite, kad bandytumėte dar kartą</string>
+    <string name="global_search_index_not_configured">Indeksavimas nenustatytas • Palieskite, kad nustatytumėte</string>
+    <string name="global_search_index_running_format">Indeksuojama %1$s • %2$,d įrašų</string>
+    <string name="global_search_index_paused_format">Indeksavimas pristabdytas • %1$,d įrašų</string>
+    <string name="global_search_index_ready_format">%1$,d indeksuotų įrašų • Atnaujinta: %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d indeksuotų įrašų • Palieskite, kad nustatytumėte</string>
+
+    <string name="settings_indexing_title">Paieškos indeksas</string>
+    <string name="settings_indexing_summary">Indeksuojamos vietos, išimtys ir nuskaitymo valdymas</string>
+    <string name="indexing_settings_title">Paieškos indeksavimas</string>
+    <string name="indexing_status_category">Indekso būsena</string>
+    <string name="indexing_controls_category">Nuskaitymo valdymas</string>
+    <string name="indexing_roots_category">Indeksuojamos vietos</string>
+    <string name="indexing_exclusions_category">Neįtrauktos vietos</string>
+    <string name="indexing_status_loading">Kraunama indekso būsena…</string>
+    <string name="indexing_status_error">Nepavyko nuskaityti indekso būsenos</string>
+    <string name="indexing_status_empty">Indeksuotų įrašų dar nėra</string>
+    <string name="indexing_status_format">%1$,d įrašų (%2$,d failų, %3$,d aplankų) • %4$s</string>
+    <string name="indexing_statistics_details_title">Indekso informacija</string>
+    <string name="indexing_statistics_coverage_format">Įjungta %1$,d iš %2$,d vietų • %3$,d pasirinktinių išimčių</string>
+    <string name="indexing_statistics_entries_format">%1$,d įrašų su root prieiga • %2$,d paslėptų • %3$,d simbolinių nuorodų</string>
+    <string name="indexing_statistics_storage_format">Indekso duomenų bazė: %1$s</string>
+    <string name="indexing_status_last_update_format">Paskutinis atnaujinimas: %1$s</string>
+    <string name="indexing_scan_status_format">Nuskaitymas: %1$s</string>
+    <string name="indexing_scan_never_run">niekada nevykdytas</string>
+    <string name="indexing_scan_running">vykdomas</string>
+    <string name="indexing_scan_paused">pristabdytas</string>
+    <string name="indexing_scan_completed">baigtas</string>
+    <string name="indexing_scan_completed_with_errors">baigtas su klaidomis</string>
+    <string name="indexing_scan_failed">nepavyko</string>
+    <string name="indexing_scan_cancelled">atšauktas</string>
+    <string name="indexing_start_full_scan">Pradėti visą nuskaitymą</string>
+    <string name="indexing_start_full_scan_summary">Iš naujo sukurti visų įjungtų vietų indeksą</string>
+    <string name="indexing_pause_scan">Pristabdyti nuskaitymą</string>
+    <string name="indexing_resume_scan">Tęsti nuskaitymą</string>
+    <string name="indexing_cancel_scan">Atšaukti nuskaitymą</string>
+    <string name="indexing_add_root">Pridėti indeksuojamą vietą</string>
+    <string name="indexing_add_exclusion">Pridėti išimtį</string>
+    <string name="indexing_no_roots">Nenustatyta jokių vietų</string>
+    <string name="indexing_no_exclusions">Nėra pasirinktinių neįtrauktų vietų</string>
+    <string name="indexing_built_in_exclusion">Integruota saugos išimtis</string>
+    <string name="indexing_no_enabled_roots">Pirmiausia įjunkite bent vieną indeksuojamą vietą</string>
+    <string name="indexing_operation_error_format">Indeksavimo operacija nepavyko: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Indeksavimas buvo nutrauktas jo nebaigus</string>
+    <string name="indexing_diagnostic_root_not_found_format">Indekso šaknis nerasta: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Kai kurių įrašų nepavyko perskaityti</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d atkuriama klaida)</item>
+        <item quantity="few">%1$s (%2$,d atkuriamos klaidos)</item>
+        <item quantity="many">%1$s (%2$,d atkuriamų klaidų)</item>
+        <item quantity="other">%1$s (%2$,d atkuriamos klaidos)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Indekso šaknis išjungta: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Kiekvienas dalinio indeksavimo kelias turi būti šaknyje %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">Prieigos režimo negalima keisti, kol ši vieta nuskaitoma</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Visose indeksuojamose vietose turi būti naudojamas tas pats prieigos režimas; %1$s naudoja %2$s</string>
+    <string name="indexing_root_add_title">Pridėti indeksuojamą vietą</string>
+    <string name="indexing_root_edit_title">Redaguoti indeksuojamą vietą</string>
+    <string name="indexing_default_internal_storage">Bendrinama vidinė saugykla</string>
+    <string name="indexing_root_name_hint">Rodomas pavadinimas</string>
+    <string name="indexing_root_path_hint">Absoliutusis kelias</string>
+    <string name="indexing_root_access_mode">Prieigos režimas (parenkamas automatiškai)</string>
+    <string name="indexing_root_enabled">Indeksuoti šią vietą</string>
+    <string name="indexing_root_include_hidden">Įtraukti paslėptus failus</string>
+    <string name="indexing_root_follow_symlinks">Sekti simbolines nuorodas</string>
+    <string name="indexing_root_path_locked">Sukūrus vietą kelio pakeisti negalima</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">įprasta</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">įjungta</string>
+    <string name="indexing_disabled">išjungta</string>
+    <string name="indexing_delete_root">Pašalinti vietą</string>
+    <string name="indexing_delete_root_confirmation">Pašalinti „%1$s“ ir jos indeksuotus įrašus?</string>
+    <string name="indexing_exclusion_add_title">Pridėti neįtrauktą vietą</string>
+    <string name="indexing_exclusion_path_hint">Neįtrauktas absoliutusis kelias</string>
+    <string name="indexing_exclusion_scope">Taikyti</string>
+    <string name="indexing_exclusion_all_roots">Visos indeksuojamos vietos</string>
+    <string name="indexing_exclusion_summary_all">Visos indeksuojamos vietos</string>
+    <string name="indexing_exclusion_summary_root_format">Tik %1$s</string>
+    <string name="indexing_delete_exclusion_title">Pašalinti išimtį</string>
+    <string name="indexing_delete_exclusion_confirmation">Nebetaikyti išimties „%1$s“?</string>
+    <string name="indexing_field_required">Privaloma</string>
+    <string name="indexing_invalid_absolute_path">Įveskite tinkamą absoliutųjį kelią</string>
+    <string name="indexing_root_requires_root_error">Failų sistemos šaknį galima indeksuoti tik tada, kai pasiekiamas automatinis nuskaitymas su root prieiga</string>
+    <string name="indexing_protected_path_error">Šis virtualus sistemos kelias saugumo sumetimais visada neįtraukiamas</string>
+    <string name="indexing_overlapping_root_error">Ši vieta persidengia su esama indeksuojama vieta</string>
+    <string name="indexing_protected_exclusion_exists">Šis kelias jau neįtrauktas pagal integruotą saugos politiką</string>
+    <string name="indexing_exclusion_outside_root">Išimtis turi būti pasirinktoje indeksuojamoje vietoje</string>
+    <string name="indexing_save">Išsaugoti</string>
+    <string name="indexing_remove">Pašalinti</string>
+    <string name="initial_indexing_root_offer_title">Pridėti šakninį aplanką į indeksą?</string>
+    <string name="initial_indexing_root_offer_message">Bendrinama vidinė saugykla visada indeksuojama. Aptikta root prieiga. Ar pridėti ir / bei indeksuoti abi vietas su išplėstine prieiga?</string>
+    <string name="initial_indexing_root_offer_accept">Pridėti /</string>
+    <string name="initial_indexing_root_offer_decline">Be /</string>
+    <string name="initial_indexing_root_error_format">Nepavyko pradėti indeksavimo su root prieiga: %1$s</string>
+    <string name="initial_indexing_setup_error">Nepavyko pradėti automatinio indeksavimo. BlitzFiles bandys dar kartą vėliau.</string>
+
     <string name="about_title">Apie</string>
+    <string name="about_description">Sparti failų tvarkyklė, pagrįsta Material Files.</string>
+    <string name="about_upstream_source_title">Material Files pirminis kodas</string>
+    <string name="about_upstream_author_title">Pradinis Material Files autorius</string>
     <string name="about_version_title">Versija</string>
     <string name="about_github_title">Peržiūrėti GitHub svetainėje</string>
     <string name="about_licenses_title">Licencijos</string>

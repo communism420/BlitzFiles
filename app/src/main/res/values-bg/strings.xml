@@ -57,7 +57,8 @@
         <item quantity="other">%1$,d байта</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">Необходими са права за управление на всички файлове. Дайте достъп в последващите системни настройки.</string>
+    <string name="all_files_access_rationale_title">Достъп за индексиране на файлове</string>
+    <string name="all_files_access_rationale_message">За да сканира и индексира успешно всички достъпни файлове, BlitzFiles се нуждае от разрешението „Управление на всички файлове“. Докоснете „OK“, след което включете достъпа в системните настройки. Сканирането няма да започне, докато достъпът не бъде предоставен.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">Необходими са права за достъп до файлове. Докоснете „Разрешаване“ в следващия системен прозорец</string>
     <string name="storage_permission_permanently_denied_message">Необходими са права за достъпа до файлове. Разрешете правото „ХРАНИЛИЩЕ“ в системните настройки.</string>
@@ -69,8 +70,31 @@
     <string name="notification_channel_background_activity_start_description">Изпълняване на действия докато приложението е на заден план</string>
     <string name="notification_channel_file_job_name">Действия с файлове</string>
     <string name="notification_channel_file_job_description">Показване и управление на действия с файлове</string>
+    <string name="notification_channel_file_indexing_name">Индексиране на файлове</string>
+    <string name="notification_channel_file_indexing_description">Показване и управление на индексирането на файлове</string>
     <string name="notification_channel_ftp_server_name">Сървър на FTP</string>
     <string name="notification_channel_ftp_server_description">Показване и управление на сървър на FTP</string>
+
+    <string name="file_indexing_notification_title">Индексиране на файлове</string>
+    <string name="file_indexing_notification_preparing">Подготвяне на индекса…</string>
+    <string name="file_indexing_notification_progress_format">Индексирани са %1$,d записа</string>
+    <string name="file_indexing_notification_paused_format">Поставено на пауза след %1$,d записа</string>
+    <string name="file_indexing_notification_completed_format">Индексирани са %1$,d записа</string>
+    <string name="file_indexing_notification_completed_with_errors_format">Индексирани са %1$,d записа с грешки при достъпа</string>
+    <string name="file_indexing_notification_cancelled">Индексирането е отменено</string>
+    <string name="file_indexing_notification_failed">Индексирането е неуспешно</string>
+    <string name="file_indexing_action_pause">Пауза</string>
+    <string name="file_indexing_action_resume">Продължаване</string>
+    <string name="file_indexing_banner_scheduled">Започна пълно сканиране и индексиране</string>
+    <string name="file_indexing_banner_preparing">Подготвяне на пълното сканиране на устройството…</string>
+    <string name="file_indexing_banner_running_format">Сканиране и индексиране · %1$,d записа</string>
+    <string name="file_indexing_banner_paused_format">Индексирането е на пауза · %1$,d записа</string>
+    <string name="file_indexing_banner_completed_format">Индексирането завърши · %1$,d записа</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Индексирането завърши · %1$,d записа · %2$,d грешки при достъпа</string>
+    <string name="file_indexing_banner_cancelled_format">Индексирането е отменено · %1$,d записа</string>
+    <string name="file_indexing_banner_failed">Индексирането е неуспешно</string>
+    <string name="file_indexing_banner_details_hint">Докоснете за подробности за индексирането</string>
+    <string name="indexing_all_files_access_required">Дайте разрешението „Управление на всички файлове“, преди да започнете или продължите индексирането</string>
 
     <string name="file_action_archive_password_title">Необходима е парола</string>
     <string name="file_action_archive_password_message_format">Файлът „%1$s“ е защитен с парола</string>
@@ -281,6 +305,7 @@
         <item quantity="other">%1$,d файлове</item>
     </plurals>
     <string name="file_list_subtitle_separator">,\u0020</string>
+    <string name="file_list_search_result_limit_format">Показани са първите %1$d съвпадения — уточнете заявката</string>
     <string name="file_list_path_error_empty">Пътят не може да е празен</string>
     <string name="file_list_path_error_invalid">Неприемлив път</string>
     <string name="file_list_action_view_sort">Преглед и сортиране</string>
@@ -366,6 +391,7 @@
         <item>Задаване на GID</item>
         <item>Лепкав бит</item>
     </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Да не се добавя „Изпълняване“ за вложените файлове</string>
     <string name="file_properties_permission_selinux_context">Контекст на SELinux</string>
     <string name="file_properties_permission_set_selinux_context_title">Смяна на контекста на SELinux</string>
     <string name="file_properties_permission_set_selinux_context_restore">Възстановяване</string>
@@ -424,6 +450,12 @@
     <string name="file_properties_apk_signature_digests">Подписи</string>
     <string name="file_properties_apk_signature_digests_empty">Няма валидни подписи</string>
     <string name="file_properties_apk_past_signature_digests">Стари подписи</string>
+    <string name="file_properties_checksum">Контролни суми</string>
+    <string name="file_properties_checksum_compare">Сравняване</string>
+    <string name="file_properties_checksum_compare_placeholder">Произволна контролна сума</string>
+    <string name="file_properties_checksum_compare_match_format">Съвпада с контролната сума %1$s</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Съвпада с началото на контролната сума %1$s</string>
+    <string name="file_properties_checksum_compare_no_match">Не е намерена съвпадаща контролна сума</string>
     <string name="storage_file_system_root_title">Коренова папка</string>
     <string name="storage_list_title">Хранилище</string>
     <string name="storage_list_empty">Няма хранилища</string>
@@ -436,6 +468,11 @@
     <string name="storage_edit_device_storage_title">Редактиране на хранилище</string>
     <string name="storage_edit_device_storage_name">Име</string>
     <string name="storage_edit_device_storage_path">Път</string>
+    <string name="storage_add_external_storage_shortcut_title">Добавяне на пряк път към външно хранилище</string>
+    <string name="storage_edit_external_storage_shortcut_title">Редактиране на пряк път към външно хранилище</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Дял на хранилището</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Въведете дял на хранилището</string>
+    <string name="storage_edit_external_storage_shortcut_path">Път</string>
     <string name="storage_add_document_tree_title">Добавяне на външно хранилище</string>
     <string name="storage_edit_document_tree_title">Редакция на външно хранилище</string>
     <string name="storage_edit_document_tree_name">Име</string>
@@ -569,6 +606,9 @@
     <string name="archive_viewer_title">Преглед на архиви</string>
     <string name="image_viewer_title">Преглед на изображение</string>
     <string name="image_viewer_subtitle_format">%1$,d/%2$,d</string>
+    <string name="save_as_title">Запазване като</string>
+    <string name="save_as_error">Грешка при запазване на файла</string>
+    <string name="save_as_success_format">„%1$s“ е запазен в „%2$s“</string>
     <string name="text_editor_title">Текстов редактор</string>
     <string name="text_editor_title_format">%1$s</string>
     <string name="text_editor_title_changed_format">*%1$s</string>
@@ -645,10 +685,131 @@
         <item>Преглед на съдържанието</item>
         <item>Питане за действие</item>
     </string-array>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">Показване на миниатюри за документи PDF</string>
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Има опасност да направи приложението нестабилно под по-ранни издания на Андроид</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Четене на отдалечени файлове за миниатюри</string>
 
+    <string name="navigation_global_search">Глобално търсене</string>
+    <string name="global_search_hint">Търсене в индексираните файлове</string>
+    <string name="global_search_prompt">Въведете име на файл или папка</string>
+    <string name="global_search_no_results">Няма съвпадащи файлове</string>
+    <string name="global_search_index_empty">Индексът е празен. Първо настройте индексирането и изпълнете сканиране.</string>
+    <string name="global_search_configure_index">Настройване на индексирането</string>
+    <string name="global_search_error_format">Търсенето е неуспешно: %1$s</string>
+    <string name="global_search_action_error_format">Действието не може да бъде завършено: %1$s</string>
+    <string name="global_search_directory_metadata_format">Папка • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_more_actions">Още действия</string>
+    <string name="global_search_action_open">Отваряне</string>
+    <string name="global_search_action_show_in_folder">Показване в папката</string>
+    <string name="global_search_action_share">Споделяне</string>
+    <string name="global_search_sort_title">Подреждане</string>
+    <string name="global_search_sort_relevance">Съответствие</string>
+    <string name="global_search_sort_name_ascending">Име (А–Я)</string>
+    <string name="global_search_sort_name_descending">Име (Я–А)</string>
+    <string name="global_search_sort_size_ascending">Размер (първо най-малките)</string>
+    <string name="global_search_sort_size_descending">Размер (първо най-големите)</string>
+    <string name="global_search_sort_modified_ascending">Промяна (първо най-старите)</string>
+    <string name="global_search_sort_modified_descending">Промяна (първо най-новите)</string>
+    <string name="global_search_index_status_error">Състоянието на индекса не е достъпно • Докоснете за повторен опит</string>
+    <string name="global_search_index_not_configured">Индексирането не е настроено • Докоснете за настройване</string>
+    <string name="global_search_index_running_format">Индексиране на %1$s • %2$,d записа</string>
+    <string name="global_search_index_paused_format">Индексирането е на пауза • %1$,d записа</string>
+    <string name="global_search_index_ready_format">%1$,d индексирани записа • Обновено: %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d индексирани записа • Докоснете за настройване</string>
+
+    <string name="settings_indexing_title">Индекс за търсене</string>
+    <string name="settings_indexing_summary">Индексирани местоположения, изключения и управление на сканирането</string>
+    <string name="indexing_settings_title">Индексиране за търсене</string>
+    <string name="indexing_status_category">Състояние на индекса</string>
+    <string name="indexing_controls_category">Управление на сканирането</string>
+    <string name="indexing_roots_category">Индексирани местоположения</string>
+    <string name="indexing_exclusions_category">Изключени местоположения</string>
+    <string name="indexing_status_loading">Зареждане на състоянието на индекса…</string>
+    <string name="indexing_status_error">Състоянието на индекса не може да бъде прочетено</string>
+    <string name="indexing_status_empty">Все още няма индексирани записи</string>
+    <string name="indexing_status_format">%1$,d записа (%2$,d файла, %3$,d папки) • %4$s</string>
+    <string name="indexing_statistics_details_title">Подробности за индекса</string>
+    <string name="indexing_statistics_coverage_format">Включени са %1$,d от %2$,d местоположения • %3$,d потребителски изключения</string>
+    <string name="indexing_statistics_entries_format">%1$,d записа с достъп на суперпотребител • %2$,d скрити • %3$,d символни връзки</string>
+    <string name="indexing_statistics_storage_format">База от данни на индекса: %1$s</string>
+    <string name="indexing_status_last_update_format">Последно обновяване: %1$s</string>
+    <string name="indexing_scan_status_format">Сканиране: %1$s</string>
+    <string name="indexing_scan_never_run">не е изпълнявано</string>
+    <string name="indexing_scan_running">изпълнява се</string>
+    <string name="indexing_scan_paused">на пауза</string>
+    <string name="indexing_scan_completed">завършено</string>
+    <string name="indexing_scan_completed_with_errors">завършено с грешки</string>
+    <string name="indexing_scan_failed">неуспешно</string>
+    <string name="indexing_scan_cancelled">отменено</string>
+    <string name="indexing_start_full_scan">Започване на пълно сканиране</string>
+    <string name="indexing_start_full_scan_summary">Повторно създаване на индекса за всички включени местоположения</string>
+    <string name="indexing_pause_scan">Пауза на сканирането</string>
+    <string name="indexing_resume_scan">Продължаване на сканирането</string>
+    <string name="indexing_cancel_scan">Отменяне на сканирането</string>
+    <string name="indexing_add_root">Добавяне на индексирано местоположение</string>
+    <string name="indexing_add_exclusion">Добавяне на изключение</string>
+    <string name="indexing_no_roots">Няма настроени местоположения</string>
+    <string name="indexing_no_exclusions">Няма потребителски изключени местоположения</string>
+    <string name="indexing_built_in_exclusion">Вградено изключение за безопасност</string>
+    <string name="indexing_no_enabled_roots">Първо включете поне едно индексирано местоположение</string>
+    <string name="indexing_operation_error_format">Действието по индексиране е неуспешно: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Индексирането беше прекъснато преди завършването му</string>
+    <string name="indexing_diagnostic_root_not_found_format">Коренът за индексиране не е намерен: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Някои записи не можаха да бъдат прочетени</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d възстановима грешка)</item>
+        <item quantity="other">%1$s (%2$,d възстановими грешки)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Коренът за индексиране е деактивиран: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Всеки път за инкрементално индексиране трябва да е в корена %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">Режимът на достъп не може да бъде променян, докато това местоположение се сканира</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Всички индексирани местоположения трябва да използват един и същ режим на достъп; %1$s използва %2$s</string>
+    <string name="indexing_root_add_title">Добавяне на индексирано местоположение</string>
+    <string name="indexing_root_edit_title">Редактиране на индексирано местоположение</string>
+    <string name="indexing_default_internal_storage">Споделено вътрешно хранилище</string>
+    <string name="indexing_root_name_hint">Показвано име</string>
+    <string name="indexing_root_path_hint">Абсолютен път</string>
+    <string name="indexing_root_access_mode">Режим на достъп (избира се автоматично)</string>
+    <string name="indexing_root_enabled">Индексиране на това местоположение</string>
+    <string name="indexing_root_include_hidden">Включване на скритите файлове</string>
+    <string name="indexing_root_follow_symlinks">Следване на символните връзки</string>
+    <string name="indexing_root_path_locked">Пътят не може да бъде променян след създаването на местоположението</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">обикновен</string>
+    <string name="indexing_access_root">суперпотребител</string>
+    <string name="indexing_enabled">включено</string>
+    <string name="indexing_disabled">изключено</string>
+    <string name="indexing_delete_root">Премахване на местоположението</string>
+    <string name="indexing_delete_root_confirmation">Да бъдат ли премахнати „%1$s“ и индексираните записи в него?</string>
+    <string name="indexing_exclusion_add_title">Добавяне на изключено местоположение</string>
+    <string name="indexing_exclusion_path_hint">Изключен абсолютен път</string>
+    <string name="indexing_exclusion_scope">Прилагане към</string>
+    <string name="indexing_exclusion_all_roots">Всички индексирани местоположения</string>
+    <string name="indexing_exclusion_summary_all">Всички индексирани местоположения</string>
+    <string name="indexing_exclusion_summary_root_format">Само %1$s</string>
+    <string name="indexing_delete_exclusion_title">Премахване на изключението</string>
+    <string name="indexing_delete_exclusion_confirmation">Да се спре ли изключването на „%1$s“?</string>
+    <string name="indexing_field_required">Задължително</string>
+    <string name="indexing_invalid_absolute_path">Въведете действителен абсолютен път</string>
+    <string name="indexing_root_requires_root_error">Кореновата папка на файловата система може да бъде индексирана само когато е достъпно автоматично сканиране с права на суперпотребител</string>
+    <string name="indexing_protected_path_error">Този виртуален системен път винаги се изключва с цел безопасност</string>
+    <string name="indexing_overlapping_root_error">Това местоположение се припокрива със съществуващо индексирано местоположение</string>
+    <string name="indexing_protected_exclusion_exists">Този път вече е изключен от вградените правила за безопасност</string>
+    <string name="indexing_exclusion_outside_root">Изключението трябва да бъде в избраното индексирано местоположение</string>
+    <string name="indexing_save">Запазване</string>
+    <string name="indexing_remove">Премахване</string>
+    <string name="initial_indexing_root_offer_title">Да бъде ли добавена кореновата папка към индекса?</string>
+    <string name="initial_indexing_root_offer_message">Споделеното вътрешно хранилище винаги се индексира. Открит е достъп на суперпотребител. Да бъде ли добавена и /, за да се индексират и двете местоположения с разширени права?</string>
+    <string name="initial_indexing_root_offer_accept">Добавяне на /</string>
+    <string name="initial_indexing_root_offer_decline">Без /</string>
+    <string name="initial_indexing_root_error_format">Индексирането с права на суперпотребител не може да бъде започнато: %1$s</string>
+    <string name="initial_indexing_setup_error">Автоматичното индексиране не може да бъде започнато. BlitzFiles ще опита отново по-късно.</string>
+
     <string name="about_title">Относно</string>
+    <string name="about_description">Бърз файлов мениджър, базиран на Material Files.</string>
+    <string name="about_upstream_source_title">Изходен код на Material Files</string>
+    <string name="about_upstream_author_title">Първоначален автор на Material Files</string>
     <string name="about_version_title">Версия</string>
     <string name="about_github_title">Преглед в GitHub</string>
     <string name="about_licenses_title">Лицензи</string>

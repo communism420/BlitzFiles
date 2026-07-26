@@ -57,7 +57,8 @@
         <item quantity="other">%1$,d bytes</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">L\'aplicació necessita accés per gestionar tots els fitxers. Si us plau, permeteu l\'accés a la configuració del sistema.</string>
+    <string name="all_files_access_rationale_title">Accés per a la indexació de fitxers</string>
+    <string name="all_files_access_rationale_message">Per escanejar i indexar correctament tots els fitxers disponibles, BlitzFiles necessita l’«Accés a tots els fitxers». Toqueu D’acord i activeu l’accés a la configuració del sistema. No s’iniciarà cap escaneig fins que no es concedeixi l’accés.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">L\'aplicació necessita permís per accedir als fitxers. Feu clic a «PERMET» en el diàleg del sistema.</string>
     <string name="storage_permission_permanently_denied_message">L\'aplicació necessita permís per accedir als fitxers. Si us plau, concedeix el permís “emmagatzematge” a la configuració del sistema.</string>
@@ -160,7 +161,7 @@
         <item quantity="other">S\'està canviant el context de SELinux per a %1$,d fitxers</item>
     </plurals>
     <plurals name="file_job_restore_selinux_context_scan_notification_title_format">
-        <item quantity="one">Preparant la restauració del context SELinux pel fitxer %1$,d </item>
+        <item quantity="one">Preparant la restauració del context SELinux pel fitxer %1$,d</item>
         <item quantity="other">S\'està preparant la restauració del context de SELinux per a %1$,d fitxers</item>
     </plurals>
     <string name="file_job_restore_selinux_context_notification_title_one_format">S\'està restaurant el context de SELinux per a «%1$s»</string>
@@ -280,7 +281,7 @@
     <string name="file_list_action_sort_by_type">Tipus</string>
     <string name="file_list_action_sort_by_size">Mida</string>
     <string name="file_list_action_sort_by_last_modified">Última modificació</string>
-    <string name="file_list_action_sort_order_ascending"> Ascendent</string>
+    <string name="file_list_action_sort_order_ascending">Ascendent</string>
     <string name="file_list_action_sort_directories_first">Carpetes primer</string>
     <string name="file_list_action_view_sort_path_specific">Només per a aquesta carpeta</string>
     <string name="file_list_action_new_task">Finestra nova</string>
@@ -604,7 +605,212 @@
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Pot fer que l\'aplicació sigui inestable en versions anteriors d\'Android</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Lectura remota de miniatures</string>
 
+    <string name="file_replace_message_format">Voleu substituir «%1$s»?</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="one">Seleccioneu un fitxer</item>
+        <item quantity="other">Seleccioneu fitxers</item>
+    </plurals>
+    <string name="file_list_title_create_file">Desa el fitxer</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="one">Seleccioneu una carpeta</item>
+        <item quantity="other">Seleccioneu carpetes</item>
+    </plurals>
+    <string name="file_list_create_file_name_hint">Nom del fitxer</string>
+    <string name="file_list_open_current_directory_format">Seleccioneu «%1$s»</string>
+    <string name="file_properties_permission">Permisos</string>
+    <string name="file_properties_permission_owner">Propietari</string>
+    <string name="file_properties_permission_group">Grup</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">Canvia el propietari</string>
+    <string name="file_properties_permission_set_group_title">Canvia el grup</string>
+    <string name="file_properties_permission_set_principal_filter_hint">Introduïu un nom o un ID</string>
+    <string name="file_properties_permission_set_principal_system">Sistema</string>
+    <string name="file_properties_permission_mode">Mode</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">Canvia el mode</string>
+    <string name="file_properties_permission_set_mode_others">Altres</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>Llegir</item>
+        <item>Escriure</item>
+        <item>Executar</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>Llegir</item>
+        <item>Escriure</item>
+        <item>Cercar</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">Especial</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>Estableix l’UID</item>
+        <item>Estableix el GID</item>
+        <item>Bit enganxós</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">No afegiu «Executar» als fitxers inclosos</string>
+    <string name="file_properties_permission_selinux_context">Context SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_title">Canvia el context SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_restore">Restaura</string>
+    <string name="file_properties_permission_recursive">Aplica als fitxers inclosos</string>
+    <string name="file_properties_checksum">Sumes de verificació</string>
+    <string name="file_properties_checksum_compare">Compara</string>
+    <string name="file_properties_checksum_compare_placeholder">Qualsevol suma de verificació</string>
+    <string name="file_properties_checksum_compare_match_format">Coincideix amb la suma de verificació %1$s</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Coincideix amb el prefix de la suma de verificació %1$s</string>
+    <string name="file_properties_checksum_compare_no_match">No s’ha trobat cap suma de verificació coincident</string>
+    <string name="storage_add_external_storage_shortcut_title">Afegeix una drecera a l’emmagatzematge extern</string>
+    <string name="storage_edit_external_storage_shortcut_title">Edita la drecera a l’emmagatzematge extern</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Volum d’emmagatzematge</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Introduïu un volum d’emmagatzematge</string>
+    <string name="storage_edit_external_storage_shortcut_path">Camí</string>
+    <string name="save_as_title">Desa com a</string>
+    <string name="save_as_error">S’ha produït un error en desar el fitxer</string>
+    <string name="save_as_success_format">«%1$s» s’ha desat a «%2$s»</string>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">Mostra la miniatura dels documents PDF</string>
+
+    <string name="notification_channel_file_indexing_name">Indexació de fitxers</string>
+    <string name="notification_channel_file_indexing_description">Mostra i controla la indexació de fitxers</string>
+    <string name="file_indexing_notification_title">Indexant fitxers</string>
+    <string name="file_indexing_notification_preparing">Preparant l’índex…</string>
+    <string name="file_indexing_notification_progress_format">%1$,d entrades indexades</string>
+    <string name="file_indexing_notification_paused_format">En pausa després de %1$,d entrades</string>
+    <string name="file_indexing_notification_completed_format">%1$,d entrades indexades</string>
+    <string name="file_indexing_notification_completed_with_errors_format">%1$,d entrades indexades amb errors d’accés</string>
+    <string name="file_indexing_notification_cancelled">Indexació cancel·lada</string>
+    <string name="file_indexing_notification_failed">La indexació ha fallat</string>
+    <string name="file_indexing_action_pause">Posa en pausa</string>
+    <string name="file_indexing_action_resume">Reprèn</string>
+    <string name="file_indexing_banner_scheduled">S’han iniciat l’escaneig complet i la indexació</string>
+    <string name="file_indexing_banner_preparing">Preparant l’escaneig complet del dispositiu…</string>
+    <string name="file_indexing_banner_running_format">Escanejant i indexant · %1$,d entrades</string>
+    <string name="file_indexing_banner_paused_format">Indexació en pausa · %1$,d entrades</string>
+    <string name="file_indexing_banner_completed_format">Indexació completada · %1$,d entrades</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Indexació completada · %1$,d entrades · %2$,d errors d’accés</string>
+    <string name="file_indexing_banner_cancelled_format">Indexació cancel·lada · %1$,d entrades</string>
+    <string name="file_indexing_banner_failed">La indexació ha fallat</string>
+    <string name="file_indexing_banner_details_hint">Toqueu per veure els detalls de la indexació</string>
+    <string name="indexing_all_files_access_required">Concediu l’«Accés a tots els fitxers» abans d’iniciar o reprendre la indexació</string>
+    <string name="file_list_search_result_limit_format">Es mostren les primeres %1$d coincidències — afineu la cerca</string>
+
+    <string name="navigation_global_search">Cerca global</string>
+    <string name="global_search_hint">Cerca fitxers indexats</string>
+    <string name="global_search_prompt">Escriviu el nom d’un fitxer o una carpeta</string>
+    <string name="global_search_no_results">Cap fitxer coincident</string>
+    <string name="global_search_index_empty">L’índex és buit. Configureu la indexació i executeu primer un escaneig.</string>
+    <string name="global_search_configure_index">Configura la indexació</string>
+    <string name="global_search_error_format">La cerca ha fallat: %1$s</string>
+    <string name="global_search_action_error_format">No s’ha pogut completar l’acció: %1$s</string>
+    <string name="global_search_directory_metadata_format">Carpeta • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_more_actions">Més accions</string>
+    <string name="global_search_action_open">Obre</string>
+    <string name="global_search_action_show_in_folder">Mostra a la carpeta</string>
+    <string name="global_search_action_share">Comparteix</string>
+    <string name="global_search_sort_title">Ordena</string>
+    <string name="global_search_sort_relevance">Rellevància</string>
+    <string name="global_search_sort_name_ascending">Nom (A–Z)</string>
+    <string name="global_search_sort_name_descending">Nom (Z–A)</string>
+    <string name="global_search_sort_size_ascending">Mida (primer els més petits)</string>
+    <string name="global_search_sort_size_descending">Mida (primer els més grans)</string>
+    <string name="global_search_sort_modified_ascending">Modificació (primer els més antics)</string>
+    <string name="global_search_sort_modified_descending">Modificació (primer els més recents)</string>
+    <string name="global_search_index_status_error">L’estat de l’índex no està disponible • Toqueu per tornar-ho a provar</string>
+    <string name="global_search_index_not_configured">La indexació no està configurada • Toqueu per configurar-la</string>
+    <string name="global_search_index_running_format">Indexant %1$s • %2$,d entrades</string>
+    <string name="global_search_index_paused_format">Indexació en pausa • %1$,d entrades</string>
+    <string name="global_search_index_ready_format">%1$,d entrades indexades • Actualitzat: %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d entrades indexades • Toqueu per configurar</string>
+
+    <string name="settings_indexing_title">Índex de cerca</string>
+    <string name="settings_indexing_summary">Ubicacions indexades, exclusions i controls d’escaneig</string>
+    <string name="indexing_settings_title">Indexació per a la cerca</string>
+    <string name="indexing_status_category">Estat de l’índex</string>
+    <string name="indexing_controls_category">Controls d’escaneig</string>
+    <string name="indexing_roots_category">Ubicacions indexades</string>
+    <string name="indexing_exclusions_category">Ubicacions excloses</string>
+    <string name="indexing_status_loading">Carregant l’estat de l’índex…</string>
+    <string name="indexing_status_error">No s’ha pogut llegir l’estat de l’índex</string>
+    <string name="indexing_status_empty">Encara no hi ha entrades indexades</string>
+    <string name="indexing_status_format">%1$,d entrades (%2$,d fitxers, %3$,d carpetes) • %4$s</string>
+    <string name="indexing_statistics_details_title">Detalls de l’índex</string>
+    <string name="indexing_statistics_coverage_format">%1$,d de %2$,d ubicacions activades • %3$,d exclusions personalitzades</string>
+    <string name="indexing_statistics_entries_format">%1$,d entrades root • %2$,d ocultes • %3$,d enllaços simbòlics</string>
+    <string name="indexing_statistics_storage_format">Base de dades de l’índex: %1$s</string>
+    <string name="indexing_status_last_update_format">Darrera actualització: %1$s</string>
+    <string name="indexing_scan_status_format">Escaneig: %1$s</string>
+    <string name="indexing_scan_never_run">mai executat</string>
+    <string name="indexing_scan_running">en curs</string>
+    <string name="indexing_scan_paused">en pausa</string>
+    <string name="indexing_scan_completed">completat</string>
+    <string name="indexing_scan_completed_with_errors">completat amb errors</string>
+    <string name="indexing_scan_failed">ha fallat</string>
+    <string name="indexing_scan_cancelled">cancel·lat</string>
+    <string name="indexing_start_full_scan">Inicia l’escaneig complet</string>
+    <string name="indexing_start_full_scan_summary">Reconstrueix l’índex de totes les ubicacions activades</string>
+    <string name="indexing_pause_scan">Posa en pausa l’escaneig</string>
+    <string name="indexing_resume_scan">Reprèn l’escaneig</string>
+    <string name="indexing_cancel_scan">Cancel·la l’escaneig</string>
+    <string name="indexing_add_root">Afegeix una ubicació indexada</string>
+    <string name="indexing_add_exclusion">Afegeix una exclusió</string>
+    <string name="indexing_no_roots">No hi ha cap ubicació configurada</string>
+    <string name="indexing_no_exclusions">No hi ha cap ubicació exclosa personalitzada</string>
+    <string name="indexing_built_in_exclusion">Exclusió de seguretat integrada</string>
+    <string name="indexing_no_enabled_roots">Activeu primer almenys una ubicació indexada</string>
+    <string name="indexing_operation_error_format">L’operació d’indexació ha fallat: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">La indexació s’ha interromput abans de completar-se</string>
+    <string name="indexing_diagnostic_root_not_found_format">No s’ha trobat l’arrel de l’índex: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">No s’han pogut llegir algunes entrades</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d error recuperable)</item>
+        <item quantity="other">%1$s (%2$,d errors recuperables)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">L’arrel de l’índex està desactivada: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Cada camí incremental ha de ser dins de l’arrel %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">No es pot canviar el mode d’accés mentre s’està escanejant aquesta ubicació</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Totes les ubicacions indexades han d’utilitzar el mateix mode d’accés; %1$s utilitza %2$s</string>
+    <string name="indexing_root_add_title">Afegeix una ubicació indexada</string>
+    <string name="indexing_root_edit_title">Edita la ubicació indexada</string>
+    <string name="indexing_default_internal_storage">Emmagatzematge intern</string>
+    <string name="indexing_root_name_hint">Nom visible</string>
+    <string name="indexing_root_path_hint">Camí absolut</string>
+    <string name="indexing_root_access_mode">Mode d’accés (seleccionat automàticament)</string>
+    <string name="indexing_root_enabled">Indexa aquesta ubicació</string>
+    <string name="indexing_root_include_hidden">Inclou els fitxers ocults</string>
+    <string name="indexing_root_follow_symlinks">Segueix els enllaços simbòlics</string>
+    <string name="indexing_root_path_locked">El camí no es pot canviar després de crear una ubicació</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">normal</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">activada</string>
+    <string name="indexing_disabled">desactivada</string>
+    <string name="indexing_delete_root">Suprimeix la ubicació</string>
+    <string name="indexing_delete_root_confirmation">Voleu suprimir «%1$s» i les seves entrades indexades?</string>
+    <string name="indexing_exclusion_add_title">Afegeix una ubicació exclosa</string>
+    <string name="indexing_exclusion_path_hint">Camí absolut exclòs</string>
+    <string name="indexing_exclusion_scope">Aplica a</string>
+    <string name="indexing_exclusion_all_roots">Totes les ubicacions indexades</string>
+    <string name="indexing_exclusion_summary_all">Totes les ubicacions indexades</string>
+    <string name="indexing_exclusion_summary_root_format">Només %1$s</string>
+    <string name="indexing_delete_exclusion_title">Suprimeix l’exclusió</string>
+    <string name="indexing_delete_exclusion_confirmation">Voleu deixar d’excloure «%1$s»?</string>
+    <string name="indexing_field_required">Obligatori</string>
+    <string name="indexing_invalid_absolute_path">Introduïu un camí absolut vàlid</string>
+    <string name="indexing_root_requires_root_error">L’arrel del sistema de fitxers només es pot indexar quan l’escaneig root automàtic està disponible</string>
+    <string name="indexing_protected_path_error">Aquest camí virtual del sistema sempre s’exclou per seguretat</string>
+    <string name="indexing_overlapping_root_error">Aquesta ubicació se superposa amb una ubicació ja indexada</string>
+    <string name="indexing_protected_exclusion_exists">Aquest camí ja està exclòs per la política de seguretat integrada</string>
+    <string name="indexing_exclusion_outside_root">L’exclusió ha de ser dins de la ubicació indexada seleccionada</string>
+    <string name="indexing_save">Desa</string>
+    <string name="indexing_remove">Suprimeix</string>
+    <string name="initial_indexing_root_offer_title">Voleu afegir el directori arrel a l’índex?</string>
+    <string name="initial_indexing_root_offer_message">L’emmagatzematge intern compartit sempre s’indexa. S’ha detectat accés root. Voleu afegir també / i indexar ambdues ubicacions amb accés privilegiat?</string>
+    <string name="initial_indexing_root_offer_accept">Afegeix /</string>
+    <string name="initial_indexing_root_offer_decline">Sense /</string>
+    <string name="initial_indexing_root_error_format">No s’ha pogut iniciar la indexació root: %1$s</string>
+    <string name="initial_indexing_setup_error">No s’ha pogut iniciar la indexació automàtica. BlitzFiles ho tornarà a provar més tard.</string>
+
     <string name="about_title">Quant a</string>
+    <string name="about_description">Un gestor de fitxers ràpid basat en Material Files.</string>
+    <string name="about_upstream_source_title">Codi font de Material Files</string>
+    <string name="about_upstream_author_title">Autor original de Material Files</string>
     <string name="about_version_title">Versió</string>
     <string name="about_github_title">Mostra a GitHub</string>
     <string name="about_licenses_title">Llicències</string>

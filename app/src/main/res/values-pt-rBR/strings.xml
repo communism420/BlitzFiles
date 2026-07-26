@@ -60,7 +60,8 @@
         <item quantity="other">%1$,d bytes</item>
     </plurals>
 
-    <string name="all_files_access_rationale_message">O aplicativo precisa de permissão para acessar os arquivos. Clique em \"PERMITIR\" na próxima caixa de diálogo do sistema.</string>
+    <string name="all_files_access_rationale_title">Acesso para indexação de arquivos</string>
+    <string name="all_files_access_rationale_message">Para escanear e indexar corretamente todos os arquivos disponíveis, o BlitzFiles precisa da permissão “Acesso a todos os arquivos”. Toque em OK e ative o acesso nas configurações do sistema. Nenhum escaneamento será iniciado até que o acesso seja concedido.</string>
     <!-- The allow button before Android 10 was in all-caps. -->
     <string name="storage_permission_rationale_message">O aplicativo precisa de permissão para acessar os arquivos. Clique em \"PERMITIR\" na próxima caixa de diálogo do sistema.</string>
     <string name="storage_permission_permanently_denied_message">O aplicativo precisa de permissão para acessar os arquivos. Por favor, conceda a permissão de \"Armazenamento\" nas configurações do sistema.</string>
@@ -493,7 +494,7 @@
     <string name="storage_edit_smb_server_path">Caminho</string>
     <string name="storage_edit_smb_server_path_placeholder">Pode ser deixado vazio</string>
     <string name="storage_edit_smb_server_name">Nome</string>
-    <string name="storage_edit_smb_server_name_placeholder">Use hostname</string>
+    <string name="storage_edit_smb_server_name_placeholder">Usar nome do host</string>
     <string name="storage_edit_smb_server_authentication_type">Autenticação</string>
     <string-array name="storage_edit_smb_server_authentication_type_entries">
         <item>Senha</item>
@@ -516,6 +517,7 @@
     <string-array name="storage_edit_webdav_server_authentication_type_entries">
         <item>Senha</item>
         <item>Token de acesso</item>
+        <item>Nenhuma</item>
     </string-array>
     <string name="storage_edit_webdav_server_username_error_empty">Insira o nome do usuário</string>
     <string name="storage_edit_webdav_server_password">Senha</string>
@@ -622,7 +624,226 @@
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Pode tornar-se instável nas versões mais antigas do Android</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Ler arquivos remotos para as miniaturas</string>
 
+    <string name="notification_permission_permanently_denied_message">O aplicativo precisa de permissão para enviar notificações sobre operações de arquivo. Conceda a permissão “Notificações” nas configurações do sistema.</string>
+    <string name="file_replace_message_format">Substituir “%1$s”?</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="one">Selecionar um arquivo</item>
+        <item quantity="many">Selecionar arquivos</item>
+        <item quantity="other">Selecionar arquivos</item>
+    </plurals>
+    <string name="file_list_title_create_file">Salvar arquivo</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="one">Selecionar uma pasta</item>
+        <item quantity="many">Selecionar pastas</item>
+        <item quantity="other">Selecionar pastas</item>
+    </plurals>
+    <string name="file_list_create_file_name_hint">Nome do arquivo</string>
+    <string name="file_list_open_current_directory_format">Selecionar “%1$s”</string>
+    <string name="file_properties_permission">Permissões</string>
+    <string name="file_properties_permission_owner">Proprietário</string>
+    <string name="file_properties_permission_group">Grupo</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">Alterar proprietário</string>
+    <string name="file_properties_permission_set_group_title">Alterar grupo</string>
+    <string name="file_properties_permission_set_principal_filter_hint">Digite um nome ou ID</string>
+    <string name="file_properties_permission_set_principal_system">Sistema</string>
+    <string name="file_properties_permission_mode">Modo</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">Alterar modo</string>
+    <string name="file_properties_permission_set_mode_others">Outros</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>Leitura</item>
+        <item>Gravação</item>
+        <item>Execução</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>Leitura</item>
+        <item>Gravação</item>
+        <item>Pesquisa</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">Especial</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>Definir UID</item>
+        <item>Definir GID</item>
+        <item>Bit de aderência</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Não adicionar “Execução” aos arquivos contidos</string>
+    <string name="file_properties_permission_selinux_context">Contexto SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_title">Alterar contexto SELinux</string>
+    <string name="file_properties_permission_set_selinux_context_restore">Restaurar</string>
+    <string name="file_properties_permission_recursive">Aplicar aos arquivos contidos</string>
+    <string name="file_properties_checksum">Somas de verificação</string>
+    <string name="file_properties_checksum_compare">Comparar</string>
+    <string name="file_properties_checksum_compare_placeholder">Qualquer soma de verificação</string>
+    <string name="file_properties_checksum_compare_match_format">Corresponde à soma de verificação %1$s</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Corresponde ao prefixo da soma de verificação %1$s</string>
+    <string name="file_properties_checksum_compare_no_match">Nenhuma soma de verificação correspondente encontrada</string>
+    <string name="storage_add_external_storage_shortcut_title">Adicionar atalho de armazenamento externo</string>
+    <string name="storage_edit_external_storage_shortcut_title">Editar atalho de armazenamento externo</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Volume de armazenamento</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Digite um volume de armazenamento</string>
+    <string name="storage_edit_external_storage_shortcut_path">Caminho</string>
+    <string name="storage_edit_webdav_server_host">Nome do host</string>
+    <string name="storage_edit_webdav_server_host_error_invalid">Nome do host inválido</string>
+    <string name="storage_edit_webdav_server_path">Caminho</string>
+    <string name="storage_edit_webdav_server_path_placeholder">Pode ficar vazio</string>
+    <string name="storage_edit_webdav_server_name">Nome</string>
+    <string name="storage_edit_webdav_server_name_placeholder">Usar nome do host</string>
+    <string name="storage_edit_webdav_server_username">Nome de usuário</string>
+    <string name="save_as_title">Salvar como</string>
+    <string name="save_as_error">Erro ao salvar o arquivo</string>
+    <string name="save_as_success_format">“%1$s” foi salvo em “%2$s”</string>
+    <string name="ftp_server_add_tile_result_added">“Servidor FTP” foi adicionado às Configurações rápidas</string>
+    <string name="ftp_server_add_tile_result_already_added">“Servidor FTP” já foi adicionado às Configurações rápidas</string>
+    <string name="ftp_server_add_tile_result_error">Erro ao adicionar “Servidor FTP” às Configurações rápidas</string>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">Mostrar miniatura para documentos PDF</string>
+
+    <string name="notification_channel_file_indexing_name">Indexação de arquivos</string>
+    <string name="notification_channel_file_indexing_description">Mostrar e controlar a indexação de arquivos</string>
+    <string name="file_indexing_notification_title">Indexando arquivos</string>
+    <string name="file_indexing_notification_preparing">Preparando o índice…</string>
+    <string name="file_indexing_notification_progress_format">%1$,d itens indexados</string>
+    <string name="file_indexing_notification_paused_format">Pausado após %1$,d itens</string>
+    <string name="file_indexing_notification_completed_format">%1$,d itens indexados</string>
+    <string name="file_indexing_notification_completed_with_errors_format">%1$,d itens indexados com erros de acesso</string>
+    <string name="file_indexing_notification_cancelled">Indexação cancelada</string>
+    <string name="file_indexing_notification_failed">Falha na indexação</string>
+    <string name="file_indexing_action_pause">Pausar</string>
+    <string name="file_indexing_action_resume">Retomar</string>
+    <string name="file_indexing_banner_scheduled">Escaneamento completo e indexação iniciados</string>
+    <string name="file_indexing_banner_preparing">Preparando o escaneamento completo do dispositivo…</string>
+    <string name="file_indexing_banner_running_format">Escaneando e indexando · %1$,d itens</string>
+    <string name="file_indexing_banner_paused_format">Indexação pausada · %1$,d itens</string>
+    <string name="file_indexing_banner_completed_format">Indexação concluída · %1$,d itens</string>
+    <string name="file_indexing_banner_completed_with_errors_format">Indexação concluída · %1$,d itens · %2$,d erros de acesso</string>
+    <string name="file_indexing_banner_cancelled_format">Indexação cancelada · %1$,d itens</string>
+    <string name="file_indexing_banner_failed">Falha na indexação</string>
+    <string name="file_indexing_banner_details_hint">Toque para ver os detalhes da indexação</string>
+    <string name="indexing_all_files_access_required">Conceda “Acesso a todos os arquivos” antes de iniciar ou retomar a indexação</string>
+    <string name="file_list_search_result_limit_format">Os primeiros %1$d resultados são exibidos — refine a pesquisa</string>
+
+    <string name="navigation_global_search">Pesquisa global</string>
+    <string name="global_search_hint">Pesquisar arquivos indexados</string>
+    <string name="global_search_prompt">Digite o nome de um arquivo ou pasta</string>
+    <string name="global_search_no_results">Nenhum arquivo correspondente</string>
+    <string name="global_search_index_empty">O índice está vazio. Configure a indexação e execute primeiro um escaneamento.</string>
+    <string name="global_search_configure_index">Configurar indexação</string>
+    <string name="global_search_error_format">Falha na pesquisa: %1$s</string>
+    <string name="global_search_action_error_format">Não foi possível concluir a ação: %1$s</string>
+    <string name="global_search_directory_metadata_format">Pasta • %1$s</string>
+    <string name="global_search_file_metadata_format">%1$s • %2$s</string>
+    <string name="global_search_more_actions">Mais ações</string>
+    <string name="global_search_action_open">Abrir</string>
+    <string name="global_search_action_show_in_folder">Mostrar na pasta</string>
+    <string name="global_search_action_share">Compartilhar</string>
+    <string name="global_search_sort_title">Classificar</string>
+    <string name="global_search_sort_relevance">Relevância</string>
+    <string name="global_search_sort_name_ascending">Nome (A–Z)</string>
+    <string name="global_search_sort_name_descending">Nome (Z–A)</string>
+    <string name="global_search_sort_size_ascending">Tamanho (menores primeiro)</string>
+    <string name="global_search_sort_size_descending">Tamanho (maiores primeiro)</string>
+    <string name="global_search_sort_modified_ascending">Modificação (mais antigos primeiro)</string>
+    <string name="global_search_sort_modified_descending">Modificação (mais recentes primeiro)</string>
+    <string name="global_search_index_status_error">Status do índice indisponível • Toque para tentar novamente</string>
+    <string name="global_search_index_not_configured">A indexação não está configurada • Toque para configurar</string>
+    <string name="global_search_index_running_format">Indexando %1$s • %2$,d itens</string>
+    <string name="global_search_index_paused_format">Indexação pausada • %1$,d itens</string>
+    <string name="global_search_index_ready_format">%1$,d itens indexados • Atualizado: %2$s</string>
+    <string name="global_search_index_entries_format">%1$,d itens indexados • Toque para configurar</string>
+
+    <string name="settings_indexing_title">Índice de pesquisa</string>
+    <string name="settings_indexing_summary">Locais indexados, exclusões e controles de escaneamento</string>
+    <string name="indexing_settings_title">Indexação para pesquisa</string>
+    <string name="indexing_status_category">Status do índice</string>
+    <string name="indexing_controls_category">Controles de escaneamento</string>
+    <string name="indexing_roots_category">Locais indexados</string>
+    <string name="indexing_exclusions_category">Locais excluídos</string>
+    <string name="indexing_status_loading">Carregando o status do índice…</string>
+    <string name="indexing_status_error">Não foi possível ler o status do índice</string>
+    <string name="indexing_status_empty">Ainda não há itens indexados</string>
+    <string name="indexing_status_format">%1$,d itens (%2$,d arquivos, %3$,d pastas) • %4$s</string>
+    <string name="indexing_statistics_details_title">Detalhes do índice</string>
+    <string name="indexing_statistics_coverage_format">%1$,d de %2$,d locais ativados • %3$,d exclusões personalizadas</string>
+    <string name="indexing_statistics_entries_format">%1$,d itens root • %2$,d ocultos • %3$,d links simbólicos</string>
+    <string name="indexing_statistics_storage_format">Banco de dados do índice: %1$s</string>
+    <string name="indexing_status_last_update_format">Última atualização: %1$s</string>
+    <string name="indexing_scan_status_format">Escaneamento: %1$s</string>
+    <string name="indexing_scan_never_run">nunca executado</string>
+    <string name="indexing_scan_running">em execução</string>
+    <string name="indexing_scan_paused">pausado</string>
+    <string name="indexing_scan_completed">concluído</string>
+    <string name="indexing_scan_completed_with_errors">concluído com erros</string>
+    <string name="indexing_scan_failed">falhou</string>
+    <string name="indexing_scan_cancelled">cancelado</string>
+    <string name="indexing_start_full_scan">Iniciar escaneamento completo</string>
+    <string name="indexing_start_full_scan_summary">Reconstruir o índice de todos os locais ativados</string>
+    <string name="indexing_pause_scan">Pausar escaneamento</string>
+    <string name="indexing_resume_scan">Retomar escaneamento</string>
+    <string name="indexing_cancel_scan">Cancelar escaneamento</string>
+    <string name="indexing_add_root">Adicionar local indexado</string>
+    <string name="indexing_add_exclusion">Adicionar exclusão</string>
+    <string name="indexing_no_roots">Nenhum local configurado</string>
+    <string name="indexing_no_exclusions">Nenhum local excluído personalizado</string>
+    <string name="indexing_built_in_exclusion">Exclusão de segurança integrada</string>
+    <string name="indexing_no_enabled_roots">Ative primeiro pelo menos um local indexado</string>
+    <string name="indexing_operation_error_format">Falha na operação de indexação: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">A indexação foi interrompida antes da conclusão</string>
+    <string name="indexing_diagnostic_root_not_found_format">Local indexado não encontrado: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Não foi possível ler algumas entradas</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d erro recuperável)</item>
+        <item quantity="many">%1$s (%2$,d erros recuperáveis)</item>
+        <item quantity="other">%1$s (%2$,d erros recuperáveis)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Local indexado desativado: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Todos os caminhos incrementais devem estar dentro da raiz %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">O modo de acesso não pode ser alterado enquanto este local está sendo escaneado</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Todos os locais indexados devem usar o mesmo modo de acesso; %1$s usa %2$s</string>
+    <string name="indexing_root_add_title">Adicionar local indexado</string>
+    <string name="indexing_root_edit_title">Editar local indexado</string>
+    <string name="indexing_default_internal_storage">Armazenamento interno</string>
+    <string name="indexing_root_name_hint">Nome de exibição</string>
+    <string name="indexing_root_path_hint">Caminho absoluto</string>
+    <string name="indexing_root_access_mode">Modo de acesso (selecionado automaticamente)</string>
+    <string name="indexing_root_enabled">Indexar este local</string>
+    <string name="indexing_root_include_hidden">Incluir arquivos ocultos</string>
+    <string name="indexing_root_follow_symlinks">Seguir links simbólicos</string>
+    <string name="indexing_root_path_locked">O caminho não pode ser alterado depois que um local é criado</string>
+    <string name="indexing_root_summary_format">%1$s • %2$s • %3$s</string>
+    <string name="indexing_access_standard">normal</string>
+    <string name="indexing_access_root">root</string>
+    <string name="indexing_enabled">ativado</string>
+    <string name="indexing_disabled">desativado</string>
+    <string name="indexing_delete_root">Remover local</string>
+    <string name="indexing_delete_root_confirmation">Remover “%1$s” e seus itens indexados?</string>
+    <string name="indexing_exclusion_add_title">Adicionar local excluído</string>
+    <string name="indexing_exclusion_path_hint">Caminho absoluto excluído</string>
+    <string name="indexing_exclusion_scope">Aplicar a</string>
+    <string name="indexing_exclusion_all_roots">Todos os locais indexados</string>
+    <string name="indexing_exclusion_summary_all">Todos os locais indexados</string>
+    <string name="indexing_exclusion_summary_root_format">Apenas %1$s</string>
+    <string name="indexing_delete_exclusion_title">Remover exclusão</string>
+    <string name="indexing_delete_exclusion_confirmation">Parar de excluir “%1$s”?</string>
+    <string name="indexing_field_required">Obrigatório</string>
+    <string name="indexing_invalid_absolute_path">Digite um caminho absoluto válido</string>
+    <string name="indexing_root_requires_root_error">A raiz do sistema de arquivos só pode ser indexada quando o escaneamento root automático está disponível</string>
+    <string name="indexing_protected_path_error">Este caminho virtual do sistema sempre é excluído por segurança</string>
+    <string name="indexing_overlapping_root_error">Este local se sobrepõe a um local já indexado</string>
+    <string name="indexing_protected_exclusion_exists">Este caminho já está excluído pela política de segurança integrada</string>
+    <string name="indexing_exclusion_outside_root">A exclusão deve estar dentro do local indexado selecionado</string>
+    <string name="indexing_save">Salvar</string>
+    <string name="indexing_remove">Remover</string>
+    <string name="initial_indexing_root_offer_title">Adicionar o diretório raiz ao índice?</string>
+    <string name="initial_indexing_root_offer_message">O armazenamento interno compartilhado sempre é indexado. O acesso root foi detectado. Adicionar também / e indexar os dois locais com acesso privilegiado?</string>
+    <string name="initial_indexing_root_offer_accept">Adicionar /</string>
+    <string name="initial_indexing_root_offer_decline">Sem /</string>
+    <string name="initial_indexing_root_error_format">Não foi possível iniciar a indexação root: %1$s</string>
+    <string name="initial_indexing_setup_error">Não foi possível iniciar a indexação automática. O BlitzFiles tentará novamente mais tarde.</string>
+
     <string name="about_title">Sobre</string>
+    <string name="about_description">Um gerenciador de arquivos rápido baseado no Material Files.</string>
+    <string name="about_upstream_source_title">Código-fonte do Material Files</string>
+    <string name="about_upstream_author_title">Autor original do Material Files</string>
     <string name="about_version_title">Versão</string>
     <string name="about_github_title">Ver no GitHub</string>
     <string name="about_licenses_title">Licenças</string>

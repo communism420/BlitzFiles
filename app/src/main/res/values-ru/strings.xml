@@ -16,7 +16,7 @@
     <string name="cut">Вырезать</string>
     <string name="default_">По умолчанию</string>
     <string name="delete">Удалить</string>
-    <string name="discard">Отказаться</string>
+    <string name="discard">Не сохранять</string>
     <string name="edit">Редактировать</string>
     <string name="empty">Пусто</string>
     <string name="empty_placeholder">(Пусто)</string>
@@ -45,7 +45,7 @@
     <string name="show">Показать</string>
     <string name="skip">Пропустить</string>
     <string name="stop">Остановить</string>
-    <string name="system_default">Системный</string>
+    <string name="system_default">Как в системе</string>
     <string name="unknown">Неизвестно</string>
     <string name="view">Просмотр</string>
 
@@ -56,7 +56,7 @@
 
     <plurals name="size_in_bytes_format">
         <item quantity="one">%1$,d байт</item>
-        <item quantity="few">%1$,d байт</item>
+        <item quantity="few">%1$,d байта</item>
         <item quantity="many">%1$,d байт</item>
         <item quantity="other">%1$,d байт</item>
     </plurals>
@@ -101,7 +101,7 @@
     <string name="indexing_all_files_access_required">Перед запуском или возобновлением индексирования предоставьте доступ «Управление всеми файлами»</string>
 
     <string name="file_action_archive_password_title">Нужен пароль</string>
-    <string name="file_action_archive_password_message_format">“%1$s” защищённый паролем.</string>
+    <string name="file_action_archive_password_message_format">Файл «%1$s» защищён паролем.</string>
     <string name="file_action_archive_password_error_empty">Пароль не может быть пустым</string>
 
     <plurals name="file_job_archive_scan_notification_title_format">
@@ -247,7 +247,7 @@
     <string name="file_job_cannot_copy_over_itself_title">Невозможно скопировать файл поверх самого себя</string>
     <string name="file_job_cannot_extract_over_itself_title">Невозможно извлечь файл поверх самого себя</string>
     <string name="file_job_cannot_move_over_itself_title">Невозможно переместить файл поверх самого себя</string>
-    <string name="file_job_cannot_copy_move_over_itself_message">Исходный файл будет перезаписан файлов назначения.</string>
+    <string name="file_job_cannot_copy_move_over_itself_message">Файл назначения перезапишет исходный файл.</string>
     <string name="file_job_replace_title_format">Заменить файл “%1$s”?</string>
     <string name="file_job_replace_message_format">Другой файл с таким именем уже существует в “%1$s”.\nЗамена перезапишет его содержимое.</string>
     <string name="file_job_replace_target_name">Исходный файл</string>
@@ -285,9 +285,9 @@
     <string name="file_job_write_error_title">Ошибка во время записи</string>
     <string name="file_job_write_error_message_format">Произошла ошибка записи “%1$s”.\n%2$s</string>
     <string name="file_job_get_information_error_message_format">Произошла ошибка при получении информации о “%1$s”.</string>
-    <string name="file_job_remount_format">Перемонтировать “%1$s” в режим чтение-запись</string>
-    <string name="file_job_remount_loading_format">Перемонтирование “%1$s” в режим чтение-запись…</string>
-    <string name="file_job_remount_success_format">“%1$s” был перемонтирован в режим чтение-запись</string>
+    <string name="file_job_remount_format">Перемонтировать «%1$s» в режиме чтения и записи</string>
+    <string name="file_job_remount_loading_format">Перемонтирование «%1$s» в режиме чтения и записи…</string>
+    <string name="file_job_remount_success_format">«%1$s» перемонтирован в режиме чтения и записи</string>
     <string name="file_job_action_all">Применить действие ко всем файлам</string>
 
     <string name="file_open_apk_message">Этот файл представляет собой Android-пакет. Вы хотите установить его или посмотреть его содержимое?</string>
@@ -423,7 +423,7 @@
     <string name="file_properties_basic_archive_file">Файл архива</string>
     <string name="file_properties_basic_archive_entry">Элемент архива</string>
     <string name="file_properties_basic_free_space">Свободное место</string>
-    <string name="file_properties_permission">Разрешения</string>
+    <string name="file_properties_permission">Права доступа</string>
     <string name="file_properties_permission_owner">Владелец</string>
     <string name="file_properties_permission_group">Группа</string>
     <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
@@ -467,8 +467,8 @@
     <string name="file_properties_image_gps_altitude_format">%1$,.3f м</string>
     <string name="file_properties_image_equipment">Камера</string>
     <string name="file_properties_image_equipment_format">%1$s %2$s</string>
-    <string name="file_properties_image_f_number">Апертура</string>
-    <string name="file_properties_image_shutter_speed">Скорость затвора</string>
+    <string name="file_properties_image_f_number">Диафрагма</string>
+    <string name="file_properties_image_shutter_speed">Выдержка</string>
     <string name="file_properties_image_focal_length">Фокусное расстояние</string>
     <string name="file_properties_image_focal_length_format">%1$.2f мм</string>
     <string name="file_properties_image_photographic_sensitivity">Чувствительность ISO</string>
@@ -509,14 +509,14 @@
         <item quantity="many">Запрошено %1$,d разрешений</item>
         <item quantity="other">Запрошено %1$,d разрешений</item>
     </plurals>
-    <string name="file_properties_apk_signature_digests">Подписи</string>
+    <string name="file_properties_apk_signature_digests">Хеши подписей</string>
     <string name="file_properties_apk_signature_digests_empty">Нет действительных подписей</string>
-    <string name="file_properties_apk_past_signature_digests">Старые подписи</string>
+    <string name="file_properties_apk_past_signature_digests">Хеши прежних подписей</string>
     <string name="file_properties_checksum">Контрольные суммы</string>
     <string name="file_properties_checksum_compare">Сравнить</string>
     <string name="file_properties_checksum_compare_placeholder">Любая контрольная сумма</string>
-    <string name="file_properties_checksum_compare_match_format">Контрольная сумма %1$s совпадений</string>
-    <string name="file_properties_checksum_compare_prefix_match_format">Совпадение префикса контрольной суммы %1$s</string>
+    <string name="file_properties_checksum_compare_match_format">Совпадает с контрольной суммой %1$s</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Совпадает с префиксом контрольной суммы %1$s</string>
     <string name="file_properties_checksum_compare_no_match">Соответствующая контрольная сумма не найдена</string>
     <string name="storage_file_system_root_title">Root</string>
     <string name="storage_list_title">Накопитель</string>
@@ -524,24 +524,24 @@
     <string name="storage_add_storage_title">Добавить накопитель</string>
     <string name="storage_add_storage_document_tree">Внешний накопитель</string>
     <string name="storage_add_storage_ftp_server">FTP-сервер</string>
-    <string name="storage_add_storage_sftp_server">SFTP сервер</string>
+    <string name="storage_add_storage_sftp_server">SFTP-сервер</string>
     <string name="storage_add_storage_smb_server">SMB-сервер</string>
-    <string name="storage_add_storage_webdav_server">WebDAV сервер</string>
+    <string name="storage_add_storage_webdav_server">WebDAV-сервер</string>
     <string name="storage_edit_device_storage_title">Редактировать накопитель</string>
     <string name="storage_edit_device_storage_name">Имя</string>
     <string name="storage_edit_device_storage_path">Путь</string>
     <string name="storage_add_external_storage_shortcut_title">Добавить ярлык внешнего хранилища</string>
     <string name="storage_edit_external_storage_shortcut_title">Изменить ярлык внешнего хранилища</string>
-    <string name="storage_edit_external_storage_shortcut_root_id">Объем хранилища</string>
-    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Введите объем хранилища</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Том хранилища</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Укажите том хранилища</string>
     <string name="storage_edit_external_storage_shortcut_path">Путь</string>
     <string name="storage_add_document_tree_title">Добавить внешний накопитель</string>
     <string name="storage_edit_document_tree_title">Редактировать внешний накопитель</string>
     <string name="storage_edit_document_tree_name">Имя</string>
     <string name="storage_edit_document_tree_uri">URI</string>
     <string name="storage_edit_document_tree_path">Путь</string>
-    <string name="storage_edit_ftp_server_title_edit">Редактировать FTP сервер</string>
-    <string name="storage_edit_ftp_server_title_add">Добавить FTP сервер</string>
+    <string name="storage_edit_ftp_server_title_edit">Редактировать FTP-сервер</string>
+    <string name="storage_edit_ftp_server_title_add">Добавить FTP-сервер</string>
     <string name="storage_edit_ftp_server_host">Имя хоста</string>
     <string name="storage_edit_ftp_server_host_error_empty">Введите имя хоста</string>
     <string name="storage_edit_ftp_server_host_error_invalid">Неверное имя хоста</string>
@@ -550,9 +550,9 @@
     <string name="storage_edit_ftp_server_path">Путь</string>
     <string name="storage_edit_ftp_server_path_placeholder">Можно оставить пустым</string>
     <string name="storage_edit_ftp_server_name">Имя</string>
-    <string name="storage_edit_ftp_server_name_placeholder">Используйте имя хоста</string>
+    <string name="storage_edit_ftp_server_name_placeholder">Использовать имя хоста</string>
     <string name="storage_edit_ftp_server_protocol">Протокол</string>
-    <string name="storage_edit_ftp_server_authentication_type">Авторизация</string>
+    <string name="storage_edit_ftp_server_authentication_type">Аутентификация</string>
     <string-array name="storage_edit_ftp_server_authentication_type_entries">
         <item>Пароль</item>
         <item>Анонимно</item>
@@ -566,10 +566,10 @@
         <item>Пассивный</item>
     </string-array>
     <string name="storage_edit_ftp_server_encoding">Кодировка</string>
-    <string name="storage_edit_ftp_server_connect_and_add">Соединиться и добавить</string>
+    <string name="storage_edit_ftp_server_connect_and_add">Подключиться и добавить</string>
     <string name="storage_edit_ftp_server_add">Добавить</string>
-    <string name="storage_edit_sftp_server_title_edit">Редактировать SFTP сервер</string>
-    <string name="storage_edit_sftp_server_title_add">Добавить SFTP сервер</string>
+    <string name="storage_edit_sftp_server_title_edit">Редактировать SFTP-сервер</string>
+    <string name="storage_edit_sftp_server_title_add">Добавить SFTP-сервер</string>
     <string name="storage_edit_sftp_server_host">Имя хоста</string>
     <string name="storage_edit_sftp_server_host_error_empty">Введите имя хоста</string>
     <string name="storage_edit_sftp_server_host_error_invalid">Неверное имя хоста</string>
@@ -578,8 +578,8 @@
     <string name="storage_edit_sftp_server_path">Путь</string>
     <string name="storage_edit_sftp_server_path_placeholder">Можно оставить пустым</string>
     <string name="storage_edit_sftp_server_name">Имя</string>
-    <string name="storage_edit_sftp_server_name_placeholder">Используйте имя хоста</string>
-    <string name="storage_edit_sftp_server_authentication_type">Авторизация</string>
+    <string name="storage_edit_sftp_server_name_placeholder">Использовать имя хоста</string>
+    <string name="storage_edit_sftp_server_authentication_type">Аутентификация</string>
     <string-array name="storage_edit_sftp_server_authentication_type_entries">
         <item>Пароль</item>
         <item>Публичный ключ</item>
@@ -587,14 +587,14 @@
     <string name="storage_edit_sftp_server_username">Имя пользователя</string>
     <string name="storage_edit_sftp_server_username_error_empty">Введите имя пользователя</string>
     <string name="storage_edit_sftp_server_password">Пароль</string>
-    <string name="storage_edit_sftp_server_private_key">Приватный ключ</string>
+    <string name="storage_edit_sftp_server_private_key">Закрытый ключ</string>
     <string name="storage_edit_sftp_server_private_key_open_file">Открыть файл</string>
-    <string name="storage_edit_sftp_server_private_key_error_empty">Введите приватный ключ</string>
-    <string name="storage_edit_sftp_server_private_key_error_invalid">Неверный приватный ключ</string>
+    <string name="storage_edit_sftp_server_private_key_error_empty">Введите закрытый ключ</string>
+    <string name="storage_edit_sftp_server_private_key_error_invalid">Недопустимый закрытый ключ</string>
     <string name="storage_edit_sftp_server_private_key_password">Пароль закрытого ключа</string>
     <string name="storage_edit_sftp_server_private_key_password_placeholder">Можно оставить пустым</string>
     <string name="storage_edit_sftp_server_private_key_password_error_invalid">Неверный пароль закрытого ключа</string>
-    <string name="storage_edit_sftp_server_connect_and_add">Соединиться и добавить</string>
+    <string name="storage_edit_sftp_server_connect_and_add">Подключиться и добавить</string>
     <string name="storage_edit_sftp_server_add">Добавить</string>
     <string name="storage_add_lan_smb_server_loading">Поиск SMB-серверов…</string>
     <string name="storage_add_lan_smb_server_add">Добавить вручную</string>
@@ -608,8 +608,8 @@
     <string name="storage_edit_smb_server_path">Путь</string>
     <string name="storage_edit_smb_server_path_placeholder">Можно оставить пустым</string>
     <string name="storage_edit_smb_server_name">Имя</string>
-    <string name="storage_edit_smb_server_name_placeholder">Используйте имя хоста</string>
-    <string name="storage_edit_smb_server_authentication_type">Авторизация</string>
+    <string name="storage_edit_smb_server_name_placeholder">Использовать имя хоста</string>
+    <string name="storage_edit_smb_server_authentication_type">Аутентификация</string>
     <string-array name="storage_edit_smb_server_authentication_type_entries">
         <item>Пароль</item>
         <item>Гость</item>
@@ -619,19 +619,19 @@
     <string name="storage_edit_smb_server_username_error_empty">Введите имя пользователя</string>
     <string name="storage_edit_smb_server_password">Пароль</string>
     <string name="storage_edit_smb_server_domain">Домен</string>
-    <string name="storage_edit_smb_server_connect_and_add">Добавить и соединиться</string>
+    <string name="storage_edit_smb_server_connect_and_add">Подключиться и добавить</string>
     <string name="storage_edit_smb_server_add">Добавить</string>
-    <string name="storage_edit_webdav_server_title_edit">Редактировать WebDAV сервер</string>
-    <string name="storage_edit_webdav_server_title_add">Добавить WebDAV сервер</string>
-    <string name="storage_edit_webdav_server_host">Название хоста</string>
-    <string name="storage_edit_webdav_server_host_error_empty">Введите название хоста</string>
-    <string name="storage_edit_webdav_server_host_error_invalid">Недействительное название хоста</string>
+    <string name="storage_edit_webdav_server_title_edit">Редактировать WebDAV-сервер</string>
+    <string name="storage_edit_webdav_server_title_add">Добавить WebDAV-сервер</string>
+    <string name="storage_edit_webdav_server_host">Имя хоста</string>
+    <string name="storage_edit_webdav_server_host_error_empty">Введите имя хоста</string>
+    <string name="storage_edit_webdav_server_host_error_invalid">Недопустимое имя хоста</string>
     <string name="storage_edit_webdav_server_port">Порт</string>
-    <string name="storage_edit_webdav_server_port_error_invalid">Недействительный порт</string>
+    <string name="storage_edit_webdav_server_port_error_invalid">Недопустимый порт</string>
     <string name="storage_edit_webdav_server_path">Путь</string>
     <string name="storage_edit_webdav_server_path_placeholder">Может быть пустым</string>
     <string name="storage_edit_webdav_server_name">Имя</string>
-    <string name="storage_edit_webdav_server_name_placeholder">Использовать название хоста</string>
+    <string name="storage_edit_webdav_server_name_placeholder">Использовать имя хоста</string>
     <string name="storage_edit_webdav_server_protocol">Протокол</string>
     <string name="storage_edit_webdav_server_authentication_type">Аутентификация</string>
     <string-array name="storage_edit_webdav_server_authentication_type_entries">
@@ -644,12 +644,12 @@
     <string name="storage_edit_webdav_server_password">Пароль</string>
     <string name="storage_edit_webdav_server_access_token">Токен доступа</string>
     <string name="storage_edit_webdav_server_access_token_error_empty">Введите токен доступа</string>
-    <string name="storage_edit_webdav_server_connect_and_add">Соединиться и добавить</string>
+    <string name="storage_edit_webdav_server_connect_and_add">Подключиться и добавить</string>
     <string name="storage_edit_webdav_server_add">Добавить</string>
 
-    <string name="navigation_storage_subtitle_format">%1$s свободно из %2$s</string>
+    <string name="navigation_storage_subtitle_format">Свободно %1$s из %2$s</string>
     <string name="navigation_add_storage">Добавить накопитель…</string>
-    <string name="navigation_standard_directory_alarms">Будильник</string>
+    <string name="navigation_standard_directory_alarms">Будильники</string>
     <string name="navigation_standard_directory_dcim">DCIM</string>
     <string name="navigation_standard_directory_documents">Документы</string>
     <string name="navigation_standard_directory_downloads">Загрузки</string>
@@ -665,19 +665,19 @@
     <string name="navigation_edit_bookmark_directory_title">Закладка папки</string>
     <string name="navigation_edit_bookmark_directory_name">Имя</string>
     <string name="navigation_edit_bookmark_directory_path">Путь</string>
-    <string name="archive_viewer_title">Просмотрщик архивов</string>
-    <string name="image_viewer_title">Просмотрщик изображений</string>
+    <string name="archive_viewer_title">Просмотр архивов</string>
+    <string name="image_viewer_title">Просмотр изображений</string>
     <string name="image_viewer_subtitle_format">%1$,d/%2$,d</string>
     <string name="save_as_title">Сохранить как</string>
     <string name="save_as_error">Ошибка при сохранении файла</string>
-    <string name="save_as_success_format">“%1$s” было сохранено в “%2$s”</string>
+    <string name="save_as_success_format">Файл «%1$s» сохранён в «%2$s»</string>
     <string name="text_editor_title">Текстовый редактор</string>
     <string name="text_editor_title_format">%1$s</string>
     <string name="text_editor_title_changed_format">*%1$s</string>
     <string name="text_editor_save_success">Сохранено</string>
-    <string name="text_editor_reload_message">Вы уверены что хотите перезагрузить? Несохраненные изменения в  документе будут потеряны.</string>
+    <string name="text_editor_reload_message">Вы уверены, что хотите перезагрузить документ? Несохранённые изменения будут потеряны.</string>
     <string name="text_editor_encoding">Кодировка</string>
-    <string name="text_editor_close_message">Вы уверены что хотите отказаться от несохраненных изменений в документе?</string>
+    <string name="text_editor_close_message">Вы уверены, что хотите отказаться от несохранённых изменений в документе?</string>
 
     <string name="ftp_server_title">FTP-сервер</string>
     <string name="ftp_server_state_title">Статус</string>
@@ -690,9 +690,9 @@
     <string name="ftp_server_url_menu_copy_url">Скопировать URL</string>
     <string name="ftp_server_url_menu_copy_password">Скопировать пароль</string>
     <string name="ftp_server_add_tile_title">Добавить в Быстрые настройки</string>
-    <string name="ftp_server_add_tile_result_added">“FTP server” был добавлен в Быстрые настройки</string>
-    <string name="ftp_server_add_tile_result_already_added">“FTP server” уже добавлен в Быстрые настройки</string>
-    <string name="ftp_server_add_tile_result_error">Ошибка при добавлении “FTP server” в Быстрые настройки</string>
+    <string name="ftp_server_add_tile_result_added">FTP-сервер добавлен в панель быстрых настроек</string>
+    <string name="ftp_server_add_tile_result_already_added">FTP-сервер уже добавлен в панель быстрых настроек</string>
+    <string name="ftp_server_add_tile_result_error">Не удалось добавить FTP-сервер в панель быстрых настроек</string>
     <string name="ftp_server_configuration_title">Конфигурация</string>
     <string name="ftp_server_anonymous_login_title">Анонимный вход</string>
     <string name="ftp_server_username_title">Имя пользователя</string>
@@ -704,7 +704,7 @@
     <string name="settings_interface_title">Интерфейс</string>
     <string name="settings_locale_title">Язык</string>
     <string name="settings_theme_color_title">Цвет темы</string>
-    <string name="settings_theme_color_summary">Цвет который чаще всего используется в приложении</string>
+    <string name="settings_theme_color_summary">Цвет, который чаще всего используется в приложении</string>
     <string name="settings_material_design_3_title">Material Design 3</string>
     <string name="settings_night_mode_title">Ночной режим</string>
     <string-array name="settings_night_mode_entries">
@@ -714,7 +714,7 @@
         <item>На основе времени</item>
         <item>На основе энергосберегающего режима</item>
     </string-array>
-    <string name="settings_black_night_mode">Ночная тема</string>
+    <string name="settings_black_night_mode">Чёрная ночная тема</string>
     <string name="settings_file_list_animation_title">Анимация списка файлов</string>
     <string name="settings_file_name_ellipsize_title">Отображать длинные имена файлов</string>
     <string-array name="settings_file_name_ellipsize_entries">
@@ -732,10 +732,10 @@
     <string name="settings_bookmark_directories_summary_empty">Нет закладок папок</string>
     <string name="settings_root_strategy_title">Root-доступ</string>
     <plurals name="settings_root_strategy_message_format">
-        <item quantity="one">У вас запущена %1$,d файловая операция и изменение режима root-доступа может привести к непредвиденной ошибке. Вы уверены, что хотите изменить сейчас?</item>
-        <item quantity="few">У вас запущены %1$,d файловые операции и изменение режима root-доступа может привести к непредвиденной ошибке. Вы уверены, что хотите изменить сейчас?</item>
-        <item quantity="many">У вас запущены %1$,d файловых операций и изменение режима root-доступа может привести к непредвиденной ошибке. Вы уверены, что хотите изменить сейчас?</item>
-        <item quantity="other">У вас запущены %1$,d файловых операций и изменение режима root-доступа может привести к непредвиденной ошибке. Вы уверены, что хотите изменить сейчас?</item>
+        <item quantity="one">Выполняется %1$,d файловая операция. Изменение режима root-доступа сейчас может привести к непредвиденной ошибке. Всё равно изменить режим?</item>
+        <item quantity="few">Выполняются %1$,d файловые операции. Изменение режима root-доступа сейчас может привести к непредвиденной ошибке. Всё равно изменить режим?</item>
+        <item quantity="many">Выполняется %1$,d файловых операций. Изменение режима root-доступа сейчас может привести к непредвиденной ошибке. Всё равно изменить режим?</item>
+        <item quantity="other">Выполняется %1$,d файловых операций. Изменение режима root-доступа сейчас может привести к непредвиденной ошибке. Всё равно изменить режим?</item>
     </plurals>
     <string-array name="settings_root_strategy_entries">
         <item>Только обычный доступ</item>
@@ -747,7 +747,7 @@
     <string-array name="settings_open_apk_default_action_entries">
         <item>Установка</item>
         <item>Просмотр содержимого</item>
-        <item>Спрашивать что делать</item>
+        <item>Спрашивать, что делать</item>
     </string-array>
     <string name="settings_show_pdf_thumbnail_pre_28_title">Показывать миниатюры для документов PDF</string>
     <string name="settings_show_pdf_thumbnail_pre_28_summary">Приложение может стать нестабильным на старых версиях Android</string>
@@ -757,7 +757,7 @@
     <string name="global_search_hint">Поиск по индексу</string>
     <string name="global_search_prompt">Введите имя файла или папки</string>
     <string name="global_search_no_results">Совпадений не найдено</string>
-    <string name="global_search_index_empty">Индекс пуст. Настройте индексирование и сначала запустите сканирование.</string>
+    <string name="global_search_index_empty">Индекс пуст. Настройте индексирование, затем запустите сканирование.</string>
     <string name="global_search_configure_index">Настроить индексирование</string>
     <string name="global_search_error_format">Ошибка поиска: %1$s</string>
     <string name="global_search_action_error_format">Не удалось выполнить действие: %1$s</string>
@@ -773,8 +773,8 @@
     <string name="global_search_sort_name_descending">По имени (Я–А)</string>
     <string name="global_search_sort_size_ascending">По размеру (сначала меньшие)</string>
     <string name="global_search_sort_size_descending">По размеру (сначала большие)</string>
-    <string name="global_search_sort_modified_ascending">По дате (сначала старые)</string>
-    <string name="global_search_sort_modified_descending">По дате (сначала новые)</string>
+    <string name="global_search_sort_modified_ascending">По дате изменения (сначала старые)</string>
+    <string name="global_search_sort_modified_descending">По дате изменения (сначала новые)</string>
     <string name="global_search_index_status_error">Статус индекса недоступен • Нажмите для повтора</string>
     <string name="global_search_index_not_configured">Индексирование не настроено • Нажмите для настройки</string>
     <string name="global_search_index_running_format">Индексируется %1$s • %2$,d записей</string>
@@ -794,8 +794,8 @@
     <string name="indexing_status_empty">В индексе пока нет записей</string>
     <string name="indexing_status_format">%1$,d записей (%2$,d файлов, %3$,d папок) • %4$s</string>
     <string name="indexing_statistics_details_title">Подробности индекса</string>
-    <string name="indexing_statistics_coverage_format">Включено корней: %1$,d из %2$,d • Пользовательских исключений: %3$,d</string>
-    <string name="indexing_statistics_entries_format">Root-записей: %1$,d • Скрытых: %2$,d • Символических ссылок: %3$,d</string>
+    <string name="indexing_statistics_coverage_format">Включено индексируемых путей: %1$,d из %2$,d • Пользовательских исключений: %3$,d</string>
+    <string name="indexing_statistics_entries_format">Требующих root-доступа: %1$,d • Скрытых: %2$,d • Символических ссылок: %3$,d</string>
     <string name="indexing_statistics_storage_format">Размер базы индекса: %1$s</string>
     <string name="indexing_status_last_update_format">Последнее обновление: %1$s</string>
     <string name="indexing_scan_status_format">Сканирование: %1$s</string>
@@ -817,10 +817,23 @@
     <string name="indexing_no_exclusions">Пользовательских исключений нет</string>
     <string name="indexing_built_in_exclusion">Встроенное защитное исключение</string>
     <string name="indexing_no_enabled_roots">Сначала включите хотя бы один индексируемый путь</string>
-    <string name="indexing_operation_error_format">Ошибка операции индексирования: %1$s</string>
+    <string name="indexing_operation_error_format">Не удалось выполнить операцию индексирования: %1$s</string>
+    <string name="indexing_diagnostic_interrupted">Индексирование было прервано до завершения</string>
+    <string name="indexing_diagnostic_root_not_found_format">Индексируемый путь не найден: %1$s</string>
+    <string name="indexing_diagnostic_entries_unreadable">Не удалось прочитать некоторые записи</string>
+    <plurals name="indexing_diagnostic_recoverable_errors_format">
+        <item quantity="one">%1$s (%2$,d некритическая ошибка)</item>
+        <item quantity="few">%1$s (%2$,d некритические ошибки)</item>
+        <item quantity="many">%1$s (%2$,d некритических ошибок)</item>
+        <item quantity="other">%1$s (%2$,d некритических ошибок)</item>
+    </plurals>
+    <string name="indexing_diagnostic_root_disabled_format">Индексируемый путь отключён: %1$s</string>
+    <string name="indexing_diagnostic_incremental_path_outside_root_format">Каждый путь инкрементального сканирования должен находиться внутри корня %1$s</string>
+    <string name="indexing_diagnostic_access_mode_change_while_scanning">Нельзя изменить режим доступа, пока этот путь сканируется</string>
+    <string name="indexing_diagnostic_mixed_access_modes_format">Все индексируемые пути должны использовать один режим доступа; для %1$s используется %2$s</string>
     <string name="indexing_root_add_title">Добавить индексируемый путь</string>
     <string name="indexing_root_edit_title">Изменить индексируемый путь</string>
-    <string name="indexing_default_internal_storage">Внутренняя память</string>
+    <string name="indexing_default_internal_storage">Внутренний общий накопитель</string>
     <string name="indexing_root_name_hint">Название</string>
     <string name="indexing_root_path_hint">Абсолютный путь</string>
     <string name="indexing_root_access_mode">Режим доступа (выбирается автоматически)</string>
@@ -835,8 +848,8 @@
     <string name="indexing_disabled">выключено</string>
     <string name="indexing_delete_root">Удалить путь</string>
     <string name="indexing_delete_root_confirmation">Удалить «%1$s» и связанные записи индекса?</string>
-    <string name="indexing_exclusion_add_title">Добавить исключённый путь</string>
-    <string name="indexing_exclusion_path_hint">Исключаемый абсолютный путь</string>
+    <string name="indexing_exclusion_add_title">Добавить путь в исключения</string>
+    <string name="indexing_exclusion_path_hint">Абсолютный путь для исключения</string>
     <string name="indexing_exclusion_scope">Применять к</string>
     <string name="indexing_exclusion_all_roots">Всем индексируемым путям</string>
     <string name="indexing_exclusion_summary_all">Все индексируемые пути</string>
@@ -845,23 +858,26 @@
     <string name="indexing_delete_exclusion_confirmation">Перестать исключать «%1$s»?</string>
     <string name="indexing_field_required">Обязательное поле</string>
     <string name="indexing_invalid_absolute_path">Введите корректный абсолютный путь</string>
-    <string name="indexing_root_requires_root_error">Корень файловой системы можно индексировать только при доступном автоматическом root-сканировании</string>
+    <string name="indexing_root_requires_root_error">Корневой каталог файловой системы можно индексировать только при наличии автоматического сканирования с root-доступом</string>
     <string name="indexing_protected_path_error">Этот виртуальный системный путь всегда исключён из соображений безопасности</string>
     <string name="indexing_overlapping_root_error">Этот путь пересекается с уже индексируемым путём</string>
     <string name="indexing_protected_exclusion_exists">Этот путь уже исключён встроенной политикой безопасности</string>
     <string name="indexing_exclusion_outside_root">Исключение должно находиться внутри выбранного индексируемого пути</string>
     <string name="indexing_save">Сохранить</string>
     <string name="indexing_remove">Удалить</string>
-    <string name="initial_indexing_root_offer_title">Добавить root-директорию в индекс?</string>
-    <string name="initial_indexing_root_offer_message">Внутренний общий накопитель индексируется всегда. Обнаружен root-доступ. Добавить также / и индексировать оба пути с привилегированным доступом?</string>
+    <string name="initial_indexing_root_offer_title">Добавить корневой каталог (/) в индекс?</string>
+    <string name="initial_indexing_root_offer_message">Внутренний общий накопитель индексируется всегда. Обнаружен root-доступ. Добавить в индекс корневой каталог (/) и индексировать оба пути с root-доступом?</string>
     <string name="initial_indexing_root_offer_accept">Добавить /</string>
-    <string name="initial_indexing_root_offer_decline">Без /</string>
-    <string name="initial_indexing_root_error_format">Не удалось запустить root-индексацию: %1$s</string>
+    <string name="initial_indexing_root_offer_decline">Не добавлять /</string>
+    <string name="initial_indexing_root_error_format">Не удалось запустить индексирование с root-доступом: %1$s</string>
     <string name="initial_indexing_setup_error">Не удалось запустить автоматическую индексацию. BlitzFiles повторит попытку позже.</string>
 
     <string name="about_title">О программе</string>
+    <string name="about_description">Быстрый файловый менеджер на основе Material Files.</string>
+    <string name="about_upstream_source_title">Исходный код Material Files</string>
+    <string name="about_upstream_author_title">Автор исходного проекта Material Files</string>
     <string name="about_version_title">Версия</string>
-    <string name="about_github_title">Посмотреть на GitHub</string>
+    <string name="about_github_title">Репозиторий BlitzFiles на GitHub</string>
     <string name="about_licenses_title">Лицензии</string>
     <string name="about_privacy_policy_title">Политика конфиденциальности</string>
     <string name="about_author_title">Автор</string>
