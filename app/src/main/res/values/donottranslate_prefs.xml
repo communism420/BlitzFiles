@@ -9,6 +9,13 @@
 
     <string name="pref_default_value_empty" />
 
+    <string name="pref_key_interface_style">key_interface_style</string>
+    <string name="pref_default_value_interface_style">0</string>
+    <string-array name="pref_entry_values_interface_style">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
     <string name="pref_key_storages">key_storages</string>
     <string name="pref_key_file_list_default_directory">key_file_list_default_directory</string>
     <string name="pref_key_file_list_persistent_drawer_open">key_file_list_persistent_drawer_open</string>

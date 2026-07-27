@@ -263,6 +263,7 @@
     <string name="file_create_directory_title">Νέος φάκελος</string>
 
     <string name="file_list_title">Αρχεία</string>
+    <string name="file_list_plus_home_title">Αρχική</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Επιλέξτε ένα αρχείο</item>
         <item quantity="other">Επιλέξτε αρχεία</item>
@@ -615,6 +616,9 @@
     <string name="ftp_server_writable_title">Αποδοχή εγγραφής</string>
     <string name="settings_title">Ρυθμίσεις</string>
     <string name="settings_interface_title">Διεπαφή</string>
+    <string name="settings_interface_style_title">Στυλ διεπαφής</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Γλώσσα</string>
     <string name="settings_theme_color_title">Χρώμα θέματος</string>
     <string name="settings_theme_color_summary">Χρώμα που εμφανίζεται συχνότερα στην εφαρμογή</string>

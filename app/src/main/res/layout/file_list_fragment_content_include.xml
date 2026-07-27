@@ -63,5 +63,19 @@
                 android:fitsSystemWindows="true"
                 tools:listitem="@layout/file_item_list" />
         </androidx.swiperefreshlayout.widget.ThemedSwipeRefreshLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fileManagerPlusHomeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?colorSurface"
+            android:clipToPadding="false"
+            android:fitsSystemWindows="true"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="@dimen/list_bottom_padding_with_fab"
+            android:visibility="gone"
+            tools:listitem="@layout/file_manager_plus_home_item" />
     </com.blitzfiles.app.ui.CoordinatorScrollingFrameLayout>
 </merge>

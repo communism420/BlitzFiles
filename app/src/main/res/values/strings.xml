@@ -289,6 +289,7 @@
     <string name="file_create_directory_title">New folder</string>
 
     <string name="file_list_title">Files</string>
+    <string name="file_list_plus_home_title">Home</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Select a file</item>
         <item quantity="other">Select files</item>
@@ -759,6 +760,9 @@
 
     <string name="settings_title">Settings</string>
     <string name="settings_interface_title">Interface</string>
+    <string name="settings_interface_style_title">Interface style</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Language</string>
     <string name="settings_theme_color_title">Theme color</string>
     <string name="settings_theme_color_summary">Color that appears most frequently in the app</string>

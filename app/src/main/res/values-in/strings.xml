@@ -238,6 +238,7 @@
     <string name="file_create_directory_title">Folder baru</string>
 
     <string name="file_list_title">File</string>
+    <string name="file_list_plus_home_title">Beranda</string>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="other">%1$,d folder</item>
     </plurals>
@@ -501,6 +502,9 @@
     <string name="ftp_server_writable_title">Izinkan menyimpan</string>
     <string name="settings_title">Pengaturan</string>
     <string name="settings_interface_title">Antarmuka</string>
+    <string name="settings_interface_style_title">Gaya antarmuka</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Bahasa</string>
     <string name="settings_theme_color_title">Warna tema</string>
     <string name="settings_theme_color_summary">Warna yang muncul paling sering di dalam apl</string>

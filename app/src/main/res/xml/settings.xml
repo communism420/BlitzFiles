@@ -15,6 +15,14 @@
             android:key="@string/pref_key_locale"
             android:title="@string/settings_locale_title" />
 
+        <rikka.preference.SimpleMenuPreference
+            android:key="@string/pref_key_interface_style"
+            android:title="@string/settings_interface_style_title"
+            android:defaultValue="@string/pref_default_value_interface_style"
+            android:entries="@array/settings_interface_style_entries"
+            android:entryValues="@array/pref_entry_values_interface_style"
+            app:useSimpleSummaryProvider="true" />
+
         <com.blitzfiles.app.theme.custom.ThemeColorPreference
             android:key="@string/pref_key_theme_color"
             android:title="@string/settings_theme_color_title"

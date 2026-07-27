@@ -57,7 +57,11 @@ import kotlinx.parcelize.Parcelize
 import com.blitzfiles.app.R
 import com.blitzfiles.app.app.application
 import com.blitzfiles.app.app.clipboardManager
+import com.blitzfiles.app.compat.EnvironmentCompat2
 import com.blitzfiles.app.compat.checkSelfPermissionCompat
+import com.blitzfiles.app.compat.getDescriptionCompat
+import com.blitzfiles.app.compat.isPrimaryCompat
+import com.blitzfiles.app.compat.pathCompat
 import com.blitzfiles.app.compat.setGroupDividerEnabledCompat
 import com.blitzfiles.app.databinding.FileListFragmentAppBarIncludeBinding
 import com.blitzfiles.app.databinding.FileListFragmentBinding
@@ -66,7 +70,9 @@ import com.blitzfiles.app.databinding.FileListFragmentContentIncludeBinding
 import com.blitzfiles.app.databinding.FileListFragmentIncludeBinding
 import com.blitzfiles.app.databinding.FileListFragmentSpeedDialIncludeBinding
 import com.blitzfiles.app.file.FileItem
+import com.blitzfiles.app.file.JavaFile
 import com.blitzfiles.app.file.MimeType
+import com.blitzfiles.app.file.asFileSize
 import com.blitzfiles.app.file.asMimeTypeOrNull
 import com.blitzfiles.app.file.extension
 import com.blitzfiles.app.file.fileProviderUri
@@ -76,6 +82,8 @@ import com.blitzfiles.app.filejob.FileJobService
 import com.blitzfiles.app.filelist.FileSortOptions.By
 import com.blitzfiles.app.filelist.FileSortOptions.Order
 import com.blitzfiles.app.fileproperties.FilePropertiesDialogFragment
+import com.blitzfiles.app.ftpserver.FtpServerActivity
+import com.blitzfiles.app.globalsearch.GlobalSearchActivity
 import com.blitzfiles.app.indexing.FileIndexingProgress
 import com.blitzfiles.app.indexing.FileIndexingProgressStore
 import com.blitzfiles.app.indexing.FileIndexingStorageAccess
@@ -86,11 +94,19 @@ import com.blitzfiles.app.navigation.BookmarkDirectories
 import com.blitzfiles.app.navigation.BookmarkDirectory
 import com.blitzfiles.app.navigation.NavigationFragment
 import com.blitzfiles.app.navigation.NavigationRootMapLiveData
+import com.blitzfiles.app.navigation.getExternalStorageDirectory
+import com.blitzfiles.app.navigation.standardDirectories
 import com.blitzfiles.app.provider.archive.createArchiveRootPath
 import com.blitzfiles.app.provider.archive.isArchivePath
 import com.blitzfiles.app.provider.linux.isLinuxPath
 import com.blitzfiles.app.search.toEffectiveSearchQuery
+import com.blitzfiles.app.settings.InterfaceStyle
 import com.blitzfiles.app.settings.Settings
+import com.blitzfiles.app.settings.SettingsActivity
+import com.blitzfiles.app.storage.AddStorageDialogActivity
+import com.blitzfiles.app.storage.FileSystemRoot
+import com.blitzfiles.app.storage.Storage
+import com.blitzfiles.app.storage.StorageVolumeListLiveData
 import com.blitzfiles.app.terminal.Terminal
 import com.blitzfiles.app.ui.AppBarLayoutExpandHackListener
 import com.blitzfiles.app.ui.CoordinatorAppBarLayout
@@ -128,10 +144,12 @@ import com.blitzfiles.app.util.getDimensionDp
 import com.blitzfiles.app.util.getQuantityString
 import com.blitzfiles.app.util.hasSw600Dp
 import com.blitzfiles.app.util.isOrientationLandscape
+import com.blitzfiles.app.util.isMounted
 import com.blitzfiles.app.util.putArgs
 import com.blitzfiles.app.util.setOnEditorConfirmActionListener
 import com.blitzfiles.app.util.showToast
 import com.blitzfiles.app.util.startActivitySafe
+import com.blitzfiles.app.util.supportsExternalStorageManager
 import com.blitzfiles.app.util.takeIfNotEmpty
 import com.blitzfiles.search.domain.model.SearchRequest
 import com.blitzfiles.app.util.valueCompat
@@ -192,9 +210,33 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     private lateinit var adapter: FileListAdapter
 
+    private lateinit var fileManagerPlusHomeAdapter: FileManagerPlusHomeAdapter
+
+    private lateinit var navigationBackCallback: OnBackPressedCallback
+
+    private var appliedInterfaceStyle: InterfaceStyle? = null
+
+    private var renderedFileManagerPlusHome: Boolean? = null
+
     private var fileListItemAnimator: RecyclerView.ItemAnimator? = null
 
     private var isFileListItemAnimatorSuppressedForSearch = false
+
+    private val isFileManagerPlusHomeEligible: Boolean by lazy {
+        val intent = args.intent
+        intent.action == Intent.ACTION_MAIN &&
+            intent.categories.orEmpty().any {
+                it == Intent.CATEGORY_LAUNCHER || it == Intent.CATEGORY_LEANBACK_LAUNCHER
+            }
+    }
+
+    private val isFileManagerPlusHomeDisplayed: Boolean
+        get() =
+            appliedInterfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS &&
+                isFileManagerPlusHomeEligible &&
+                viewModel.isFileManagerPlusHomeVisible &&
+                viewModel.pickOptions == null &&
+                !viewModel.isSearchViewExpanded
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -252,6 +294,34 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         binding.recyclerView.layoutManager = layoutManager
         adapter = FileListAdapter(this)
         binding.recyclerView.adapter = adapter
+        val initialInterfaceStyle = Settings.INTERFACE_STYLE.valueCompat
+        appliedInterfaceStyle = initialInterfaceStyle
+        adapter.interfaceStyle = initialInterfaceStyle
+        fileManagerPlusHomeAdapter =
+            FileManagerPlusHomeAdapter(requireContext(), ::openFileManagerPlusHomeItem)
+        binding.fileManagerPlusHomeRecyclerView.layoutManager = GridLayoutManager(
+            activity,
+            FILE_MANAGER_PLUS_HOME_GRID_SPAN_COUNT
+        ).apply {
+            spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int =
+                    fileManagerPlusHomeAdapter.getSpanSize(
+                        position,
+                        getFileManagerPlusHomeAvailableWidthPx(),
+                        FILE_MANAGER_PLUS_HOME_GRID_SPAN_COUNT
+                    )
+            }
+        }
+        binding.fileManagerPlusHomeRecyclerView.adapter = fileManagerPlusHomeAdapter
+        binding.fileManagerPlusHomeRecyclerView.addOnLayoutChangeListener {
+            _, left, _, right, _, oldLeft, _, oldRight, _ ->
+            if (right - left != oldRight - oldLeft) {
+                updateFileManagerPlusHomeGrid()
+            }
+        }
+        binding.fileManagerPlusHomeRecyclerView.setOnApplyWindowInsetsListener(
+            ScrollingViewOnApplyWindowInsetsListener(binding.fileManagerPlusHomeRecyclerView)
+        )
         fileListItemAnimator = binding.recyclerView.itemAnimator
         isFileListItemAnimatorSuppressedForSearch = false
         val fastScroller = ThemedFastScroller.create(binding.recyclerView)
@@ -271,18 +341,16 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         }
 
         val viewLifecycleOwner = viewLifecycleOwner
-        addOnBackPressedCallback(
-            object : OnBackPressedCallback(false) {
-                override fun handleOnBackPressed() {
+        navigationBackCallback = object : OnBackPressedCallback(false) {
+            override fun handleOnBackPressed() {
+                if (shouldReturnToFileManagerPlusHome()) {
+                    navigateHome()
+                } else {
                     viewModel.navigateUp()
                 }
             }
-                .also { callback ->
-                    viewModel.breadcrumbLiveData.observe(viewLifecycleOwner) {
-                        callback.isEnabled = viewModel.canNavigateUpBreadcrumb
-                    }
-                }
-        )
+        }
+        addOnBackPressedCallback(navigationBackCallback)
         addOnBackPressedCallback(overlayActionMode.onBackPressedCallback)
         addOnBackPressedCallback(SpeedDialViewOnBackPressedCallback(binding.speedDialView))
         binding.drawerLayout?.let {
@@ -346,16 +414,19 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 path = Settings.FILE_LIST_DEFAULT_DIRECTORY.valueCompat
             }
             viewModel.resetTo(path)
+            viewModel.fileManagerPlusNavigationRoot = null
+            viewModel.isFileManagerPlusHomeVisible =
+                initialInterfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS &&
+                    isFileManagerPlusHomeEligible &&
+                    pickOptions == null
             if (pickOptions != null) {
                 viewModel.pickOptions = pickOptions
             }
         }
         viewModel.currentPathLiveData.observe(viewLifecycleOwner) { onCurrentPathChanged(it) }
-        viewModel.searchViewExpandedLiveData.observe(viewLifecycleOwner) {
-            onSearchViewExpandedChanged(it)
-        }
         viewModel.breadcrumbLiveData.observe(viewLifecycleOwner) {
             binding.breadcrumbLayout.setData(it)
+            updateNavigationBackCallback()
         }
         viewModel.viewTypeLiveData.observe(viewLifecycleOwner) { onViewTypeChanged(it) }
         // Live data only calls observeForever() on its sources when it is active, so we have to
@@ -370,13 +441,32 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         viewModel.viewSortPathSpecificLiveData.observe(viewLifecycleOwner) {
             onViewSortPathSpecificChanged(it)
         }
+        Settings.FILE_NAME_ELLIPSIZE.observe(viewLifecycleOwner) {
+            onFileNameEllipsizeChanged(it)
+        }
         viewModel.pickOptionsLiveData.observe(viewLifecycleOwner) { onPickOptionsChanged(it) }
         viewModel.selectedFilesLiveData.observe(viewLifecycleOwner) { onSelectedFilesChanged(it) }
         viewModel.pasteStateLiveData.observe(viewLifecycleOwner) { onPasteStateChanged(it) }
-        Settings.FILE_NAME_ELLIPSIZE.observe(viewLifecycleOwner) { onFileNameEllipsizeChanged(it) }
+        Settings.INTERFACE_STYLE.observe(viewLifecycleOwner) { onInterfaceStyleChanged(it) }
+        viewModel.searchViewExpandedLiveData.observe(viewLifecycleOwner) {
+            onSearchViewExpandedChanged(it)
+        }
+        viewModel.fileManagerPlusHomeVisibleLiveData.observe(viewLifecycleOwner) {
+            renderInterfaceState()
+        }
         viewModel.fileListLiveData.observe(viewLifecycleOwner) { onFileListChanged(it) }
         Settings.FILE_LIST_SHOW_HIDDEN_FILES.observe(viewLifecycleOwner) {
             onShowHiddenFilesChanged(it)
+        }
+        Settings.STORAGES.observe(viewLifecycleOwner) { updateFileManagerPlusHomeItems() }
+        StorageVolumeListLiveData.observe(viewLifecycleOwner) {
+            updateFileManagerPlusHomeItems()
+        }
+        Settings.STANDARD_DIRECTORY_SETTINGS.observe(viewLifecycleOwner) {
+            updateFileManagerPlusHomeItems()
+        }
+        Settings.BOOKMARK_DIRECTORIES.observe(viewLifecycleOwner) {
+            updateFileManagerPlusHomeItems()
         }
     }
 
@@ -590,9 +680,23 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
 
+        updateFileManagerPlusHomeMenuItems()
+        if (isFileManagerPlusHomeDisplayed) {
+            return
+        }
         updateViewSortMenuItems()
         updateSelectAllMenuItem()
         updateShowHiddenFilesMenuItem()
+    }
+
+    private fun updateFileManagerPlusHomeMenuItems() {
+        if (!this::menuBinding.isInitialized) {
+            return
+        }
+        val visible = !isFileManagerPlusHomeDisplayed
+        for (index in 0 until menuBinding.menu.size()) {
+            menuBinding.menu.getItem(index).isVisible = visible
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -697,7 +801,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     }
 
     fun onKeyShortcut(keyCode: Int, event: KeyEvent): Boolean {
-        if (bottomActionMode.isActive) {
+        if (!isFileManagerPlusHomeDisplayed && bottomActionMode.isActive) {
             val menu = bottomActionMode.menu
             menu.setQwertyMode(
                 KeyCharacterMap.load(event.deviceId).keyboardType != KeyCharacterMap.NUMERIC
@@ -706,7 +810,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 return true
             }
         }
-        if (overlayActionMode.isActive) {
+        if (!isFileManagerPlusHomeDisplayed && overlayActionMode.isActive) {
             val menu = overlayActionMode.menu
             menu.setQwertyMode(
                 KeyCharacterMap.load(event.deviceId).keyboardType != KeyCharacterMap.NUMERIC
@@ -727,18 +831,35 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
         }
         updateSpanCount()
+        updateFileManagerPlusHomeGrid()
     }
 
     private fun onCurrentPathChanged(path: Path) {
         updateOverlayToolbar()
         updateBottomToolbar()
+        updateToolbarTitleForInterface()
+        updateNavigationBackCallback()
     }
 
     private fun onSearchViewExpandedChanged(expanded: Boolean) {
+        renderInterfaceState()
         updateViewSortMenuItems()
     }
 
     private fun onFileListChanged(stateful: Stateful<List<FileItem>>) {
+        if (isFileManagerPlusHomeDisplayed) {
+            val files = stateful.value
+            if (files != null) {
+                updateAdapterFileList()
+            } else {
+                replaceAdapterFileList(emptyList())
+            }
+            return
+        }
+        renderFileListState(stateful)
+    }
+
+    private fun renderFileListState(stateful: Stateful<List<FileItem>>) {
         val files = stateful.value
         val isSearching = viewModel.searchState.isSearching
         when {
@@ -776,6 +897,335 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         }
     }
 
+    private fun onInterfaceStyleChanged(interfaceStyle: InterfaceStyle) {
+        val previousInterfaceStyle = appliedInterfaceStyle
+        appliedInterfaceStyle = interfaceStyle
+        adapter.interfaceStyle = interfaceStyle
+        if (interfaceStyle == InterfaceStyle.CLASSIC) {
+            viewModel.fileManagerPlusNavigationRoot = null
+            viewModel.isFileManagerPlusHomeVisible = false
+        } else if (
+            previousInterfaceStyle != InterfaceStyle.FILE_MANAGER_PLUS &&
+            isFileManagerPlusHomeEligible &&
+            viewModel.pickOptions == null
+        ) {
+            viewModel.clearSelectedFiles()
+            viewModel.fileManagerPlusNavigationRoot = null
+            viewModel.isFileManagerPlusHomeVisible = true
+        }
+        updateFileManagerPlusHomeGrid()
+        updateSpanCount()
+        updateFileManagerPlusHomeItems()
+        renderInterfaceState()
+    }
+
+    private fun renderInterfaceState() {
+        if (!this::adapter.isInitialized || !this::fileManagerPlusHomeAdapter.isInitialized) {
+            return
+        }
+        val showHome = isFileManagerPlusHomeDisplayed
+        val previouslyShowedHome = renderedFileManagerPlusHome
+        binding.fileManagerPlusHomeRecyclerView.isVisible = showHome
+        binding.swipeRefreshLayout.isVisible = !showHome
+        binding.breadcrumbLayout.isVisible = !showHome
+        binding.speedDialView.isVisible = !showHome
+        binding.bottomBarLayout.isVisible = !showHome && bottomActionMode.isActive
+        binding.appBarLayout.setLiftOnScrollTargetViewId(
+            if (showHome) {
+                R.id.fileManagerPlusHomeRecyclerView
+            } else {
+                R.id.recyclerView
+            }
+        )
+        if (showHome) {
+            binding.appBarLayout.setExpanded(true)
+            binding.progress.isVisible = false
+            binding.errorText.isVisible = false
+            binding.emptyView.isVisible = false
+            binding.swipeRefreshLayout.isRefreshing = false
+            binding.toolbar.subtitle = null
+            updateFileManagerPlusHomeItems()
+        } else if (previouslyShowedHome == true) {
+            viewModel.fileListLiveData.value?.let(::renderFileListState)
+        }
+        renderedFileManagerPlusHome = showHome
+        updateToolbarTitleForInterface()
+        updateNavigationBackCallback()
+        requireActivity().invalidateOptionsMenu()
+    }
+
+    private fun updateToolbarTitleForInterface() {
+        if (viewModel.pickOptions != null) {
+            return
+        }
+        val title = when {
+            isFileManagerPlusHomeDisplayed -> getString(R.string.app_name)
+            appliedInterfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS -> {
+                val displayRoot =
+                    viewModel.fileManagerPlusNavigationRoot ?: viewModel.currentPath
+                NavigationRootMapLiveData.valueCompat[displayRoot]?.getName(requireContext())
+                    ?: displayRoot.name.takeIf { it.isNotEmpty() }
+                    ?: displayRoot.toUserFriendlyString()
+            }
+            else -> getString(R.string.file_list_title)
+        }
+        binding.toolbar.title = title
+    }
+
+    private fun getFileManagerPlusHomeAvailableWidthPx(): Int {
+        val recyclerView = binding.fileManagerPlusHomeRecyclerView
+        val measuredWidth =
+            recyclerView.width - recyclerView.paddingStart - recyclerView.paddingEnd
+        if (measuredWidth > 0) {
+            return measuredWidth
+        }
+        var widthDp = resources.configuration.screenWidthDp
+        if (binding.persistentDrawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
+            widthDp -= getDimensionDp(R.dimen.navigation_max_width).roundToInt()
+        }
+        return (
+            widthDp * resources.displayMetrics.density -
+                recyclerView.paddingStart -
+                recyclerView.paddingEnd
+            )
+            .roundToInt()
+            .coerceAtLeast(1)
+    }
+
+    private fun updateFileManagerPlusHomeGrid() {
+        val layoutManager =
+            binding.fileManagerPlusHomeRecyclerView.layoutManager as? GridLayoutManager ?: return
+        layoutManager.spanSizeLookup.invalidateSpanIndexCache()
+        binding.fileManagerPlusHomeRecyclerView.requestLayout()
+    }
+
+    private fun updateFileManagerPlusHomeItems() {
+        if (!this::fileManagerPlusHomeAdapter.isInitialized) {
+            return
+        }
+        val context = requireContext()
+        val storageItems = mutableListOf<FileManagerPlusHomeItem>()
+        val shortcutItems = mutableListOf<FileManagerPlusHomeItem>()
+        val bookmarkItems = mutableListOf<FileManagerPlusHomeItem>()
+        val actionItems = mutableListOf<FileManagerPlusHomeItem>()
+        Settings.STORAGES.valueCompat
+            .asSequence()
+            .filter(Storage::isVisible)
+            .sortedWith(
+                compareBy<Storage> {
+                    it.path != Settings.FILE_LIST_DEFAULT_DIRECTORY.valueCompat
+                }.thenBy { it.getName(context) }
+            )
+            .forEach { storage ->
+                val destination = storage.path
+                    ?.let(FileManagerPlusHomeItem.Destination::FilePath)
+                    ?: storage.createIntent()
+                        ?.let(FileManagerPlusHomeItem.Destination::ActivityIntent)
+                    ?: return@forEach
+                storageItems += FileManagerPlusHomeItem(
+                    id = stableFileManagerPlusHomeId("storage:${storage.id}"),
+                    iconRes = storage.iconRes,
+                    title = storage.getName(context),
+                    subtitle = storage.linuxPath?.let(::getStorageUsageSubtitle),
+                    role = FileManagerPlusHomeItem.Role.STORAGE,
+                    destination = destination
+                )
+            }
+        if (Environment::class.supportsExternalStorageManager()) {
+            StorageVolumeListLiveData.valueCompat
+                .asSequence()
+                .filter { !it.isPrimaryCompat && it.isMounted }
+                .forEach { storageVolume ->
+                    val linuxPath = storageVolume.pathCompat
+                    storageItems += FileManagerPlusHomeItem(
+                        id = stableFileManagerPlusHomeId(
+                            "storage-volume:${storageVolume.hashCode()}"
+                        ),
+                        iconRes = R.drawable.sd_card_icon_white_24dp,
+                        title = storageVolume.getDescriptionCompat(context),
+                        subtitle = getStorageUsageSubtitle(linuxPath),
+                        role = FileManagerPlusHomeItem.Role.STORAGE,
+                        destination = FileManagerPlusHomeItem.Destination.FilePath(
+                            Paths.get(linuxPath)
+                        )
+                    )
+                }
+        }
+
+        val standardDirectoryOrder = listOf(
+            Environment.DIRECTORY_DOWNLOADS,
+            Environment.DIRECTORY_PICTURES,
+            Environment.DIRECTORY_MUSIC,
+            Environment.DIRECTORY_MOVIES,
+            Environment.DIRECTORY_DOCUMENTS,
+            Environment.DIRECTORY_DCIM
+        )
+        val standardDirectoryMap = standardDirectories.associateBy { it.relativePath }
+        standardDirectoryOrder.mapNotNull(standardDirectoryMap::get).forEach { directory ->
+            shortcutItems += FileManagerPlusHomeItem(
+                id = stableFileManagerPlusHomeId("directory:${directory.relativePath}"),
+                iconRes = directory.iconRes,
+                title = directory.getTitle(context),
+                subtitle = null,
+                role = FileManagerPlusHomeItem.Role.SHORTCUT,
+                destination = FileManagerPlusHomeItem.Destination.FilePath(
+                    Paths.get(getExternalStorageDirectory(directory.relativePath))
+                )
+            )
+        }
+
+        shortcutItems += FileManagerPlusHomeItem(
+            id = stableFileManagerPlusHomeId("apk"),
+            iconRes = R.drawable.file_apk_icon,
+            title = getString(R.string.file_properties_apk),
+            subtitle = null,
+            role = FileManagerPlusHomeItem.Role.SHORTCUT,
+            destination = FileManagerPlusHomeItem.Destination.ActivityIntent(
+                GlobalSearchActivity.createIntent(context, "*.apk")
+            )
+        )
+        shortcutItems += FileManagerPlusHomeItem(
+            id = stableFileManagerPlusHomeId("global-search"),
+            iconRes = R.drawable.global_search_icon_white_24dp,
+            title = getString(R.string.navigation_global_search),
+            subtitle = null,
+            role = FileManagerPlusHomeItem.Role.SHORTCUT,
+            destination = FileManagerPlusHomeItem.Destination.ActivityIntent(
+                GlobalSearchActivity.createIntent(context)
+            )
+        )
+        val screenshotsPath = Paths.get(
+            getExternalStorageDirectory(Environment.DIRECTORY_PICTURES),
+            EnvironmentCompat2.DIRECTORY_SCREENSHOTS
+        )
+        Settings.BOOKMARK_DIRECTORIES.valueCompat.forEach { bookmark ->
+            val isScreenshotsShortcut = bookmark.path == screenshotsPath
+            val targetItems = if (isScreenshotsShortcut) shortcutItems else bookmarkItems
+            targetItems += FileManagerPlusHomeItem(
+                id = stableFileManagerPlusHomeId("bookmark:${bookmark.id}"),
+                iconRes = R.drawable.directory_icon_white_24dp,
+                title = bookmark.name,
+                subtitle = null,
+                role = if (isScreenshotsShortcut) {
+                    FileManagerPlusHomeItem.Role.SHORTCUT
+                } else {
+                    FileManagerPlusHomeItem.Role.BOOKMARK
+                },
+                destination = FileManagerPlusHomeItem.Destination.FilePath(bookmark.path)
+            )
+        }
+        actionItems += FileManagerPlusHomeItem(
+            id = stableFileManagerPlusHomeId("add-storage"),
+            iconRes = R.drawable.add_icon_white_24dp,
+            title = getString(R.string.storage_add_storage_title),
+            subtitle = null,
+            role = FileManagerPlusHomeItem.Role.ACTION,
+            destination = FileManagerPlusHomeItem.Destination.ActivityIntent(
+                AddStorageDialogActivity::class.createIntent()
+            )
+        )
+        actionItems += FileManagerPlusHomeItem(
+            id = stableFileManagerPlusHomeId("ftp-server"),
+            iconRes = R.drawable.shared_directory_icon_white_24dp,
+            title = getString(R.string.navigation_ftp_server),
+            subtitle = null,
+            role = FileManagerPlusHomeItem.Role.ACTION,
+            destination = FileManagerPlusHomeItem.Destination.ActivityIntent(
+                FtpServerActivity::class.createIntent()
+            )
+        )
+        actionItems += FileManagerPlusHomeItem(
+            id = stableFileManagerPlusHomeId("settings"),
+            iconRes = R.drawable.settings_icon_white_24dp,
+            title = getString(R.string.navigation_settings),
+            subtitle = null,
+            role = FileManagerPlusHomeItem.Role.ACTION,
+            destination = FileManagerPlusHomeItem.Destination.ActivityIntent(
+                SettingsActivity::class.createIntent()
+            )
+        )
+        val rows = mutableListOf<FileManagerPlusHomeRow>()
+        fun appendSection(key: String, sectionItems: List<FileManagerPlusHomeItem>) {
+            if (sectionItems.isEmpty()) {
+                return
+            }
+            if (rows.isNotEmpty()) {
+                rows += FileManagerPlusHomeRow.SectionGap(
+                    stableFileManagerPlusHomeId("section-gap:$key")
+                )
+            }
+            rows += sectionItems.map { FileManagerPlusHomeRow.Tile(it) }
+        }
+        appendSection("storage", storageItems)
+        appendSection("shortcut", shortcutItems)
+        appendSection("bookmark", bookmarkItems)
+        appendSection("action", actionItems)
+        fileManagerPlusHomeAdapter.replace(rows)
+        updateFileManagerPlusHomeGrid()
+    }
+
+    private fun getStorageUsageSubtitle(linuxPath: String): String? {
+        var totalSpace = JavaFile.getTotalSpace(linuxPath)
+        val freeSpace = when {
+            totalSpace != 0L -> JavaFile.getFreeSpace(linuxPath)
+            linuxPath == FileSystemRoot.LINUX_PATH -> {
+                val systemPath = Environment.getRootDirectory().path
+                totalSpace = JavaFile.getTotalSpace(systemPath)
+                JavaFile.getFreeSpace(systemPath)
+            }
+            else -> 0L
+        }
+        if (totalSpace == 0L) {
+            return null
+        }
+        return getString(
+            R.string.navigation_storage_subtitle_format,
+            freeSpace.asFileSize().formatHumanReadable(requireContext()),
+            totalSpace.asFileSize().formatHumanReadable(requireContext())
+        )
+    }
+
+    private fun stableFileManagerPlusHomeId(key: String): Long =
+        "FileManagerPlusHome:$key".hashCode().toLong()
+
+    private fun openFileManagerPlusHomeItem(item: FileManagerPlusHomeItem) {
+        when (val destination = item.destination) {
+            is FileManagerPlusHomeItem.Destination.FilePath -> {
+                collapseSearchView()
+                viewModel.clearSelectedFiles()
+                viewModel.fileManagerPlusNavigationRoot = destination.path
+                viewModel.isFileManagerPlusHomeVisible = false
+                viewModel.resetTo(destination.path)
+            }
+            is FileManagerPlusHomeItem.Destination.ActivityIntent ->
+                startActivitySafe(destination.intent)
+        }
+    }
+
+    private fun shouldReturnToFileManagerPlusHome(): Boolean {
+        if (
+            appliedInterfaceStyle != InterfaceStyle.FILE_MANAGER_PLUS ||
+            !isFileManagerPlusHomeEligible ||
+            isFileManagerPlusHomeDisplayed
+        ) {
+            return false
+        }
+        val navigationRoot = viewModel.fileManagerPlusNavigationRoot
+        return navigationRoot == viewModel.currentPath || !viewModel.canNavigateUpBreadcrumb
+    }
+
+    private fun updateNavigationBackCallback() {
+        if (!this::navigationBackCallback.isInitialized) {
+            return
+        }
+        navigationBackCallback.isEnabled = when {
+            isFileManagerPlusHomeDisplayed -> false
+            appliedInterfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS &&
+                isFileManagerPlusHomeEligible -> true
+            else -> viewModel.canNavigateUpBreadcrumb
+        }
+    }
+
     private fun getSubtitle(files: List<FileItem>): String {
         val directoryCount = files.count { it.attributes.isDirectory }
         val fileCount = files.size - directoryCount
@@ -810,6 +1260,10 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     }
 
     private fun updateSpanCount() {
+        if (appliedInterfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS) {
+            layoutManager.spanCount = 1
+            return
+        }
         layoutManager.spanCount = when (viewModel.viewType) {
             FileViewType.LIST -> 1
             FileViewType.GRID -> {
@@ -837,12 +1291,19 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         if (!this::menuBinding.isInitialized) {
             return
         }
+        if (isFileManagerPlusHomeDisplayed) {
+            menuBinding.viewSortItem.isVisible = false
+            return
+        }
         val searchViewExpanded = viewModel.isSearchViewExpanded
         menuBinding.viewSortItem.isVisible = !searchViewExpanded
         if (searchViewExpanded) {
             return
         }
-        val viewType = viewModel.viewType
+        val isFileManagerPlus = appliedInterfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS
+        menuBinding.viewListItem.isVisible = !isFileManagerPlus
+        menuBinding.viewGridItem.isVisible = !isFileManagerPlus
+        val viewType = if (isFileManagerPlus) FileViewType.LIST else viewModel.viewType
         val checkedViewTypeItem = when (viewType) {
             FileViewType.LIST -> menuBinding.viewListItem
             FileViewType.GRID -> menuBinding.viewGridItem
@@ -863,7 +1324,11 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     private fun navigateUp() {
         collapseSearchView()
-        viewModel.navigateUp()
+        if (shouldReturnToFileManagerPlusHome()) {
+            navigateHome()
+        } else {
+            viewModel.navigateUp()
+        }
     }
 
     private fun showNavigateToPathDialog() {
@@ -943,6 +1408,14 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     override fun navigateTo(path: Path) {
         collapseSearchView()
+        if (
+            appliedInterfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS &&
+            isFileManagerPlusHomeEligible &&
+            viewModel.isFileManagerPlusHomeVisible
+        ) {
+            viewModel.fileManagerPlusNavigationRoot = path
+            viewModel.isFileManagerPlusHomeVisible = false
+        }
         val state = layoutManager.onSaveInstanceState()
         viewModel.navigateTo(state!!, path)
     }
@@ -975,6 +1448,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         updateOverlayToolbar()
         updateBottomToolbar()
         adapter.pickOptions = pickOptions
+        renderInterfaceState()
     }
 
     private fun updateSelectAllMenuItem() {
@@ -1292,6 +1766,11 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     onBottomActionModeFinished()
                 }
             })
+        }
+        if (isFileManagerPlusHomeDisplayed) {
+            // Keep the clipboard state, but never expose a paste action whose destination is the
+            // hidden file list behind the home dashboard.
+            binding.bottomBarLayout.isVisible = false
         }
     }
 
@@ -1622,8 +2101,40 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     override val currentPath: Path
         get() = viewModel.currentPath
 
+    override val isFileManagerPlusHomeAvailable: Boolean
+        get() =
+            Settings.INTERFACE_STYLE.valueCompat == InterfaceStyle.FILE_MANAGER_PLUS &&
+                isFileManagerPlusHomeEligible &&
+                viewModel.pickOptions == null
+
+    override val isFileManagerPlusHomeVisible: Boolean
+        get() = isFileManagerPlusHomeDisplayed
+
+    override fun navigateHome() {
+        if (
+            appliedInterfaceStyle != InterfaceStyle.FILE_MANAGER_PLUS ||
+            !isFileManagerPlusHomeEligible ||
+            viewModel.pickOptions != null
+        ) {
+            return
+        }
+        collapseSearchView()
+        viewModel.stopSearching()
+        viewModel.clearSelectedFiles()
+        viewModel.fileManagerPlusNavigationRoot = null
+        viewModel.isFileManagerPlusHomeVisible = true
+    }
+
     override fun navigateToRoot(path: Path) {
         collapseSearchView()
+        viewModel.clearSelectedFiles()
+        if (
+            appliedInterfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS &&
+            isFileManagerPlusHomeEligible
+        ) {
+            viewModel.fileManagerPlusNavigationRoot = path
+            viewModel.isFileManagerPlusHomeVisible = false
+        }
         viewModel.resetTo(path)
     }
 
@@ -1633,6 +2144,13 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     override fun observeCurrentPath(owner: LifecycleOwner, observer: (Path) -> Unit) {
         viewModel.currentPathLiveData.observe(owner, observer)
+    }
+
+    override fun observeFileManagerPlusHomeVisibility(
+        owner: LifecycleOwner,
+        observer: (Boolean) -> Unit
+    ) {
+        viewModel.fileManagerPlusHomeVisibleLiveData.observe(owner, observer)
     }
 
     override fun closeNavigationDrawer() {
@@ -1927,6 +2445,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         val emptyView: View,
         val swipeRefreshLayout: SwipeRefreshLayout,
         val recyclerView: RecyclerView,
+        val fileManagerPlusHomeRecyclerView: RecyclerView,
         val bottomBarLayout: ViewGroup,
         val bottomToolbar: Toolbar,
         val bottomCreateFileNameEdit: EditText,
@@ -1954,6 +2473,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     appBarBinding.indexingProgressPath, contentBinding.contentLayout,
                     contentBinding.progress, contentBinding.errorText, contentBinding.emptyView,
                     contentBinding.swipeRefreshLayout, contentBinding.recyclerView,
+                    contentBinding.fileManagerPlusHomeRecyclerView,
                     bottomBarBinding.bottomBarLayout, bottomBarBinding.bottomToolbar,
                     bottomBarBinding.bottomCreateFileNameEdit, speedDialBinding.speedDialView
                 )

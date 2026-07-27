@@ -263,6 +263,7 @@
     <string name="file_create_directory_title">Carpeta nova</string>
 
     <string name="file_list_title">Fitxers</string>
+    <string name="file_list_plus_home_title">Inici</string>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">%1$,d carpeta</item>
         <item quantity="other">%1$,d carpetes</item>
@@ -557,6 +558,9 @@
     <string name="ftp_server_writable_title">Permet l\'escriptura</string>
     <string name="settings_title">Configuració</string>
     <string name="settings_interface_title">Interfície</string>
+    <string name="settings_interface_style_title">Estil de la interfície</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Idioma</string>
     <string name="settings_theme_color_title">Color del tema</string>
     <string name="settings_theme_color_summary">El color que apareix amb més freqüència a l\'aplicació</string>

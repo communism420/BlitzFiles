@@ -233,6 +233,7 @@
     <string name="file_create_directory_title">Karpeta berria</string>
 
     <string name="file_list_title">Fitxategiak</string>
+    <string name="file_list_plus_home_title">Hasiera</string>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">Karpeta %1$,d</item>
         <item quantity="other">%1$,d karpeta</item>
@@ -331,6 +332,9 @@
     <string name="ftp_server_writable_title">Baimendu idaztea</string>
     <string name="settings_title">Ezarpenak</string>
     <string name="settings_interface_title">Interfazea</string>
+    <string name="settings_interface_style_title">Interfaze-estiloa</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_night_mode_title">Gauerako modua</string>
     <string-array name="settings_night_mode_entries">
         <item>Jarraitu sistemari</item>

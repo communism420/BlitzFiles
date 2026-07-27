@@ -26,6 +26,7 @@ import com.blitzfiles.app.compat.getDrawableCompat
 import com.blitzfiles.app.compat.isSingleLineCompat
 import com.blitzfiles.app.databinding.FileItemGridBinding
 import com.blitzfiles.app.databinding.FileItemListBinding
+import com.blitzfiles.app.databinding.FileItemPlusListBinding
 import com.blitzfiles.app.file.FileItem
 import com.blitzfiles.app.file.fileSize
 import com.blitzfiles.app.file.formatShort
@@ -34,6 +35,7 @@ import com.blitzfiles.app.file.isApk
 import com.blitzfiles.app.provider.archive.isArchivePath
 import com.blitzfiles.app.provider.common.isEncrypted
 import com.blitzfiles.app.search.highlightSearchMatches
+import com.blitzfiles.app.settings.InterfaceStyle
 import com.blitzfiles.app.settings.Settings
 import com.blitzfiles.app.ui.AnimatedListAdapter
 import com.blitzfiles.app.ui.CheckableForegroundLinearLayout
@@ -49,6 +51,15 @@ class FileListAdapter(
 ) : AnimatedListAdapter<FileItem, FileListAdapter.ViewHolder>(CALLBACK), PopupTextProvider {
     private var isSearching = false
     private var searchHighlightQuery = ""
+
+    var interfaceStyle: InterfaceStyle = InterfaceStyle.CLASSIC
+        set(value) {
+            if (field == value) {
+                return
+            }
+            field = value
+            super.replace(list, true)
+        }
 
     private lateinit var _viewType: FileViewType
     var viewType: FileViewType
@@ -187,24 +198,34 @@ class FileListAdapter(
         }
     }
 
-    override fun getItemViewType(position: Int): Int = viewType.ordinal
+    override fun getItemViewType(position: Int): Int =
+        when {
+            interfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS ->
+                ItemViewType.FILE_MANAGER_PLUS_LIST.ordinal
+            viewType == FileViewType.GRID -> ItemViewType.GRID.ordinal
+            else -> ItemViewType.CLASSIC_LIST.ordinal
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val viewType = FileViewType.entries[viewType]
+        val itemViewType = ItemViewType.entries[viewType]
         val inflater = parent.context.layoutInflater
-        val holder = when (viewType) {
-            FileViewType.LIST -> ViewHolder(FileItemListBinding.inflate(inflater, parent, false))
-            FileViewType.GRID -> ViewHolder(FileItemGridBinding.inflate(inflater, parent, false))
+        val holder = when (itemViewType) {
+            ItemViewType.CLASSIC_LIST ->
+                ViewHolder(FileItemListBinding.inflate(inflater, parent, false))
+            ItemViewType.GRID ->
+                ViewHolder(FileItemGridBinding.inflate(inflater, parent, false))
+            ItemViewType.FILE_MANAGER_PLUS_LIST ->
+                ViewHolder(FileItemPlusListBinding.inflate(inflater, parent, false))
         }
         return holder.apply {
             itemLayout.apply {
                 val context = context
                 val isMaterial3Theme = context.isMaterial3Theme
-                if (viewType == FileViewType.GRID && isMaterial3Theme) {
+                if (itemViewType == ItemViewType.GRID && isMaterial3Theme) {
                     foregroundCompat =
                         context.getDrawableCompat(R.drawable.file_item_grid_foreground_material3)
                 }
-                background = if (viewType == FileViewType.GRID && isMaterial3Theme) {
+                background = if (itemViewType == ItemViewType.GRID && isMaterial3Theme) {
                     CheckableItemBackground.create(4f, 12f, context)
                 } else {
                     CheckableItemBackground.create(0f, 0f, context)
@@ -273,8 +294,20 @@ class FileListAdapter(
                 true
             }
         }
+        holder.iconLayout.contentDescription = listOf(
+            holder.iconLayout.context.getString(R.string.select),
+            file.name
+        ).joinToString(separator = ". ")
         holder.iconLayout.setOnClickListener { selectFile(file) }
-        val iconRes = file.mimeType.iconRes
+        val iconRes =
+            if (
+                interfaceStyle == InterfaceStyle.FILE_MANAGER_PLUS &&
+                isDirectory
+            ) {
+                R.drawable.file_directory_plus_icon
+            } else {
+                file.mimeType.iconRes
+            }
         holder.iconImage.apply {
             isVisible = true
             setImageResource(iconRes)
@@ -338,15 +371,23 @@ class FileListAdapter(
             }
         }
         bindHighlightedName(holder, file)
-        holder.descriptionText?.text = if (isDirectory) {
-            null
-        } else {
-            val context = holder.descriptionText!!.context
+        holder.descriptionText?.let { descriptionText ->
+            val context = descriptionText.context
             val lastModificationTime = attributes.lastModifiedTime().toInstant()
                 .formatShort(context)
             val size = attributes.fileSize.formatHumanReadable(context)
-            val descriptionSeparator = context.getString(R.string.file_item_description_separator)
-            listOf(lastModificationTime, size).joinToString(descriptionSeparator)
+            if (holder.modifiedText != null) {
+                descriptionText.text = if (isDirectory) null else size
+                holder.modifiedText.text = lastModificationTime
+            } else {
+                descriptionText.text = if (isDirectory) {
+                    null
+                } else {
+                    val descriptionSeparator =
+                        context.getString(R.string.file_item_description_separator)
+                    listOf(lastModificationTime, size).joinToString(descriptionSeparator)
+                }
+            }
         }
         val isArchivePath = path.isArchivePath
         menu.findItem(R.id.action_copy)
@@ -459,6 +500,7 @@ class FileListAdapter(
         val badgeImage: ImageView,
         val nameText: TextView,
         val descriptionText: TextView?,
+        val modifiedText: TextView?,
         val menuButton: ImageButton
     ) : RecyclerView.ViewHolder(root) {
         constructor(binding: FileItemListBinding) : this(
@@ -474,6 +516,7 @@ class FileListAdapter(
             binding.badgeImage,
             binding.nameText,
             binding.descriptionText,
+            null,
             binding.menuButton
         )
 
@@ -490,6 +533,24 @@ class FileListAdapter(
             binding.badgeImage,
             binding.nameText,
             null,
+            null,
+            binding.menuButton
+        )
+
+        constructor(binding: FileItemPlusListBinding) : this(
+            binding.root,
+            binding.itemLayout,
+            binding.iconLayout,
+            binding.iconImage,
+            null,
+            null,
+            null,
+            binding.thumbnailImage,
+            binding.appIconBadgeImage,
+            binding.badgeImage,
+            binding.nameText,
+            binding.descriptionText,
+            binding.modifiedText,
             binding.menuButton
         )
 
@@ -513,5 +574,11 @@ class FileListAdapter(
         fun addBookmark(file: FileItem)
         fun createShortcut(file: FileItem)
         fun showPropertiesDialog(file: FileItem)
+    }
+
+    private enum class ItemViewType {
+        CLASSIC_LIST,
+        GRID,
+        FILE_MANAGER_PLUS_LIST
     }
 }

@@ -253,6 +253,7 @@
     <string name="file_create_directory_title">Új mappa</string>
 
     <string name="file_list_title">Fájlok</string>
+    <string name="file_list_plus_home_title">Kezdőlap</string>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">%1$,d mappa</item>
         <item quantity="other">%1$,d mappa</item>
@@ -517,6 +518,9 @@
     <string name="ftp_server_writable_title">Írás engedélyezése</string>
     <string name="settings_title">Beállítások</string>
     <string name="settings_interface_title">Felület</string>
+    <string name="settings_interface_style_title">Felület stílusa</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Nyelv</string>
     <string name="settings_theme_color_title">Téma színe</string>
     <string name="settings_theme_color_summary">A szín, amely a leggyakrabban megjelenik az alkalmazásban</string>

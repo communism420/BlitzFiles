@@ -287,6 +287,7 @@
     <string name="file_create_directory_title">Nova pasta</string>
 
     <string name="file_list_title">Arquivos</string>
+    <string name="file_list_plus_home_title">Início</string>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">%1$,d pasta</item>
         <item quantity="many">%1$,d pastas</item>
@@ -575,6 +576,9 @@
     <string name="ftp_server_writable_title">Permitir escrita</string>
     <string name="settings_title">Configurações</string>
     <string name="settings_interface_title">Interface</string>
+    <string name="settings_interface_style_title">Estilo da interface</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Idioma</string>
     <string name="settings_theme_color_title">Cor do tema</string>
     <string name="settings_theme_color_summary">Cor que aparece com mais frequência no aplicativo</string>

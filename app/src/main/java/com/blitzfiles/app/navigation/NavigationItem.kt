@@ -24,6 +24,8 @@ abstract class NavigationItem {
 
     open fun getSubtitle(context: Context): String? = null
 
+    open fun isVisible(listener: Listener): Boolean = true
+
     open fun isChecked(listener: Listener): Boolean = false
 
     abstract fun onClick(listener: Listener)
@@ -32,6 +34,9 @@ abstract class NavigationItem {
 
     interface Listener {
         val currentPath: Path
+        val isFileManagerPlusHomeAvailable: Boolean
+        val isFileManagerPlusHomeVisible: Boolean
+        fun navigateHome()
         fun navigateTo(path: Path)
         fun navigateToRoot(path: Path)
         fun launchIntent(intent: Intent)

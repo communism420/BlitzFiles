@@ -47,10 +47,26 @@ class NavigationFragment : Fragment(), NavigationItem.Listener {
         val viewLifecycleOwner = viewLifecycleOwner
         NavigationItemListLiveData.observe(viewLifecycleOwner) { onNavigationItemsChanged(it) }
         listener.observeCurrentPath(viewLifecycleOwner) { onCurrentPathChanged(it) }
+        listener.observeFileManagerPlusHomeVisibility(viewLifecycleOwner) {
+            adapter.notifyCheckedChanged()
+        }
     }
 
     private fun onNavigationItemsChanged(navigationItems: List<NavigationItem?>) {
-        adapter.replace(navigationItems)
+        val visibleItems = mutableListOf<NavigationItem?>()
+        for (item in navigationItems) {
+            if (item == null) {
+                if (visibleItems.isNotEmpty() && visibleItems.last() != null) {
+                    visibleItems += null
+                }
+            } else if (item.isVisible(this)) {
+                visibleItems += item
+            }
+        }
+        if (visibleItems.lastOrNull() == null) {
+            visibleItems.removeLastOrNull()
+        }
+        adapter.replace(visibleItems)
     }
 
     private fun onCurrentPathChanged(path: Path) {
@@ -59,6 +75,16 @@ class NavigationFragment : Fragment(), NavigationItem.Listener {
 
     override val currentPath: Path
         get() = listener.currentPath
+
+    override val isFileManagerPlusHomeAvailable: Boolean
+        get() = listener.isFileManagerPlusHomeAvailable
+
+    override val isFileManagerPlusHomeVisible: Boolean
+        get() = listener.isFileManagerPlusHomeVisible
+
+    override fun navigateHome() {
+        listener.navigateHome()
+    }
 
     override fun navigateTo(path: Path) {
         listener.navigateTo(path)
@@ -78,10 +104,17 @@ class NavigationFragment : Fragment(), NavigationItem.Listener {
 
     interface Listener {
         val currentPath: Path
+        val isFileManagerPlusHomeAvailable: Boolean
+        val isFileManagerPlusHomeVisible: Boolean
+        fun navigateHome()
         fun navigateTo(path: Path)
         fun navigateToRoot(path: Path)
         fun navigateToDefaultRoot()
         fun observeCurrentPath(owner: LifecycleOwner, observer: (Path) -> Unit)
+        fun observeFileManagerPlusHomeVisibility(
+            owner: LifecycleOwner,
+            observer: (Boolean) -> Unit
+        )
         fun closeNavigationDrawer()
     }
 }

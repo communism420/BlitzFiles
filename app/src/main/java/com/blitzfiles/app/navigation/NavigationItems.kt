@@ -24,6 +24,7 @@ import com.blitzfiles.app.file.JavaFile
 import com.blitzfiles.app.file.asFileSize
 import com.blitzfiles.app.ftpserver.FtpServerActivity
 import com.blitzfiles.app.globalsearch.GlobalSearchActivity
+import com.blitzfiles.app.settings.InterfaceStyle
 import com.blitzfiles.app.settings.Settings
 import com.blitzfiles.app.settings.SettingsActivity
 import com.blitzfiles.app.settings.StandardDirectoryListActivity
@@ -40,6 +41,10 @@ import com.blitzfiles.app.util.valueCompat
 val navigationItems: List<NavigationItem?>
     get() =
         mutableListOf<NavigationItem?>().apply {
+            if (Settings.INTERFACE_STYLE.valueCompat == InterfaceStyle.FILE_MANAGER_PLUS) {
+                add(FileManagerPlusHomeItem())
+                add(null)
+            }
             addAll(storageItems)
             if (Environment::class.supportsExternalStorageManager()) {
                 // Starting with R, we can get read/write access to non-primary storage volumes with
@@ -62,6 +67,27 @@ val navigationItems: List<NavigationItem?>
             add(null)
             addAll(menuItems)
         }
+
+private class FileManagerPlusHomeItem : NavigationItem() {
+    override val id: Long = "FileManagerPlusHome".hashCode().toLong()
+
+    @DrawableRes
+    override val iconRes: Int = R.drawable.home_icon_white_24dp
+
+    override fun getTitle(context: Context): String =
+        context.getString(R.string.file_list_plus_home_title)
+
+    override fun isVisible(listener: Listener): Boolean =
+        listener.isFileManagerPlusHomeAvailable
+
+    override fun isChecked(listener: Listener): Boolean =
+        listener.isFileManagerPlusHomeVisible
+
+    override fun onClick(listener: Listener) {
+        listener.navigateHome()
+        listener.closeNavigationDrawer()
+    }
+}
 
 private val storageItems: List<NavigationItem>
     @Size(min = 0)

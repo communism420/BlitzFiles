@@ -337,6 +337,7 @@
     <string name="file_create_directory_title">Новая папка</string>
 
     <string name="file_list_title">Файлы</string>
+    <string name="file_list_plus_home_title">Главная</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Выбрать файл</item>
         <item quantity="few">Выбрать файлы</item>
@@ -702,6 +703,9 @@
     <string name="ftp_server_writable_title">Разрешить запись</string>
     <string name="settings_title">Настройки</string>
     <string name="settings_interface_title">Интерфейс</string>
+    <string name="settings_interface_style_title">Стиль интерфейса</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Язык</string>
     <string name="settings_theme_color_title">Цвет темы</string>
     <string name="settings_theme_color_summary">Цвет, который чаще всего используется в приложении</string>

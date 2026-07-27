@@ -47,6 +47,21 @@ class FileListViewModel : ViewModel() {
     val currentPath: Path
         get() = currentPathLiveData.valueCompat
 
+    val fileManagerPlusHomeVisibleLiveData = MutableLiveData(false)
+    var isFileManagerPlusHomeVisible: Boolean
+        get() = fileManagerPlusHomeVisibleLiveData.valueCompat
+        set(value) {
+            if (fileManagerPlusHomeVisibleLiveData.valueCompat != value) {
+                fileManagerPlusHomeVisibleLiveData.value = value
+            }
+        }
+
+    /**
+     * The path at which Back returns to the File Manager Plus home instead of walking above the
+     * storage or shortcut selected on that home screen.
+     */
+    var fileManagerPlusNavigationRoot: Path? = null
+
     private val _searchStateLiveData = MutableLiveData(SearchState(false, ""))
     val searchStateLiveData: LiveData<SearchState> = _searchStateLiveData
     val searchState: SearchState
@@ -141,7 +156,7 @@ class FileListViewModel : ViewModel() {
 
     val breadcrumbLiveData: LiveData<BreadcrumbData> = BreadcrumbLiveData(trailLiveData)
     val canNavigateUpBreadcrumb: Boolean
-        get() = breadcrumbLiveData.valueCompat.selectedIndex > 0
+        get() = breadcrumbLiveData.value.hasNavigableParent
 
     private val _viewTypeLiveData = FileViewTypeLiveData(currentPathLiveData)
     val viewTypeLiveData: LiveData<FileViewType> = _viewTypeLiveData

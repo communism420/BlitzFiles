@@ -241,6 +241,7 @@
     <string name="file_create_directory_title">Uusi kansio</string>
 
     <string name="file_list_title">Tiedostot</string>
+    <string name="file_list_plus_home_title">Koti</string>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="one">%1$,d kansio</item>
         <item quantity="other">%1$,d kansiota</item>
@@ -500,6 +501,9 @@
     <string name="ftp_server_writable_title">Salli kirjoittaminen</string>
     <string name="settings_title">Asetukset</string>
     <string name="settings_interface_title">Käyttöliittymä</string>
+    <string name="settings_interface_style_title">Käyttöliittymän tyyli</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Kieli</string>
     <string name="settings_theme_color_title">Teemaväri</string>
     <string name="settings_theme_color_summary">Eniten näytetty väri sovelluksessa</string>

@@ -285,6 +285,7 @@
     <string name="file_create_directory_title">Yeni klasör</string>
 
     <string name="file_list_title">Dosyalar</string>
+    <string name="file_list_plus_home_title">Ana sayfa</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Bir dosya seç</item>
         <item quantity="other">Dosyaları seç</item>
@@ -637,6 +638,9 @@
     <string name="ftp_server_writable_title">Yazmaya izin ver</string>
     <string name="settings_title">Ayarlar</string>
     <string name="settings_interface_title">Arayüz</string>
+    <string name="settings_interface_style_title">Arayüz stili</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Dil</string>
     <string name="settings_theme_color_title">Tema rengi</string>
     <string name="settings_theme_color_summary">Uygulamada en sık görünen renk</string>

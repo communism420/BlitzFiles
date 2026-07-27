@@ -287,6 +287,7 @@
     <string name="file_create_directory_title">شاخهٔ جدید</string>
 
     <string name="file_list_title">پرونده‌ها</string>
+    <string name="file_list_plus_home_title">خانه</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">یک پرونده را برگزینید</item>
         <item quantity="other">پرونده‌ها را برگزینید</item>
@@ -639,6 +640,9 @@
     <string name="ftp_server_writable_title">اجازهٔ نوشتن</string>
     <string name="settings_title">تنظیمات</string>
     <string name="settings_interface_title">رابط</string>
+    <string name="settings_interface_style_title">سبک رابط کاربری</string>
+    <string name="settings_interface_style_classic">BlitzFiles ‏(Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">زبان</string>
     <string name="settings_theme_color_title">رنگ زمینه</string>
     <string name="settings_theme_color_summary">رنگی که بیشتر در برنامه ظاهر می‌شود</string>

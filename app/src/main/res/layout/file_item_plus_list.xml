@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 BlitzFiles contributors
+  ~ All Rights Reserved.
+  -->
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.blitzfiles.app.ui.CheckableForegroundLinearLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?selectableItemBackground"
+        android:gravity="center_vertical"
+        android:minHeight="68dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/iconLayout"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:clipToPadding="false"
+            android:duplicateParentState="true"
+            android:padding="6dp">
+
+            <com.blitzfiles.app.ui.DisabledAlphaImageView
+                android:id="@+id/iconImage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:duplicateParentState="true"
+                android:scaleType="fitCenter" />
+
+            <com.blitzfiles.app.ui.DisabledAlphaImageView
+                android:id="@+id/thumbnailImage"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center"
+                android:duplicateParentState="true"
+                android:scaleType="centerCrop" />
+
+            <com.blitzfiles.app.ui.DisabledAlphaImageView
+                android:id="@+id/appIconBadgeImage"
+                android:layout_width="@dimen/badge_size_plus_1dp"
+                android:layout_height="@dimen/badge_size_plus_1dp"
+                android:layout_gravity="end|bottom"
+                android:duplicateParentState="true" />
+
+            <com.blitzfiles.app.ui.DisabledAlphaImageView
+                android:id="@+id/badgeImage"
+                android:layout_width="@dimen/badge_size"
+                android:layout_height="@dimen/badge_size"
+                android:layout_gravity="end|bottom"
+                android:background="@drawable/badge_background_18dp"
+                android:duplicateParentState="true" />
+
+            <com.blitzfiles.app.ui.DisabledAlphaImageView
+                android:layout_width="@dimen/badge_size"
+                android:layout_height="@dimen/badge_size"
+                android:layout_gravity="end|bottom"
+                android:duplicateParentState="true"
+                android:src="@drawable/checkable_badge_18dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:duplicateParentState="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:breakStrategy="simple"
+                android:duplicateParentState="true"
+                android:hyphenationFrequency="none"
+                android:scrollHorizontally="false"
+                android:textAppearance="?textAppearanceListItem" />
+
+            <com.blitzfiles.app.ui.AutoGoneTextView
+                android:id="@+id/descriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:duplicateParentState="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?textAppearanceListItemSecondary"
+                android:textColor="?android:textColorSecondary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/modifiedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:duplicateParentState="true"
+            android:ellipsize="end"
+            android:maxWidth="112dp"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="?android:textColorSecondary" />
+
+        <me.zhanghai.android.foregroundcompat.ForegroundImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="@dimen/touch_target_size"
+            android:layout_height="@dimen/touch_target_size"
+            android:layout_marginEnd="4dp"
+            android:background="@null"
+            android:contentDescription="@string/global_search_more_actions"
+            android:foreground="@drawable/selectable_item_background_oval"
+            android:padding="8dp"
+            android:src="@drawable/more_vertical_icon_white_24dp"
+            app:tint="?colorControlNormal" />
+    </com.blitzfiles.app.ui.CheckableForegroundLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="76dp"
+        android:background="?android:listDivider" />
+</FrameLayout>

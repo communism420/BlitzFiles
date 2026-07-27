@@ -311,6 +311,7 @@
     <string name="file_create_directory_title">Dosar nou</string>
 
     <string name="file_list_title">Fișiere</string>
+    <string name="file_list_plus_home_title">Acasă</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Selectează un fișier</item>
         <item quantity="few">Selectează fișiere</item>
@@ -669,6 +670,9 @@
     <string name="ftp_server_writable_title">Permite scrierea</string>
     <string name="settings_title">Setări</string>
     <string name="settings_interface_title">Interfață</string>
+    <string name="settings_interface_style_title">Stilul interfeței</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Limbă</string>
     <string name="settings_theme_color_title">Culoarea temei</string>
     <string name="settings_theme_color_summary">Culoarea ce apare cel mai frecvent în aplicație</string>

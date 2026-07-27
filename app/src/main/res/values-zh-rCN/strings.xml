@@ -237,6 +237,7 @@
     <string name="file_create_directory_title">新建文件夹</string>
 
     <string name="file_list_title">文件</string>
+    <string name="file_list_plus_home_title">首页</string>
     <plurals name="file_list_title_open_file">
         <item quantity="other">选择文件</item>
     </plurals>
@@ -586,6 +587,9 @@
 
     <string name="settings_title">设置</string>
     <string name="settings_interface_title">界面</string>
+    <string name="settings_interface_style_title">界面样式</string>
+    <string name="settings_interface_style_classic">BlitzFiles（Material）</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">语言</string>
     <string name="settings_theme_color_title">主题色</string>
     <string name="settings_theme_color_summary">应用中最常见的颜色</string>

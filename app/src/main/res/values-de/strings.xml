@@ -264,6 +264,7 @@
     <string name="file_create_directory_title">Neuer Ordner</string>
 
     <string name="file_list_title">Dateien</string>
+    <string name="file_list_plus_home_title">Startseite</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Wähle eine Datei aus</item>
         <item quantity="other">Wähle Dateien aus</item>
@@ -616,6 +617,9 @@
     <string name="ftp_server_writable_title">Erlaube Schreiben</string>
     <string name="settings_title">Einstellungen</string>
     <string name="settings_interface_title">Benutzeroberfläche</string>
+    <string name="settings_interface_style_title">Oberflächenstil</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Sprache</string>
     <string name="settings_theme_color_title">Themenfarbe</string>
     <string name="settings_theme_color_summary">Die am häufigsten vorkommende Farbe in der App</string>

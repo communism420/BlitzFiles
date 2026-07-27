@@ -13,3 +13,10 @@ data class BreadcrumbData(
     val nameProducers: List<(Context) -> String>,
     val selectedIndex: Int
 )
+
+/**
+ * Breadcrumb data is populated lazily when its LiveData becomes active. Treat the short interval
+ * before its first value as the root level so startup observers can safely query navigation state.
+ */
+internal val BreadcrumbData?.hasNavigableParent: Boolean
+    get() = this != null && selectedIndex > 0

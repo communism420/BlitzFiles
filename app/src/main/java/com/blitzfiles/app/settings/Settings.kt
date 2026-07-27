@@ -26,6 +26,13 @@ import com.blitzfiles.app.theme.night.NightMode
 import java.io.File
 
 object Settings {
+    val INTERFACE_STYLE: SettingLiveData<InterfaceStyle> =
+        EnumSettingLiveData(
+            R.string.pref_key_interface_style,
+            R.string.pref_default_value_interface_style,
+            InterfaceStyle::class.java
+        )
+
     val STORAGES: SettingLiveData<List<Storage>> =
         ParcelValueSettingLiveData(
             R.string.pref_key_storages,

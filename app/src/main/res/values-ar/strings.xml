@@ -383,6 +383,7 @@
     <string name="file_create_directory_title">مجلد جديد</string>
 
     <string name="file_list_title">ملفات</string>
+    <string name="file_list_plus_home_title">الرئيسية</string>
     <plurals name="file_list_title_open_file">
         <item quantity="zero">اختيار ملف</item>
         <item quantity="one">اختيار ملف</item>
@@ -760,6 +761,9 @@
     <string name="ftp_server_writable_title">اسمح بالكتابة</string>
     <string name="settings_title">الإعدادات</string>
     <string name="settings_interface_title">واجهة المستخدم</string>
+    <string name="settings_interface_style_title">نمط الواجهة</string>
+    <string name="settings_interface_style_classic">BlitzFiles ‏(Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">لغة</string>
     <string name="settings_theme_color_title">لون الثيم</string>
     <string name="settings_theme_color_summary">اللون الذي يظهر بشكل متكرر في التطبيق</string>

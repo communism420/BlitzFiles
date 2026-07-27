@@ -239,6 +239,7 @@
     <string name="file_create_directory_title">新しいフォルダ</string>
 
     <string name="file_list_title">ファイル</string>
+    <string name="file_list_plus_home_title">ホーム</string>
     <plurals name="file_list_title_open_file">
         <item quantity="other">ファイルを選択</item>
     </plurals>
@@ -585,6 +586,9 @@
     <string name="ftp_server_writable_title">書き込みを許可</string>
     <string name="settings_title">設定</string>
     <string name="settings_interface_title">外観</string>
+    <string name="settings_interface_style_title">インターフェースのスタイル</string>
+    <string name="settings_interface_style_classic">BlitzFiles（Material）</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">言語</string>
     <string name="settings_theme_color_title">テーマカラー</string>
     <string name="settings_theme_color_summary">アプリ内で優先して使用する色です</string>

@@ -337,6 +337,7 @@
     <string name="file_create_directory_title">Нова тека</string>
 
     <string name="file_list_title">Файли</string>
+    <string name="file_list_plus_home_title">Головна</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Вибрати файл</item>
         <item quantity="few">Вибрати файли</item>
@@ -702,6 +703,9 @@
     <string name="ftp_server_writable_title">Дозволити запис</string>
     <string name="settings_title">Налаштування</string>
     <string name="settings_interface_title">Інтерфейс</string>
+    <string name="settings_interface_style_title">Стиль інтерфейсу</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Мова</string>
     <string name="settings_theme_color_title">Колір теми</string>
     <string name="settings_theme_color_summary">Колір, який найчастіше з’являється у застосунку</string>

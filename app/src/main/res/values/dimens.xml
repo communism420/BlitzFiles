@@ -47,6 +47,16 @@
     <dimen name="file_list_toolbar_padding_start">8dp</dimen>
     <dimen name="file_list_toolbar_padding_end_no_overflow">14dp</dimen>
     <dimen name="file_list_toolbar_padding_end_with_overflow">10dp</dimen>
+    <dimen name="file_manager_plus_home_item_horizontal_insets">36dp</dimen>
+    <dimen name="file_manager_plus_home_storage_min_width">196dp</dimen>
+    <dimen name="file_manager_plus_home_shortcut_min_width">112dp</dimen>
+    <dimen name="file_manager_plus_home_bookmark_min_width">160dp</dimen>
+    <dimen name="file_manager_plus_home_action_min_width">132dp</dimen>
+    <dimen name="file_manager_plus_home_storage_min_height">132dp</dimen>
+    <dimen name="file_manager_plus_home_shortcut_min_height">120dp</dimen>
+    <dimen name="file_manager_plus_home_secondary_min_height">116dp</dimen>
+    <dimen name="file_manager_plus_home_title_min_text_size">9sp</dimen>
+    <dimen name="file_manager_plus_home_title_max_text_size">15sp</dimen>
 
     <!-- Reduce fast scroll thumb touch target size because we have the popup menu beside it. -->
     <dimen name="afs_min_touch_target_size">24dp</dimen>

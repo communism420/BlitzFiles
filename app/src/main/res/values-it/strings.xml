@@ -288,6 +288,7 @@
     <string name="file_create_directory_title">Nuova cartella</string>
 
     <string name="file_list_title">File</string>
+    <string name="file_list_plus_home_title">Pagina iniziale</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Seleziona un file</item>
         <item quantity="many">Seleziona i file</item>
@@ -646,6 +647,9 @@
     <string name="ftp_server_writable_title">Consenti scrittura</string>
     <string name="settings_title">Impostazioni</string>
     <string name="settings_interface_title">Interfaccia</string>
+    <string name="settings_interface_style_title">Stile dell\'interfaccia</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Lingua</string>
     <string name="settings_theme_color_title">Colore tema</string>
     <string name="settings_theme_color_summary">Colore che appare più spesso nell\'app</string>

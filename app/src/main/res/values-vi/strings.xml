@@ -228,6 +228,7 @@
     <string name="file_create_directory_title">Thư mục mới</string>
 
     <string name="file_list_title">Tệp</string>
+    <string name="file_list_plus_home_title">Trang chủ</string>
     <plurals name="file_list_subtitle_directory_count_format">
         <item quantity="other">%1$,d thư mục</item>
     </plurals>
@@ -481,6 +482,9 @@
     <string name="ftp_server_writable_title">Cho phép ghi</string>
     <string name="settings_title">Cài đặt</string>
     <string name="settings_interface_title">Giao diện</string>
+    <string name="settings_interface_style_title">Kiểu giao diện</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_theme_color_title">Màu chủ đề</string>
     <string name="settings_theme_color_summary">Màu thường xuyên xuất hiện nhất trong ứng dụng</string>
     <string name="settings_material_design_3_title">Thiết kế Material 3</string>

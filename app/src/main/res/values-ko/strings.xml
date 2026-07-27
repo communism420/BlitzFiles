@@ -239,6 +239,7 @@
     <string name="file_create_directory_title">새 폴더</string>
 
     <string name="file_list_title">파일</string>
+    <string name="file_list_plus_home_title">홈</string>
     <plurals name="file_list_title_open_file">
         <item quantity="other">파일 선택</item>
     </plurals>
@@ -585,6 +586,9 @@
     <string name="ftp_server_writable_title">쓰기 허용</string>
     <string name="settings_title">설정</string>
     <string name="settings_interface_title">인터페이스</string>
+    <string name="settings_interface_style_title">인터페이스 스타일</string>
+    <string name="settings_interface_style_classic">BlitzFiles(Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">언어</string>
     <string name="settings_theme_color_title">테마 색상</string>
     <string name="settings_theme_color_summary">앱에서 가장 많이 보이는 색상</string>

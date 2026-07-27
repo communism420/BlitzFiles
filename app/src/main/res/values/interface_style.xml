@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 BlitzFiles contributors
+  ~ All Rights Reserved.
+  -->
+
+<resources>
+
+    <string-array name="settings_interface_style_entries">
+        <item>@string/settings_interface_style_classic</item>
+        <item>@string/settings_interface_style_file_manager_plus</item>
+    </string-array>
+</resources>

@@ -264,6 +264,7 @@
     <string name="file_create_directory_title">Nieuwe map</string>
 
     <string name="file_list_title">Bestanden</string>
+    <string name="file_list_plus_home_title">Start</string>
     <plurals name="file_list_title_open_file">
         <item quantity="one">Bestand selecteren</item>
         <item quantity="other">Bestanden selecteren</item>
@@ -616,6 +617,9 @@
     <string name="ftp_server_writable_title">Wegschrijven toestaan</string>
     <string name="settings_title">Instellingen</string>
     <string name="settings_interface_title">Uiterlijk</string>
+    <string name="settings_interface_style_title">Interfacestijl</string>
+    <string name="settings_interface_style_classic">BlitzFiles (Material)</string>
+    <string name="settings_interface_style_file_manager_plus">BlitzFiles Modern</string>
     <string name="settings_locale_title">Taal</string>
     <string name="settings_theme_color_title">Themakleur</string>
     <string name="settings_theme_color_summary">De kleur die het vaakst wordt gebruikt in de app</string>
